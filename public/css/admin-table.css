@@ -1,0 +1,36 @@
+/* ADMIN TABLE */
+.content-wrapper{
+    background-color:#fff;
+  
+  }
+.card-pages {
+    box-shadow: none !important;
+}
+.old td{
+    font-size: 12px;
+    text-align: center;
+}
+.table th{
+    padding: 10px;
+    text-align: center;
+}
+thead th , tfoot th{
+    font-size: 14px;
+    color: rgb(255, 0, 0);
+    background-color:antiquewhite;
+}
+th a i {
+    font-size: 12px;
+  }
+th a {
+    font-size: 12px;
+}
+.card-header{
+    padding: 10px;
+}
+.card-body-pages{
+    padding: 0px;
+}
+.card-pd{
+    padding: 20px;
+}
