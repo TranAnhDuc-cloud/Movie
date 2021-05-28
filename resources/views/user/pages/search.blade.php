@@ -7,7 +7,7 @@ Home » Kết Quả Tìm Kiếm » {{$searchTerm}}
 @section('content-pages')
         @foreach ($result as $item)
             <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 pl-4 pr-0">
-                <div class="">{{$error}}</div>
+                {{-- <div class="">{{$error}}</div> --}}
                 <div class="position-relative mb-30">
                     <div class="img-scale-animate mb-15 img-overlay-70">
                         <a href="{{route('detail.index',[$item->id,$item->title])}}">
