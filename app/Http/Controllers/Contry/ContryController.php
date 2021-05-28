@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Contry;
 
 use App\Category;
 use App\Contry;
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Menu;
 use App\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
-class ContryController extends Controller
+class ContryController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -18,31 +19,18 @@ class ContryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function pages($id){
-        // Film Hot
-        $film_hot = Movie::where('film_hot','=',1)->limit(4)->get();
-        $film_hot1 = Movie::where('view','>',200)->limit(1)->get();
-        // MENU
-        $menu = Menu::all();
-        // Category
-        $category = Category::all();
-        // View
-        $view = Movie::where('view','>',100)->orderBy('view','Desc')->limit(6)->get();
-        // Movies
-        $movies = Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
-        // movie on the loai;
         $contry = Movie::where('contries_id',$id)->paginate(10);
         $nameContry = Contry::find($id);
-        $new = Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
         View::share('nameContry', $nameContry);
         return view('user.pages.contry')->with([
-            'category'=>$category,
-            'film_hot'=>$film_hot,
-            'film_hot1'=>$film_hot1,
-            'menu'=>$menu,
-            'view'=>$view,
-            'movies'=>$movies,
+            'category'=>BaseController::footerCategory(),
+            'movies'=>BaseController::footerMovies(),
+            'film_hot'=>BaseController::phimNoiBat(),
+            'film_hot1'=>BaseController::phimNoiBat1(),
+            'menu'=>BaseController::menu(),
+            'view'=>BaseController::topXemNhieu(),
             'contry'=>$contry,
-            'new'=>$new,
+            'new'=>BaseController::phimMoiNhat(),
         ]);
     
 }

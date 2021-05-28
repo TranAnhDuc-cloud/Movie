@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Movie;
 
 use App\Category;
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Menu;
 use App\Movie;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 
-class TypeController extends Controller
+class TypeController extends BaseController
 {
     //
     protected $typeMovieRepository;
@@ -39,22 +40,15 @@ class TypeController extends Controller
         $typeMovie = $typeMovies;
         $titleMovies = $name;
         View::share('titleMovies', $titleMovies);
-        $film_hot = Movie::where('film_hot','=',1)->limit(4)->get();
-        $film_hot1 = Movie::where('view','>',200)->limit(1)->get();
-        $menu = Menu::all();
-        $category = Category::all();
-        $view = Movie::where('view','>',100)->orderBy('view','Desc')->limit(6)->get();
-        $movies = Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
-        $new = Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
         return view('user.pages.type_movies')->with([
-            'category'=>$category,
-            'film_hot'=>$film_hot,
-            'film_hot1'=>$film_hot1,
-            'menu'=>$menu,
-            'view'=>$view,
-            'movies'=>$movies,
+            'category'=>BaseController::footerCategory(),
+            'film_hot'=>BaseController::phimNoiBat(),
+            'film_hot1'=>BaseController::phimNoiBat1(),
+            'menu'=>BaseController::menu(),
+            'view'=>BaseController::topXemNhieu(),
+            'movies'=>BaseController::footerMovies(),
             'typeMovies'=>$typeMovie,
-            'new'=>$new,
+            'new'=>BaseController::phimMoiNhat(),
         ]);
     }
     public function show($name){
