@@ -1,13 +1,13 @@
 @extends('admin.layout.master')
-@section('title-admin','Tyep | Add')
+@section('title-admin','TypeMovie | Add')
 
 @section('content-header-title')
-    <h1 class="m-0">Type Movie</h1>
+    <h1 class="m-0">{{trans('admin.typemovie')}}</h1>
 @endsection
 @section('content-header-url')
-    <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-    <li class="pl-2"> » Type Movie</li>
-    <li class="pl-2"> » Show</li>
+    <li class="breadcrumb-item"><a href="{{route('admin')}}">{{trans('admin.home')}}</a></li>
+    <li class="pl-2"> » {{trans('admin.typemovie')}}</li>
+    <li class="pl-2"> » {{trans('admin.show')}}</li>
 @endsection
 @section('content-wrapper')
      <!-- Main content -->
@@ -22,49 +22,22 @@
                     <div class="container">
                         <div class="content">
                             <div class="form-group ">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Nhập Tên {{$name}}">
+                                <label>{{trans('admin.name')}}</label>
+                                <input type="text" name="name" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.name')}} {{$name}}">
                                 @error('name')
                                     <small class="form-text text-muted alert alert-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="form-group ">
-                                <label>Year</label>
-                                <input type="number" name="year" class="form-control" placeholder="Nhập Năm Công Chiếu">
+                                <label>{{trans('admin.year')}}</label>
+                                <input type="number" name="year" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.year')}}">
                                 @error('year')
                                     <small class="form-text text-muted alert alert-danger">{{$message}}</small>
                                 @enderror
                             </div>
-                            <input type="submit" name="submit" class="mt-5 form-control btn btn-primary" value="Thêm">
+                            <input type="submit" name="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.add')}}">
                         </div>
                     </div>
-                    <style>
-                        .container , .add-type{
-                            display: flex;
-                            justify-content:center;
-                        }
-                        .add-type{
-                            color: #a5cbef;
-                            background: -webkit-gradient(linear,left top,right top,from(#f78c12),to(#ff005d));
-                            background: linear-gradient(to right,#f78c12,#fa0660);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                            -webkit-box-decoration-break: clone;
-                            box-decoration-break: clone;
-                            font-weight: 700;
-                            font-size: 40px;
-                            padding-bottom: 5px;
-                            text-transform: uppercase;
-                        }
-                        .content{
-                            background-color: rgb(207, 239, 243);
-                            width:50%;
-                            border: 1px solid #bababa;
-                            box-shadow: #686666;
-                            border-radius:5px;
-                            padding: 30px 30px 50px 30px;
-                        }
-                    </style>
             </form>
         </div>
     </div>

@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\Interfaces\SingleMovieRepositoryInterface;
 use App\Single_movie;
 use Illuminate\Http\Request;
 
 class SingleMovieController extends Controller
 {
+    protected $SingleMovieRepository;
+
+    public function __construct(SingleMovieRepositoryInterface $SingleMovieRepository){
+        $this->SingleMovieRepository = $SingleMovieRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class SingleMovieController extends Controller
      */
     public function index()
     {
-        //
+        $this->SingleMovieRepository->getAll();
     }
 
     /**

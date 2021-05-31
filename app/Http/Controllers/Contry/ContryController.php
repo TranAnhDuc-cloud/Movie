@@ -18,22 +18,7 @@ class ContryController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function pages($id){
-        $contry = Movie::where('contries_id',$id)->paginate(10);
-        $nameContry = Contry::find($id);
-        View::share('nameContry', $nameContry);
-        return view('user.pages.contry')->with([
-            'category'=>BaseController::footerCategory(),
-            'movies'=>BaseController::footerMovies(),
-            'film_hot'=>BaseController::phimNoiBat(),
-            'film_hot1'=>BaseController::phimNoiBat1(),
-            'menu'=>BaseController::menu(),
-            'view'=>BaseController::topXemNhieu(),
-            'contry'=>$contry,
-            'new'=>BaseController::phimMoiNhat(),
-        ]);
     
-}
 
     /**
      * Show the form for creating a new resource.

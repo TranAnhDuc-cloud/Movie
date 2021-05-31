@@ -2,25 +2,22 @@
 
 namespace App\Http\Controllers\Movie;
 
-use App\Category;
 use App\Http\Controllers\BaseController;
-use App\Http\Controllers\Controller;
-use App\Menu;
-use App\Movie;
 use App\Repository\Interfaces\TypeMovieRepositoryInterface;
-use App\Type_movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\View;
 
 
 class TypeController extends BaseController
 {
     //
     protected $typeMovieRepository;
+   
     public function __construct(TypeMovieRepositoryInterface $typeMovieRepository){
         $this->typeMovieRepository = $typeMovieRepository;
+       
     }
+
     public function index($name){
         $handle =  DB::table($name)->get();
         return view('admin.type.index')->with([
@@ -28,34 +25,13 @@ class TypeController extends BaseController
             'name'=>$name,
         ]);
     }
-    public function pages($name){
-        $allTypes = Type_movie::all();
-        foreach($allTypes as $item){
-            $handle = $item->handle;
-            $memi = DB::table($handle)->where('name',$name)->get();
-                foreach ($memi as $row){
-                    $typeMovies = Movie::where('year',$row->year)->where('type_movie',$item->id)->paginate(10);
-                }
-        }
-        $typeMovie = $typeMovies;
-        $titleMovies = $name;
-        View::share('titleMovies', $titleMovies);
-        return view('user.pages.type_movies')->with([
-            'category'=>BaseController::footerCategory(),
-            'film_hot'=>BaseController::phimNoiBat(),
-            'film_hot1'=>BaseController::phimNoiBat1(),
-            'menu'=>BaseController::menu(),
-            'view'=>BaseController::topXemNhieu(),
-            'movies'=>BaseController::footerMovies(),
-            'typeMovies'=>$typeMovie,
-            'new'=>BaseController::phimMoiNhat(),
-        ]);
-    }
+    
     public function show($name){
         return view('admin.type.add')->with([
             'name' =>$name,
         ]);
     }
+
     public function store($name,Request $request){
         try {
             $check = DB::table($name)->where('name','=', $request->name)->first();
@@ -80,6 +56,7 @@ class TypeController extends BaseController
             );
         }
     }
+
     public function edit($name,$id){
         $type = DB::table($name)->find($id);
         return view('admin.type.edit')->with([
@@ -87,6 +64,7 @@ class TypeController extends BaseController
             'name'=>$name,
         ]);
     }
+
     public function update($name ,$id, Request $request){
         try {
             $check = DB::table($name)->where('name','=', $request->name)->first();
@@ -110,6 +88,7 @@ class TypeController extends BaseController
             return redirect()->route('admin.type.movie.index',$name)->with('success','Chưa Nhập Dữ Liệu Để Cập Nhập');
         }
     }
+
     public function destroy($name,$id){
         $destroy = DB::table($name)->where('id', $id);
         $destroy->delete();

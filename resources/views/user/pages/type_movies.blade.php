@@ -5,8 +5,6 @@
  Home » {{$titleMovies}}
  @endsection
  @section('content-pages')
- <div class="col-xl-8 col-lg-5 col-md-12">
-     <div class="row">
          @foreach ($typeMovies as $item)
          <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 pl-4 pr-0">
              <div class="position-relative mb-30">
@@ -24,7 +22,6 @@
                              <span>
                                  <i class="fa fa-calendar" aria-hidden="true"></i>
                              </span>{{$item->date}}
-                             
                          </li>
                      </ul>
                  </div>
@@ -38,8 +35,6 @@
              </div>
          </div>
          @endforeach
-     </div>
- </div>
  @endsection     
  @section('link-pages')
  {!! $typeMovies->render() !!}

@@ -8,6 +8,10 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}" />
 </head>
 <body></body>
+<div class="back"><a href="{{route('home')}}">Back</a></div>
+<style>
+	
+</style>
 <div class="container">
 	<section id="content">
 		<form action="{{route('login.show')}}" method="POST">

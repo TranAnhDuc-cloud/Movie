@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Menu;
 use App\Movie;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends BaseController
 {
     public function index(){
-        $this->index = 'user.pages.index';
-        return $this->home($this->index);
-    }
-    public function home($index){
         // Action Film
         $film_action = Movie::where('categories_id','2')->offset(1)->limit(6)->get();
         $film_action1 = Movie::where('categories_id','=','2')->where('view','>',2)->limit(1)->get();
@@ -29,7 +22,7 @@ class HomeController extends BaseController
         $review = Movie::where('film_hot',2)->limit(4)->get();
         // Category
         $cate = Category::select('*')->offset(4)->limit(3)->get();
-        return view($index)->with([
+        return view('user.pages.index')->with([
                 'action'=>$film_action,
                 'action1'=>$film_action1,
                 'vothuat_film'=>$vothuat_film,
@@ -48,5 +41,9 @@ class HomeController extends BaseController
                 'new'=>BaseController::phimMoiNhat(),
         ]);
     }
-    
+    public function changeLanguage($language){
+        Session::put('website_language', $language);
+
+        return redirect()->back();
+    }
 }

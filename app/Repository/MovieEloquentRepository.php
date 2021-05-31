@@ -11,17 +11,37 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
     public function getModel(){
         return \App\Movie::class;
     }
+    public function create(array $attributes){
+        $movie = new \App\Movie;
+          $movie->title = $attributes['title'];
+          $movie->name = $attributes['name'];
+          $movie->directors = $attributes['directors'];
+          $movie->actor = $attributes['actor'];
+          $movie->time = $attributes['time'];
+          $movie->date = $attributes['date'];
+          $movie->url_picture = $attributes['url_picture'];
+          $movie->url_link = $attributes['url_link'];
+          $movie->view = $attributes['view'];
+          $movie->description = $attributes['description'];
+          $movie->status = $attributes['status'];
+          $movie->film_hot = $attributes['film_hot'];
+          $movie->contries_id = $attributes['contries_id'];
+          $movie->categories_id = $attributes['categories_id'];
+          $movie->type_movie = $attributes['type_movie'];
+          $movie->year = $attributes['year'];
+          return $movie->save();
+    }
     public function header(){
-        return $menu = Menu::all();
+        return Menu::all();
     }
     public function footerMovies(){
-        return  $movies = Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
+        return  Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
     }
     public function footerCategory(){
-        return $category = Category::all();
+        return Category::all();
     }
     public function footerNew(){
-        return $new = Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
+        return Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
     }
     public function detail($id){
         $cate = Category::select('*')->offset(4)->limit(3)->get();
@@ -51,4 +71,5 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
             'new'=>$this->footerNew(),
              ]);
     }
+    
 }

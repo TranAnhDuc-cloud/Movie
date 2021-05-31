@@ -53,7 +53,7 @@
                     <div class="card-body">
                       <strong><i class="fas fa-book mr-1"></i>Email</strong>
                       <p class="text-muted">
-                        {{$info->email}}
+                        {{Auth::user()->email}}
                       </p>
                       <hr>
                       <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa Chỉ</strong>
@@ -61,7 +61,7 @@
                       <hr>
                       <strong><i class="fas fa-pencil-alt mr-1"></i> Ngày Gia Nhập </strong>
                       <p class="text-muted">
-                        {{$info->created_at}}
+                        {{Auth::user()->created_at}}
                       </p>
                       <hr>
                       <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>

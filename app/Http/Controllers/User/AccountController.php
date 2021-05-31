@@ -13,13 +13,11 @@ use Illuminate\Http\Request;
 class AccountController extends BaseController
 {
     //
-    public function index($name ,$id){
-        $info = User::find($id);
-        return view('user.detail.account')->with([
+    public function index(){
+        return view('user.detail.info')->with([
             'menu'=>BaseController::menu(),
             'movies'=>BaseController::footerMovies(),
             'category'=>BaseController::footerCategory(),
-            'info'=>$info,
         ]);
     }
     

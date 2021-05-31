@@ -2,12 +2,12 @@
 @section('title-admin','Category')
 
 @section('content-header-title')
-    <h1 class="m-0">Category</h1>
+    <h1 class="m-0">{{ trans('admin.category') }}</h1>
 @endsection
 @section('content-header-url')
-    <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-    <li class="pl-2"> » Category</li>
-    <li class="pl-2"> » Show</li>
+    <li class="breadcrumb-item"><a href="{{route('admin')}}">{{ trans('admin.home') }}</a></li>
+    <li class="pl-2"> » {{ trans('admin.category') }}</li>
+    <li class="pl-2"> » {{ trans('admin.show') }}</li>
 @endsection
 @section('card-header-title')
     <h3 class="card-title">The Movie In DataBase</h3>
@@ -19,12 +19,12 @@
     <table id="example2" class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>TT</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Url_Picture</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>{{ trans('admin.number') }}</th>
+          <th>{{ trans('admin.title') }}</th>
+          <th>{{ trans('admin.description') }}</th>
+          <th>{{ trans('admin.url_picture') }}</th>
+          <th>{{ trans('admin.edit') }}</th>
+          <th>{{ trans('admin.delete') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -42,12 +42,12 @@
         </tbody>
         <tfoot>
         <tr>
-          <th>TT</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Url_Picture</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>{{ trans('admin.number') }}</th>
+          <th>{{ trans('admin.title') }}</th>
+          <th>{{ trans('admin.description') }}</th>
+          <th>{{ trans('admin.url_picture') }}</th>
+          <th>{{ trans('admin.edit') }}</th>
+          <th>{{ trans('admin.delete') }}</th>
         </tr>
         </tfoot>
       </table>

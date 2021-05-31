@@ -3,10 +3,10 @@
 
 
 @section('content-header-url')
-    <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{route('admin')}}">{{trans('admin.home')}}</a></li>
 @endsection
 @section('content-wrapper')
-<section class="content">
+<section class="content-fuild">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
@@ -15,7 +15,7 @@
               @yield('card-header-title')
             </div>
             @if (Session::has('error'))
-              <div class="alert alert-danger">{{Session::has('error')}}</div>
+              <div class="alert bg-danger text-center">{{Session::has('error')}}</div>
             @endif
             @if (Session::has('success'))
               <div class="alert bg-success text-center">{{ Session::get('success') }}</div>

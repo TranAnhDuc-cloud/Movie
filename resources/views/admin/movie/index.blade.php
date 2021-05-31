@@ -2,39 +2,39 @@
 @section('title-admin',' Movie')
 
 @section('content-header-title')
-    <h1 class="m-0">Movie</h1>
+    <h1 class="m-0">{{trans('admin.movie')}}</h1>
 @endsection
 @section('content-header-url')
-    <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-    <li class="pl-2"> » Movie</li>
-    <li class="pl-2"> » Show</li>
+    <li class="breadcrumb-item"><a href="{{route('admin')}}">{{trans('admin.home')}}</a></li>
+    <li class="pl-2"> » {{trans('admin.movie')}}</li>
+    <li class="pl-2"> » {{trans('admin.show')}}</li>
 @endsection
 @section('card-header-title')
     <h3 class="card-title">The Movie In DataBase</h3>
 @endsection
 @section('table')
     <div class="add mb-2 mt-2">
-    <a href="{{route('admin.movie.add')}}"><button class="btn btn-add btn-success p-30">Add</button></a>
+    <a href="{{route('admin.movie.add')}}"><button class="btn btn-add btn-success p-30">{{trans('admin.add')}}</button></a>
     </div>
     <table id="example2" class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>TT</th>
-          <th>Title</th>
-          <th>Name</th>
-          <th>Directors</th>
-          <th>Actors</th>
-          <th>Thời Lượng</th>
-          <th>Ngày SX</th>
-          <th>Url_Picture</th>
-          <th>Url_links</th>
-          <th>View</th>
-          <th>Status</th>
-          <th>Phim Hot</th>
-          <th>Type Movie</th>
-          <th>Year</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>{{trans('admin.number')}}</th>
+          <th>{{trans('admin.title')}}</th>
+          <th>{{trans('admin.name')}}</th>
+          <th>{{trans('admin.directors')}}</th>
+          <th>{{trans('admin.actors')}}</th>
+          <th>{{trans('admin.time')}}</th>
+          <th>{{trans('admin.date')}}</th>
+          <th>{{trans('admin.url_picture')}}</th>
+          <th>{{trans('admin.url_link')}}</th>
+          <th>{{trans('admin.view')}}</th>
+          <th>{{trans('admin.status')}}</th>
+          <th>{{trans('admin.moviehot')}}</th>
+          <th>{{trans('admin.typemovie')}}</th>
+          <th>{{trans('admin.year')}}</th>
+          <th>{{trans('admin.edit')}}</th>
+          <th>{{trans('admin.delete')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -62,22 +62,22 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>TT</th>
-            <th>Title</th>
-            <th>Name</th>
-            <th>Directors</th>
-            <th>Actors</th>
-            <th>Thời Lượng</th>
-            <th>Ngày SX</th>
-            <th>Url_Picture</th>
-            <th>Url_links</th>
-            <th>View</th>
-            <th>Status</th>
-            <th>Phim Hot</th>
-            <th>Type Movie</th>
-            <th>Year</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>{{trans('admin.number')}}</th>
+          <th>{{trans('admin.title')}}</th>
+          <th>{{trans('admin.name')}}</th>
+          <th>{{trans('admin.directors')}}</th>
+          <th>{{trans('admin.actors')}}</th>
+          <th>{{trans('admin.time')}}</th>
+          <th>{{trans('admin.date')}}</th>
+          <th>{{trans('admin.url_picture')}}</th>
+          <th>{{trans('admin.url_link')}}</th>
+          <th>{{trans('admin.view')}}</th>
+          <th>{{trans('admin.status')}}</th>
+          <th>{{trans('admin.moviehot')}}</th>
+          <th>{{trans('admin.typemovie')}}</th>
+          <th>{{trans('admin.year')}}</th>
+          <th>{{trans('admin.edit')}}</th>
+          <th>{{trans('admin.delete')}}</th>
         </tr>
         </tfoot>
       </table>

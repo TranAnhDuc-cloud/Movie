@@ -405,3 +405,31 @@ form:after {
     background-position: 0 -135px;
     color: #00aeef;
 }
+
+/* Back  */
+.back {
+    margin: 100px; 
+    padding: 5px;
+    background-color: #faeaca;
+    border-radius:20px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 80%) inset;
+    border: 1px solid #D69E31;
+    color: #85592e;
+    cursor: pointer;
+    float: left;
+    font: bold 15px Helvetica, Arial, sans-serif;
+    height: 35px;
+    margin: 20px 0 35px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+}
+.back a {
+    padding: 20px;
+    margin : 10px;
+    font-size: 20px;
+    color: red;
+    text-decoration: none !important;
+}
+.back:hover{
+    background-color: #fde5b6;
+}

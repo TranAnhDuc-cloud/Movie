@@ -36,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Repository\Interfaces\TypeMovieRepositoryInterface::class,
             \App\Repository\TypeMovieEloquentRepository::class
             ); 
+        $this->app->singleton(
+            \App\Repository\Interfaces\SingleMovieRepositoryInterface::class,
+            \App\Repository\SingleMovieEloquentRepository::class
+            ); 
     }
 
     /**
