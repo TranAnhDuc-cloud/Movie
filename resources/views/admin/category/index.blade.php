@@ -31,7 +31,7 @@
         <?php $i=1 ?>
         @foreach ($getAll as $item)
         <tr class="old">
-            <td>{{$i++}}</td>
+            <td>{{ number($i) }}</td>
             <td>{{$item->name}}</td>
             <td>{{$item->description}}</td>
             <td>{{$item->url_picture}}</td>

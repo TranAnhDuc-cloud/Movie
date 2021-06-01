@@ -15,19 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 // 
-// Route::group(['domain' => '{language}.i18n.dev'], function ($language) {
+// Route::group(['domain' => '{language}.dev'], function ($language) {
 //    config(['app.locale' => $language]); //đặt dòng này ở đầu
+
+   // LANGUAGE
+   // Route::group(['middleware' => 'locale'], function() {
+     Route::get('change/{language}','HomeController@language')->name('language');
+   // });
    
+// });
       // HOME
    Route::get('/','HomeController@index')->name('home');
    Route::get('home','HomeController@index')->name('home');
    Route::get('Home','HomeController@index')->name('home');
-
-   // LANGUAGE
-   Route::group(['middleware' => 'locale'], function() {
-      Route::get('change-language/{language}', 'HomeController@changeLanguage')
-         ->name('user.change-language');
-   });
 
    // LOGIN / LOGOUT / REGISTER
    Route::get('login','Auth\LoginController@index')->name('login');
@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Route;
    Route::get('register','Auth\RegisterController@index')->name('register');
    Route::post('register','Auth\RegisterController@register')->name('register.show');
    Route::get('logout','Auth\LogoutController@index')->name('logout');
+   Route::get('register/active/{token}','Auth\RegisterController@active')->name('register.active');
 
    // Admin
    Route::group(['middleware' => 'admin'], function(){
@@ -91,7 +92,6 @@ use Illuminate\Support\Facades\Route;
    // Searhc
    Route::get('/pages/search', 'SearchController@search')->name('search');
 
-// });
 
 
 

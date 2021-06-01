@@ -3,12 +3,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>PhimTV / SingIn</title>
+<title>PhimTV / {{ trans('admin.login') }}</title>
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.png')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}" />
 </head>
 <body></body>
-<div class="back"><a href="{{route('home')}}">Back</a></div>
+<div class="back"><a href="{{route('home')}}">{{ trans('admin.back') }}</a></div>
 <style>
 	
 </style>
@@ -16,7 +17,7 @@
 	<section id="content">
 		<form action="{{route('login.show')}}" method="POST">
             @csrf   
-			<h1>Login Form</h1>
+			<h1>{{ trans('admin.login') }} Form</h1>
             @if (Session::has('error'))
                 <div class="alert alert-danger">{{Session::get('error')}}</div>
 				<br>
@@ -26,21 +27,21 @@
 				<br>
 			@endif
 			<div>
-				<input type="text" placeholder="Username" required="" id="username" name="username"/>
+				<input type="text" placeholder="{{ trans('admin.enter') }} {{ trans('admin.username') }}" id="username" name="username"/>
 			</div>
 				@error('username')
 					<small class="text-danger">{{ $message }}</small> 
 				@enderror
 			<div>
-				<input type="password" placeholder="Nhập Password" name="password" id="password">
+				<input type="password" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }}" name="password" id="password">
 			</div>
 				@error('password')
 					<small class="text-danger">{{ $message }}</small> 
 				@enderror
 			<div>
-				<input type="submit" value="Log in" />
-				<a href="#">Lost your password?</a>
-				<a href="{{route('register')}}">Register</a>
+				<input type="submit" value="{{ trans('admin.login') }}" />
+				<a href="#">{{ trans('admin.lostpassword') }} ?</a>
+				<a href="{{route('register')}}">{{ trans('admin.register') }}</a>
 			</div>
 		</form>
 	</section>

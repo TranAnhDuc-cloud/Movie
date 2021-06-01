@@ -1,12 +1,12 @@
 @extends('admin.layout.master')
 @section('title-admin','AdminLTE 3 | Profile')
 @section('content-header-title')
-    <h1 class="m-0">Profile</h1>
+    <h1 class="m-0">{{ trans('admin.profile') }}</h1>
 @endsection
 @section('content-header-url')
-    <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-    <li class="pl-2"> » User</li>
-    <li class="pl-2"> » Profile</li>
+    <li class="breadcrumb-item"><a href="{{route('admin')}}">{{ trans('admin.home') }}</a></li>
+    <li class="pl-2"> » {{ trans('admin.user') }}</li>
+    <li class="pl-2"> » {{ trans('admin.profile') }}</li>
 @endsection
 @section('content-wrapper')
  <!-- Main content -->
@@ -57,15 +57,15 @@
                 {{Auth::user()->email}}
               </p>
               <hr>
-              <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa Chỉ</strong>
+              <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ trans('admin.address') }}</strong>
               <p class="text-muted">Malibu, California</p>
               <hr>
-              <strong><i class="fas fa-pencil-alt mr-1"></i> Ngày Gia Nhập </strong>
+              <strong><i class="fas fa-pencil-alt mr-1"></i> {{ trans('admin.date') }} </strong>
               <p class="text-muted">
                 {{Auth::user()->created_at}}
               </p>
               <hr>
-              <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+              <strong><i class="far fa-file-alt mr-1"></i> {{ trans('admin.note') }}</strong>
               <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
             </div>
             <!-- /.card-body -->

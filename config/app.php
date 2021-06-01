@@ -81,6 +81,7 @@ return [
     */
 
     'locale' => 'en',
+    'locales' => ['vi','en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -174,7 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // App\Providers\HelperServiceProvider::class,
+        // App\Providers\EvatoServiceProvider::class,
 
     ],
 
@@ -227,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // 'Helper' => App\Helpers\Helper::class,
+        // 'EvatoNumber' => App\Helpers\Evato\Number::class,
     ],
 
 ];

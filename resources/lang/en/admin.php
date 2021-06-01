@@ -40,5 +40,13 @@ return [
     'username' =>'Username',
     'fullname' =>'Full Name',
     'password' =>'Password',
-    'token' =>'Remember Token'
+    'token' =>'Remember Token',
+    'profile' =>'Profile',
+    'address' =>'Address',
+    'note' =>'Note',
+    // AUTH
+    'back'=>'Back',
+    'register'=>'Register',
+    'lostpassword' =>'Lost your password',
+    'login'=>'Login',
 ];

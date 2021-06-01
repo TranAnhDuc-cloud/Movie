@@ -33,7 +33,7 @@
         <?php $i=1 ?>
         @foreach ($getAll as $item)
         <tr class="old">
-            <td>{{$i++}}</td>
+            <td>{{ number($i) }}</td>
             <td>{{$item->username}}</td>
             <td>{{$item->fullname}}</td>
             <td>{{$item->level}}</td>

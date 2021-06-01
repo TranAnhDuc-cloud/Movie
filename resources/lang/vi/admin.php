@@ -35,5 +35,14 @@ return [
     'username' =>'Tên Người Dùng',
     'fullname' =>'Tên Đầy Đủ',
     'password' =>'Mật Khẩu',
-    'token' => 'Mã Hóa Reset'
+    'token' => 'Mã Hóa Reset',
+    'profile' =>'Hồ Sơ',
+    'address' =>'Địa Chỉ',
+    'note' => 'Ghi Chú',
+    // Auth
+    'back'=>'Trở Về',
+    'register' =>'Đăng Ký',
+    'lostpassword' =>'Quên Mật Khẩu',
+    'login' =>'Đăng Nhập'
+    
 ];

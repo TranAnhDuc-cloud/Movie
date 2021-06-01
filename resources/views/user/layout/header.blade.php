@@ -50,7 +50,7 @@
                                     <nav id="dropdown">
                                         <ul>
                                             <li class="active">
-                                                <a href="{{route('home')}}">Home</a>
+                                                <a href="{{route('home')}}">{{ trans('admin.home') }}</a>
                                             </li> 
                                             @foreach ($menu as $menus)
                                             <li class="">
@@ -74,6 +74,8 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-3 col-md-12 text-right position-static">
+                                <a href="{{ route('language',['en']) }}">EN</a>
+                                <a href="{{ route('language',['vi']) }}">VI</a>
                                 <div class="header-action-item">
                                     <ul>
                                         <li class="header-search">

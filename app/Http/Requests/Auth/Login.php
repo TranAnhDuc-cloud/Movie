@@ -29,9 +29,9 @@ class Login extends FormRequest
         ];
     }
     public function messages(){
-        return [
-            'username.required' => " Bạn Phải Nhập Username Của Mình Chứ",
-            'password.required' => " Bạn Chưa Nhập Password Rồi"
-        ];
+        // return [
+        //     'username.required' => " Bạn Phải Nhập Username Của Mình Chứ",
+        //     'password.required' => " Bạn Chưa Nhập Password Rồi"
+        // ];
     }
 }

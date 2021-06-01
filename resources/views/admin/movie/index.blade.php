@@ -38,10 +38,10 @@
         </tr>
         </thead>
         <tbody>
-        <?php $i=1 ?>
+        <?php $i=0 ?>
         @foreach ($getAll as $item)
         <tr class="old">
-            <td>{{$i++}}</td>
+            <td>{{  number($i++) }}</td>
             <td>{{$item->title}}</td>
             <td>{{$item->name}}</td>
             <td>{{$item->directors}}</td>

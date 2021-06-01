@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Phim Tv / SingUp</title>
+<title>Phim Tv / {{ trans('admin.register') }}</title>
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.png')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}" />
 </head>
@@ -12,19 +13,19 @@
 	<section id="content">
 		<form action="{{route('register.show')}}" method="POST">
             @csrf   
-			<h1>Register Form</h1>
+			<h1>{{ trans('admin.register') }} Form</h1>
             @if (Session::has('error'))
                 <div class="alert alert-danger">{{Session::get('error')}}</div>
 				<br>
             @endif
 			<div>
-				<input type="text" placeholder="Username" required="" id="username" name="username"/>
+				<input type="text" placeholder="{{ trans('admin.username') }}" required="" id="username" name="username"/>
 			</div>
             @error('username')
                 <small class="text-danger">{{ $message }}</small> 
             @enderror
             <div>
-				<input type="text" placeholder="FullName" required="" id="fullname" name="fullname"/>
+				<input type="text" placeholder="{{ trans('admin.fullname') }}" required="" id="fullname" name="fullname"/>
 			</div>
             @error('fullname')
                 <small class="text-danger">{{ $message }}</small> 
@@ -36,21 +37,21 @@
                 <small class="text-danger">{{ $message }}</small> 
             @enderror
 			<div>
-				<input type="password" placeholder="Nhập Password" name="password" id="password">
+				<input type="password" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }}" name="password" id="password">
 			</div>
             @error('password')
                 <small class="text-danger">{{ $message }}</small> 
             @enderror
             <div>
-				<input type="password" placeholder="Nhập Lại Password" name="password_confirm" id="password">
+				<input type="password" placeholder="{{ trans('admin.password_cofimer') }}" name="password_confirm" id="password">
 			</div>
             @error('password_confirm')
                 <small class="text-danger">{{ $message }}</small> 
             @enderror
 			<div>
-				<input type="submit" value="Đăng Ký" />
-				<a href="{{route('home')}}">Go Home</a>
-				<a href="{{route('login')}}">Login</a>
+				<input type="submit" value="{{ trans('admin.register') }}" />
+				<a href="{{route('home')}}">{{ trans('admin.home') }}</a>
+				<a href="{{route('login')}}">{{ trans('admin.login') }}</a>
 			</div>
 		</form>
 	</section>
