@@ -74,7 +74,18 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-3 col-md-12 text-right position-static">
-                               
+                                <li>
+                                    <div class="btn-group">
+                                        <div type="button" class="btn m-0 pd-0 dropdown-toggle" style="background-color: #111" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-globe-europe" style="color: #fff"></i>
+                                        </div>
+                                        <div class="dropdown-menu" style="min-width: 20px">
+                                         <a href="{{ route('language',['en']) }}">EN</a>
+                                         <hr>
+                                         <a href="{{ route('language',['vi']) }}">VI</a>
+                                        </div>
+                                      </div>
+                                </li>
                                 <div class="header-action-item">
                                     <ul>
                                         <li class="header-search">
@@ -122,18 +133,7 @@
                                                 @endif
                                             @endif                                           
                                         </li>
-                                        <li>
-                                            <div class="btn-group">
-                                                <div type="button" class="btn m-0 pd-0 dropdown-toggle" style="background-color: #111" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-globe-europe" style="color: #fff"></i>
-                                                </div>
-                                                <div class="dropdown-menu" style="min-width: 20px">
-                                                 <a href="{{ route('language',['en']) }}">EN</a>
-                                                 <hr>
-                                                 <a href="{{ route('language',['vi']) }}">VI</a>
-                                                </div>
-                                              </div>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </div>
