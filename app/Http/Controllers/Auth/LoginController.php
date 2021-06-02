@@ -16,14 +16,17 @@ class LoginController extends Controller
         }
         return view('auth.login');
     }
+    
     public function show(Request $request){
-        $username = $request['username'];
-        $password = $request['password'];
-        if(Auth::attempt(['username'=>$username,'password'=>$password])){
-            return redirect()->route('home');
-        }else{
-            Session::flash('error','Tài Khoản Hoặc Mật Khẩu Không Đúng');
-            return redirect()->route('login');
+       $check = [
+            'username' => $request->username,
+            'password' => $request->password,
+            'active' => 1
+       ];
+        if(!Auth::attempt($check)){
+           Session::flash('error',trans('auth.youcannotlogin'));
+            return redirect()->back();
         }
+        return redirect('/');
     }
 }

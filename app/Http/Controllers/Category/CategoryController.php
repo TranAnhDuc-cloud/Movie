@@ -37,7 +37,7 @@ class CategoryController extends BaseController
     public function store(CategoryRequest $request){
         $this->categoryRepository->create($request->all());
         return redirect()->route('admin.category.index')->with(
-            'success','Thêm Category Thành Công'
+            'success',trans('admin.add-success')
         );
     }
     
@@ -49,14 +49,14 @@ class CategoryController extends BaseController
     public function update($id , CategoryRequest $request){
         $this->categoryRepository->update($id,$request->all());
         return redirect()->route('admin.category.index')->with(['
-            success'=>'Update Category Thành Công'
+            success'=>trans('admin.update-success')
         ]);
     }
 
     public function destroy($id){
         $this->categoryRepository->delete($id);
         return redirect()->route('admin.category.index')->with('
-        success', ' Xóa Category Thành Công'
+        success', trans('admin.delete-success')
     );
     }
 }

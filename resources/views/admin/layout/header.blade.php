@@ -67,12 +67,18 @@
           </form>
         </div>
       </li>
-      <div class="">
-        <a href="{{ route('language',['en']) }}">EN</a>
-        <a href="{{ route('language',['vi']) }}">VI</a>
-
-      </div>
-
+      <li>
+        <div class="btn-group">
+            <div type="button" class="btn m-0 pd-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-globe-europe" style="color: #111"></i>
+            </div>
+            <div class="dropdown-menu" style="min-width: 20px">
+             <a href="{{ route('language',['en']) }}">EN</a>
+             <hr>
+             <a href="{{ route('language',['vi']) }}">VI</a>
+            </div>
+          </div>
+    </li>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -177,7 +183,7 @@
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Back Website</span>
+      <span class="brand-text font-weight-light">{{ trans('admin.backwebsite') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -190,7 +196,7 @@
         <div class="info">
           <a style="text-transform: uppercase" href="{{route('admin.user.info',[Auth::user()->username, Auth::user()->id])}}" class="d-block">{{Auth::user()->username}}</a>
         </div>
-        <div class="info"><a class="d-block" href="{{route('logout')}}">Logout</a></div>
+        <div class="info"><a class="d-block" href="{{route('logout')}}">{{ trans('admin.logout') }}</a></div>
       </div>
 
       <!-- SidebarSearch Form -->

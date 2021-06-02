@@ -9,7 +9,8 @@
         <div>
             Thanks for creating an account with the verification demo app.
             Please follow the link below to verify your email address
-            {{ route('register.active',$email_verified) }}.<br/>
+            <a href="{{ URL::to('register/active/' . $email_verified) }}">{{ URL::to('register/active/' . $email_verified) }}</a>
+            <br/>
 
         </div>
 

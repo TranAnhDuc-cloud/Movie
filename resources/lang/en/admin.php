@@ -49,4 +49,16 @@ return [
     'register'=>'Register',
     'lostpassword' =>'Lost your password',
     'login'=>'Login',
+    'logout'=>'Logout',
+    // ADMIN
+    'delete-success' =>'Delete Success',
+    'update-success' =>'Update Success',
+    'add-success' => 'Add Success',
+    'delete-error' =>'Delete Error',
+    'update-error' =>'Update Error',
+    'add-error' =>'Add Error',
+    'data-error' =>'No Input Data ',
+    'exist' =>'Exist',
+    'pleasreturn'=> 'Please Return Input',
+    'backwebsite' =>'Back Website',
 ];

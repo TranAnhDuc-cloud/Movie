@@ -74,8 +74,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-3 col-md-12 text-right position-static">
-                                <a href="{{ route('language',['en']) }}">EN</a>
-                                <a href="{{ route('language',['vi']) }}">VI</a>
+                               
                                 <div class="header-action-item">
                                     <ul>
                                         <li class="header-search">
@@ -88,7 +87,7 @@
                                         <li class="register">
                                                 <button type="button" class="login-btn">
                                                     <a class="login-link" href="{{route('register')}}">
-                                                    <i class="fa fa-user" aria-hidden="true"></i>Register
+                                                    <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.register') }}
                                                     </a>    
                                                 </button>
                                         </li>
@@ -97,13 +96,13 @@
                                             @if (Auth::check())
                                             <button type="button" class="login-btn">
                                                 <a class="login-link" href="{{route('logout')}}">
-                                                <i class="fa fa-user" aria-hidden="true"></i>Logout
+                                                <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.logout') }}
                                                 </a>    
                                             </button>   
                                             @else
                                             <button type="button" class="login-btn">
                                                     <a class="login-link" href="{{route('login')}}">
-                                                    <i class="fa fa-user" aria-hidden="true"></i>Login
+                                                    <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.login') }}
                                                     </a>    
                                             </button>
                                             @endif                                          
@@ -122,6 +121,18 @@
                                                     </button>
                                                 @endif
                                             @endif                                           
+                                        </li>
+                                        <li>
+                                            <div class="btn-group">
+                                                <div type="button" class="btn m-0 pd-0 dropdown-toggle" style="background-color: #111" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-globe-europe" style="color: #fff"></i>
+                                                </div>
+                                                <div class="dropdown-menu" style="min-width: 20px">
+                                                 <a href="{{ route('language',['en']) }}">EN</a>
+                                                 <hr>
+                                                 <a href="{{ route('language',['vi']) }}">VI</a>
+                                                </div>
+                                              </div>
                                         </li>
                                     </ul>
                                 </div>

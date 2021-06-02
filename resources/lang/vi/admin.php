@@ -43,6 +43,16 @@ return [
     'back'=>'Trở Về',
     'register' =>'Đăng Ký',
     'lostpassword' =>'Quên Mật Khẩu',
-    'login' =>'Đăng Nhập'
-    
+    'login' =>'Đăng Nhập',
+    'logout' =>'Đăng Xuất',
+    'delete-success' =>'Xóa Thành Công',
+    'update-success' =>'Cập Nhật Thành Công',
+    'add-success' =>'Thêm Thành Công',
+    'delete-error' =>'Xóa Thất Bại',
+    'update-error' =>'Cập Nhật Thất Bại',
+    'add-error' =>'Thêm Thất Bại',
+    'data-error' =>'Chưa Nhập Dữ Liệu',
+    'exist' =>'Đã Tồn Tại',
+    'pleasreturn'=> 'Vui Lòng Nhập Lại',
+    'backwebsite' => 'Trở Về PhimTv',
 ];

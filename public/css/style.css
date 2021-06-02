@@ -7756,3 +7756,13 @@ input {
 .action{
     position: relative !important;
 }
+/* LANGUAGE */
+.dropdown-menu{
+    min-width: 50px;
+  }
+  .dropdown-menu a {
+    width: 100%;
+    /* border-bottom: 1px solid red; */
+    text-align: center;
+    padding: 20px;
+  }

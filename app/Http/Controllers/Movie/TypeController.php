@@ -37,7 +37,7 @@ class TypeController extends BaseController
             $check = DB::table($name)->where('name','=', $request->name)->first();
             if($check){
                 return redirect()->route('admin.type.movie.add',$name)->with(
-                    'error','Add '.$request->name.'Thất Bại'
+                    'error',trans('admin.add-error')
                 );
             }else{
                 DB::table($name)->insert([
@@ -47,12 +47,12 @@ class TypeController extends BaseController
                     'updated_at' =>now(),
                 ]);
                 return redirect()->route('admin.type.movie.index',$name)->with(
-                    'success','Add '.$request->name.'Thành Công'
+                    'success',trans('admin.add-success')
                 );
             }
         } catch (\Throwable $th) {
             return redirect()->route('admin.type.movie.add',$name)->with(
-                'success','Add '.$request->name.'Thất Bại'
+                'success',trans('admin.add-error')
             );
         }
     }
@@ -69,7 +69,7 @@ class TypeController extends BaseController
         try {
             $check = DB::table($name)->where('name','=', $request->name)->first();
             if($check){
-                return redirect()->route('admin.type.movie.index',$name)->with('success','Đã Tồn Tại '.$request->name.' Vui Lòng Nhập Lại ');
+                return redirect()->route('admin.type.movie.index',$name)->with('success',trans('admin.exist').$request->name.trans('admin.pleasreturn'));
             }
             $type = DB::table($name)->where('id',$id);
             if($request->name){
@@ -82,10 +82,10 @@ class TypeController extends BaseController
                 ]);
             }
             if($update){
-                return redirect()->route('admin.type.movie.index',$name)->with('success','Update Thành Công '.$request->name);
+                return redirect()->route('admin.type.movie.index',$name)->with('success',trans('admin.update-success').$request->name);
             }
         } catch (\Throwable $th) {
-            return redirect()->route('admin.type.movie.index',$name)->with('success','Chưa Nhập Dữ Liệu Để Cập Nhập');
+            return redirect()->route('admin.type.movie.index',$name)->with('success',trans('admin.data-error'));
         }
     }
 
@@ -93,7 +93,7 @@ class TypeController extends BaseController
         $destroy = DB::table($name)->where('id', $id);
         $destroy->delete();
         return redirect()->route('admin.type.movie.index',$name)->with(
-            'success', ' Xóa Thành Công'
+            'success', trans('admin.delete-success')
         );
     }
 }

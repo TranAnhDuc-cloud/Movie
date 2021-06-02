@@ -41,7 +41,7 @@ class MovieController extends Controller
     public function store(MovieRequest $request){
         $this->movieRepository->create($request->all());
         return redirect()->route('admin.movie.index')->with('
-            success','Thêm Movie Thành Công'
+            success',trans('admin.add-success')
         );
     }
     public function edit($id){
@@ -57,11 +57,13 @@ class MovieController extends Controller
         $update = $this->movieRepository->update($id,$request->all());
         if($update->save())
             return redirect()->route('admin.movie.index')->with('
-            success','Sửa Movie Thành Công'
+            success',trans('admin.update-success')
         );
     }
     public function destroy($id){
         $this->movieRepository->delete($id);
-        return redirect()->route('admin.movie.index')->with('success', ' Xóa Thành Công');
+        return redirect()->route('admin.movie.index')->with(
+            'success', trans('admin.delete-success')
+        );
     }
 }

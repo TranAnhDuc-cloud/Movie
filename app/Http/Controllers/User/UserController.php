@@ -35,7 +35,7 @@ class UserController extends Controller
     public function store(UserRequest $request){
         $this->userRepository->create($request->all());
         return redirect()->route('admin.user.index')->with('
-            success','Thêm User Thành Công'
+            success',trans('admin.add-success')
         );
     }
     
@@ -50,14 +50,14 @@ class UserController extends Controller
         $update = $this->userRepository->update($id,$request->all());
         if($update->save())
             return redirect()->route('admin.user.index')->with(['
-                success'=>'Update User Thành Công'
+                success'=>trans('admin.update-success')
             ]);
     }
 
     public function destroy($id){
         $this->userRepository->delete($id);
         return redirect()->route('admin.user.index')->with([
-            'success' =>'Delete User Thành Công'
+            'success' =>trans('admin.delete-success')
         ]);
     }
 }

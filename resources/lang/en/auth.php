@@ -15,5 +15,8 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'youcannotlogin' =>'You Can Not Login',
+    'pleasecheckemail' => 'Thanks for signing up! Please check your email.',
+    'verified-successfully'=>'You have successfully verified your account.',
+    'verified-error'=>'You have error verified your account.'
 ];
