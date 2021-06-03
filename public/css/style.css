@@ -3026,24 +3026,66 @@ ul.header-social li a {
     }
 }
 
+@media only screen and (max-width:1060px) {
+    .header-action-item ul li:nth-child(n+3) b{
+        /* display: none; */
+        border-right: 0;
+        margin-right: 0;
+    }
+    .header-action-item ul li:nth-child(2n) b{
+        border-right: 0;
+        margin-right: 0;
+        /* display: none; */
+    }
+}
+
 @media only screen and (max-width:991px) {
     .header-action-item ul li:nth-child(n+3) {
-        display: none
+        border: none;
     }
     .header-action-item ul li:nth-child(2n) {
         border-right: 0;
         margin-right: 0
     }
+    .header-action-item ul li:nth-child(2n) b{
+        display: inline;
+        
+    }
 }
 
 @media only screen and (max-width:767px) {
     .header-action-item ul li:nth-child(n+2) {
-        display: none
+        border-right: 0;
+        margin-right: 0
     }
     .header-action-item ul li:nth-child(1n) {
         border-right: 0;
         margin-right: 0
     }
+    .header-action-item ul li:nth-child(n+3) b{
+        display: none;
+        border-right: 0;
+        margin-right: 0;
+    }
+    .header-action-item ul li:nth-child(2n) b{
+        border-right: 0;
+        margin-right: 0;
+        display: none;
+    }
+}
+@media only screen and (max-width:580px) {
+    .header-action-item ul li:nth-child(n+2) {
+        display: none;
+        border-right: 0;
+        margin-right: 0
+    }
+    .header-action-item ul li:nth-child(n+3) {
+        border-right: 0;
+        margin-right: 0;
+        display: none;
+
+    }
+    
 }
 
 .header-action-item ul li {
@@ -3056,7 +3098,7 @@ ul.header-social li a {
 
 .header-action-item ul li:last-child {
     border-right: 0;
-    padding-right: 0;
+    /* padding-right: 0; */
     margin-right: 0
 }
 
@@ -3075,7 +3117,7 @@ ul.header-social li a {
 }
 
 .login-btn i {
-    padding-right: 10px;
+    padding-right: 5px;
     font-size: 14px;
     color: #e53935;
     -webkit-transition: all .3s ease-out;
@@ -7766,3 +7808,46 @@ input {
     text-align: center;
     padding: 20px;
   }
+/* HEADER PHONE */
+.header-top{
+    list-style: none;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #bababa;
+    padding : 2px;
+}
+.header-top .phone a{ 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    color : #fff;
+    margin-left: 10px;
+}
+.header-top .phone a:hover{ 
+    font-size: 10px;
+    color : rgb(250, 119, 119);
+    margin-left: 10px;
+}
+.header-top .phone b{
+    font-size: 11px;
+    color :rgb(250, 119, 119);
+}
+address{
+    margin: 0;
+}
+@media only screen and (max-width:1000px){
+    .header-top {display:none !important;}
+}
+ul li button a b{
+    color : white;
+    font-size: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* PHIM NOI BAT */
+.height-450{
+    height:450px;
+}
+.height-220 {
+    height:220px;
+}
+.height-520{
+    height : 520px;
+}

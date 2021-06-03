@@ -6,11 +6,8 @@ use App\Category;
 use App\Contry;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MovieRequest;
-use App\Menu;
-use App\Movie;
 use App\Repository\Interfaces\MovieRepositoryInterface;
 use App\Type_movie;
-use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {

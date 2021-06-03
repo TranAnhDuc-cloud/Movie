@@ -21,9 +21,8 @@ class HomeController extends BaseController
         $hoathinh_film = Movie::where('categories_id','=','3')->offset(1)->limit(6)->get();
         $hoathinh_film1 = Movie::where('categories_id','=','3')->where('view','>',2)->limit(1)->get();
         // Review Film
-        $review = Movie::where('film_hot',2)->limit(4)->get();
-        // Category
-        $cate = Category::select('*')->offset(4)->limit(3)->get();
+        $review = Movie::where('film_hot',1)->inRandomOrder()->limit(4)->get();
+        
         return view('user.pages.index')->with([
                 'action'=>$film_action,
                 'action1'=>$film_action1,
@@ -32,7 +31,7 @@ class HomeController extends BaseController
                 'hoathinh_film'=>$hoathinh_film,
                 'hoathinh_film1'=>$hoathinh_film1,
                 'review'=>$review,
-                'cate'=>$cate,
+                'cate'=>BaseController::mainCategory(),
                 'category'=>BaseController::footerCategory(),
                 'film_hot'=>BaseController::phimNoiBat(),
                 'film_hot1'=>BaseController::phimNoiBat1(),

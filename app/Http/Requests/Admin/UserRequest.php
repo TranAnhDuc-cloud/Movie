@@ -30,6 +30,7 @@ class UserRequest extends FormRequest
             'fullname' => 'required|string',
             'email' => 'required|email|unique:users,email',
             'level' => 'required|boolean',
+            'active'=>'required|boolean',
         ];
     }
     public function messages(){

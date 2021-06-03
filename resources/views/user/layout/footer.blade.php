@@ -6,15 +6,41 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="footer-box">
-                        <h2 class="title-bold-light title-bar-left text-uppercase">Xem Nhiều Nhất</h2>
+                        <h2 class="title-bold-light title-bar-left text-uppercase">{{trans('client.movieviewmost')}}</h2>
                         <ul class="most-view-post">
-                            @yield('footer-movieHot')
+                            @foreach ($movies as $item)
+                            <li>
+                                <div class="media">
+                                    <a href="{{route('detail.index',[$item->id,$item->title])}}">
+                                        <img src="{{asset($item->url_picture)}}" alt="post" class="img-fluid wh-50">
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="title-medium-light size-md mb-10">
+                                            <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
+                                        </h3>
+                                        <div class="post-date-light">
+                                            <ul>
+                                                <li>
+                                                    <span>
+                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                    </span>{{$item->date}}
+                                                    <br>
+                                                    <br>
+                                                    <span>View : {{$item->view}}</span>
+                                                </li>
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-box">
-                        <h2 class="title-bold-light title-bar-left text-uppercase">Thể Loại Phổ Biến</h2>
+                        <h2 class="title-bold-light title-bar-left text-uppercase">{{trans('client.popularcategory')}}</h2>
                         <ul class="popular-categories">
                             @foreach ($category as $item)
                                 <li class="row" style="justify-content: space-between;">
@@ -28,9 +54,18 @@
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12">
                     <div class="footer-box">
-                        <h2 class="title-bold-light title-bar-left text-uppercase">Phim Mới Nhất</h2>
+                        <h2 class="title-bold-light title-bar-left text-uppercase">{{trans('client.moviehot')}}</h2>
                         <ul class="post-gallery shine-hover ">
-                            @yield('footer-movieNew')
+                            @foreach ($new as $item)
+                            <li>
+                                <a href="{{route('detail.index',$item->id)}}">
+                                    <figure>
+                                        <img src="{{asset($item->url_picture)}}" alt="post" class="img-fluid wh-30">
+                                    </figure>
+                                    <b style="font-size:10px; color:#fff ; display: inline">{{$item->title}}</b>
+                                </a>
+                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -93,7 +128,7 @@
 
 
 <!-- MENU CLICK = -->
-<div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
+{{-- <div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
     <div id="offcanvas-nav-close" class="offcanvas-nav-close offcanvas-menu-btn">
         <a href="#" class="menu-times re-point">
             <span></span>
@@ -216,7 +251,7 @@
             </li>
         </ul>
     </div>
-</div>
+</div> --}}
 
 </div>
 

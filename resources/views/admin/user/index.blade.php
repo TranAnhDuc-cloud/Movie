@@ -23,22 +23,28 @@
           <th>{{ trans('admin.username') }}</th>
           <th>{{ trans('admin.fullname') }}</th>
           <th>{{ trans('admin.level') }}</th>
+          <th>{{ trans('admin.active') }}</th>
           <th>Email</th>
           <th>{{ trans('admin.token') }}</th>
+          <th>{{ trans('admin.created_at') }}</th>
+          <th>{{ trans('admin.update_at') }}</th>
           <th>{{ trans('admin.edit') }}</th>
           <th>{{ trans('admin.delete') }}</th>
         </tr>
         </thead>
         <tbody>
-        <?php $i=1 ?>
+        <?php $i=0 ?>
         @foreach ($getAll as $item)
         <tr class="old">
-            <td>{{ number($i) }}</td>
+            <td>{{ number($i++) }}</td>
             <td>{{$item->username}}</td>
             <td>{{$item->fullname}}</td>
             <td>{{$item->level}}</td>
+            <td>{{$item->active}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->remember_token}}</td>
+            <td>{{$item->created_at}}</td>
+            <td>{{$item->updated_at}}</td>
             <th><a href="{{route('admin.user.edit',$item->id)}}"><i class="fas fa-pencil-alt"></i></a></th>
             <th><a href="{{route('admin.user.delete',$item->id)}}"><i class="far fa-trash-alt"></i></a></th>
         </tr>                     
@@ -50,8 +56,11 @@
           <th>{{ trans('admin.username') }}</th>
           <th>{{ trans('admin.fullname') }}</th>
           <th>{{ trans('admin.level') }}</th>
+          <th>{{ trans('admin.active') }}</th>
           <th>Email</th>
           <th>{{ trans('admin.token') }}</th>
+          <th>{{ trans('admin.created_at') }}</th>
+          <th>{{ trans('admin.update_at') }}</th>
           <th>{{ trans('admin.edit') }}</th>
           <th>{{ trans('admin.delete') }}</th>
         </tr>

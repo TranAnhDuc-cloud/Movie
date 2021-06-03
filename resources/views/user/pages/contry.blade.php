@@ -3,9 +3,9 @@
 / Country')
  <!-- Contry -->
  @section('title-pages')
-    <a href="{{route('home')}}"> Home » 
+    <a href="{{route('home')}}"> {{ trans('admin.home') }} » 
     </a>
-    <a href="{{route('contry.index',$nameContry->id)}}">Quốc Gia » {{$nameContry->name}}</a>
+    <a href="{{route('contry.index',$nameContry->id)}}">{{ trans('admin.country') }} » {{$nameContry->name}}</a>
  @endsection
  @section('content-pages')
          @foreach ($contry as $item)
@@ -13,7 +13,7 @@
              <div class="position-relative mb-30">
                  <div class="img-scale-animate mb-15 img-overlay-70">
                      <a href="{{route('detail.index',[$item->id,$item->title])}}">
-                         <img src="../../public/{{$item->url_picture}}" alt="news" class="height-200 img-fluid width-100">
+                         <img src="{{asset($item->url_picture)}}" alt="news" class="height-200 img-fluid width-100">
                      </a>
                  </div>
                  <div class="topic-box-top-xs">

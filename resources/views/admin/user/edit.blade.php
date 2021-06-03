@@ -21,22 +21,9 @@
                    <div class="content">
                     <div class="row">
                         <div class="form-group col-6">
-                            <label>ID</label>
-                            <input disabled type="id" name="id" class="form-control" placeholder="{{$user->id}}">
-                        </div>
-                        <div class="form-group col-6">
                             <label>{{ trans('admin.fullname') }}</label>
                             <input type="name" name="fullname" class="form-control" placeholder="{{$user->fullname}}">
                             @error('fullname')
-                                <small class="text-danger">{{ $message }}</small> 
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label>{{ trans('admin.level') }}</label>
-                            <input type="number" min ="0" max ="1"name="level" class="form-control" placeholder="{{$user->level}}">
-                            @error('level')
                                 <small class="text-danger">{{ $message }}</small> 
                             @enderror
                         </div>
@@ -46,6 +33,24 @@
                             @error('email')
                                 <small class="text-danger">{{ $message }}</small> 
                             @enderror
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label>{{trans('admin.active')}}</label>
+                            <br>
+                            <select name="active" id="active">
+                                <option value="0" name="active">Không Hoạt Động</option>
+                                <option value="1" name="active"> Hoạt Động</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label>{{ trans('admin.level') }}</label>
+                            <br>
+                            <select name="level" id="level">
+                                <option value="0" name="level">Member</option>
+                                <option value="1" name="level">Quản Lý</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

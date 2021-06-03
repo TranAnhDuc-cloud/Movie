@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers\Category;
 
-use App\Category;
-use App\Contry;
+
 use App\Http\Controllers\BaseController;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryRequest;
-use App\Menu;
-use App\Movie;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
-use App\Type_movie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 
 class CategoryController extends BaseController
 {
@@ -35,10 +29,12 @@ class CategoryController extends BaseController
     }
 
     public function store(CategoryRequest $request){
-        $this->categoryRepository->create($request->all());
-        return redirect()->route('admin.category.index')->with(
-            'success',trans('admin.add-success')
-        );
+      $store =  $this->categoryRepository->create($request->all());
+           if($store->save()){
+                return redirect()->route('admin.category.index')->with(
+                'notifi',trans('admin.add-success')
+            );
+        }
     }
     
     public function edit($id){
@@ -46,17 +42,19 @@ class CategoryController extends BaseController
         return view('admin.category.edit')->with(['category'=>$category]);
     }
 
-    public function update($id , CategoryRequest $request){
-        $this->categoryRepository->update($id,$request->all());
-        return redirect()->route('admin.category.index')->with(['
-            success'=>trans('admin.update-success')
-        ]);
+    public function update(CategoryRequest $request ,$id){
+       $update = $this->categoryRepository->update($id,$request->all());
+            if($update->save()){
+                return redirect()->route('admin.category.index')->with(['
+                notifi'=>trans('admin.update-success')
+            ]);
+        }
     }
 
     public function destroy($id){
         $this->categoryRepository->delete($id);
         return redirect()->route('admin.category.index')->with('
-        success', trans('admin.delete-success')
+        notifi', trans('admin.delete-success')
     );
     }
 }

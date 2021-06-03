@@ -2,7 +2,7 @@
 @section('title','PhimTV / Category') 
 
 @section('title-pages')
-Home » Thể Loại » {{$key->name}}
+{{ trans('admin.home') }} » {{ trans('admin.category') }} » {{$key->name}}
 @endsection
 @section('content-pages')
         @foreach ($theloai as $item)
@@ -10,7 +10,7 @@ Home » Thể Loại » {{$key->name}}
             <div class="position-relative mb-30">
                 <div class="img-scale-animate mb-15 img-overlay-70">
                     <a href="{{route('detail.index',[$item->id,$item->title])}}">
-                        <img src="../../public/{{$item->url_picture}}" alt="news" class="height-200 img-fluid width-100">
+                        <img src="{{asset($item->url_picture)}}" alt="news" class="height-200 img-fluid width-100">
                     </a>
                 </div>
                 <div class="topic-box-top-xs">

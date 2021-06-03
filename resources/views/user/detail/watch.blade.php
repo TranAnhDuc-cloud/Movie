@@ -7,7 +7,7 @@
             <div class="col-xl-8 col-lg-7 col-md-12 mb-30">
                 <div class="item-box-dark-md-less30">
                     <div class="topic-border color-white mb-30">
-                        <div class="topic-box-lg category-title">Home / {{$watch->category->name}} / {{$watch->title}}</div>
+                        <div class="topic-box-lg category-title">{{ trans('admin.home') }} / {{$watch->category->name}} / {{$watch->title}}</div>
                     </div>
                     <div class="watch">
                         <video controls width="100%">
@@ -15,19 +15,18 @@
                         </video>
                         <div class="watch-notificate mt-20">
                             <div class="watch-title">
-                                <p>Bạn đang xem phim <b style="font-size:20px">{{$watch->title}}</b> online chất lượng cao miễn phí tại server phim GD 1.</p>
+                                <p>{{ trans('client.youwatching') }} <b style="font-size:20px">{{$watch->title}}</b> {{ trans('client.onlinechatluongtai') }}.</p>
                             </div>
                             <div class="watch-report mb-20">
                                 <fieldset>
-                                    <legend>Hướng khắc phục lỗi xem phim</legend>
+                                    <legend>{{ trans('client.huongdankhacphuc') }}</legend>
                                     <ul>
-                                        <li>Sử dụng DNS 8.8.8.8, 8.8.4.4 hoặc 208.67.222.222, 208.67.220.220 để xem phim nhanh
-                                            hơn.
+                                        <li>{{ trans('client.sudungDNS') }}.
                                         </li>
-                                        <li>Chất lượng phim mặc định chiếu là 360. Để xem phim chất lượng cao hơn xin vui lòng
-                                            chọn trên player.</li>
-                                        <li>Xem phim nhanh hơn với trình duyệt Google Chrome, Cốc Cốc</li>
-                                        <li>Nếu bạn không xem được phim vui lòng nhấn CTRL + F5 hoặc CMD + R trên MAC vài lần.</li>
+                                        <li>{{ trans('client.chatluonghon') }}
+                                            .</li>
+                                        <li>{{ trans('client.xemphimnhanhon') }}</li>
+                                        <li>{{ trans('client.neubankhongxemduoc') }}.</li>
                                     </ul>
                                 </fieldset>
                             </div>
@@ -41,7 +40,7 @@
             </div>
             <div class="ne-sidebar sidebar-break-md col-xl-4 col-lg-5 col-md-12">
                 <div class="sidebar-box item-box-dark-md">
-                    <div class="topic-box-lg bg-danger">Top Xem Nhiều</div>
+                    <div class="topic-box-lg bg-danger">{{ trans('client.movieviewmost') }}</div>
                 </div>
                 <div class="sidebar-box item-box-dark-md">
                     
@@ -56,7 +55,7 @@
                                 <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
                             </h3>
                             <h3 class="mb-none">
-                                <a href="{{route('detail.index',[$item->id,$item->title])}}" style="font-size:13px; color:#666">Lượt Xem : {{$item->view}}</a>
+                                <a href="{{route('detail.index',[$item->id,$item->title])}}" style="font-size:13px; color:#666">{{ trans('view') }} : {{$item->view}}</a>
                             </h3>
                         </div>
                         @endif

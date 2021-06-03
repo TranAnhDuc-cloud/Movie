@@ -46,12 +46,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(UserRequest $request ,$id){
+    public function update(Request $request ,$id){
         $update = $this->userRepository->update($id,$request->all());
-        if($update->save())
+        if($update->save()){
             return redirect()->route('admin.user.index')->with(['
                 success'=>trans('admin.update-success')
             ]);
+        }
     }
 
     public function destroy($id){

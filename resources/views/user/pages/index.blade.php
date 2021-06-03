@@ -2,101 +2,19 @@
 @section('title','Phim TV')
  
 
-
-@section('content-hot')
-<div class="content">
-    <!-- Film Nổi Bật -->
-   <section class="section-space-less10">
-       <div class="container">
-           <div class="topic-box-lg color-white mb-5">Phim Nổi Bật</div>
-           <div class="row tab-space5">
-               @foreach ($film_hot1 as $item)
-               <div class="col-lg-5 col-md-12 mb-10">
-                   <div class="img-overlay-70 img-scale-animate">
-                       <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100">
-                       <div class="mask-content-lg">
-                           <div class="topic-box-sm color-cinnabar mb-20">{{$item->status}}</div>
-                           <div class="post-date-light">
-                               <ul>
-                                   <li>
-                                       <span>by</span>
-                                       <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->directors}}</a>
-                                   </li>
-                                   <li>
-                                       <span>
-                                           <i class="fa fa-calendar" aria-hidden="true"></i>
-                                       </span>{{$item->date}}</li>
-                               </ul>
-                           </div>
-                           <h1 class="title-medium-light">
-                               <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
-                           </h1>
-                       </div>
-                   </div>
-               </div>
-               @endforeach
-               <div class="col-lg-7 col-md-12">
-                   <div class="row tab-space5">
-                       @foreach ($film_hot as $item)
-                           <div class="col-sm-6 col-12">
-                               <div class="img-overlay-70 img-scale-animate mb-10">
-                                   <div class="mask-content-sm">
-                                       <div class="topic-box-sm color-cinnabar mb-10">{{$item->status}}</div>
-                                       <h3 class="title-medium-light">
-                                           <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
-                                           <ul>
-                                               <li>
-                                                   <span>by</span>
-                                                   <a href="{{route('detail.index',[$item->id,$item->title])}}" class="directors">{{$item->directors}}</a>
-                                               </li>
-                                               <li>
-                                                   <span>
-                                                       <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                       Thời Lượng :
-                                                   </span>{{$item->time}} Phút</li>
-                                           </ul>
-                                       </h3>
-                                       <style>
-                                           .directors{
-                                               color: #fff;
-                                               font-size:12px;
-                                               margin-left: 5px;
-                                           }
-                                       </style>
-                                   </div>
-                                   <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100">
-                                   <style>
-                                       .title-medium-light{
-                                           margin-bottom: 5px !important;
-                                       }
-                                       .descripton_film:hover{
-                                           color: #fff !important;
-                                       }
-                                   </style>
-                               </div>
-                           </div>
-                       @endforeach
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
-   <!-- END Film Nổi Bật -->
-</div>
-@endsection
 @section('content-new')
  <!-- Category -->
- <section class="section-space-bottom">
+<section class="section-space-bottom">
     <div class="container">
         <div class="item-box-dark-md-less30 ne-isotope">
             <div class="row">
                 <div class="col-12">
                     <div class="topic-border color-white mb-30">
-                        <div class="topic-box-lg color-white">Top Phim Mới Cập Nhật</div>
+                        <div class="topic-box-lg color-white">{{ trans('client.topmovieupdate') }}</div>
                         <div class="isotope-classes-tab isotop-btn-light">
-                            <a href="#" data-filter=".action" class="current">Hành Động</a>
-                            <a href="#" data-filter=".racing">Võ Thuật</a>
-                            <a href="#" data-filter=".boxing">Hoạt Hình</a>
+                            <a href="#" data-filter=".action" class="current"> {{ trans('client.action') }}</a>
+                            <a href="#" data-filter=".racing">{{ trans('client.art') }}</a>
+                            <a href="#" data-filter=".boxing">{{ trans('client.cartoon') }}</a>
                         </div>
                         <div class="more-info-link-light">
                                <img src="{{asset('img/author.jpg')}}" alt="" srcset="">
@@ -118,7 +36,7 @@
                                     <ul>
                                         <li>
                                             <span>by</span>
-                                            <a href="{{route('detail.index',[$actions->id,$actions->title])}}">Adams</a>
+                                            <a href="{{route('detail.index',[$actions->id,$actions->title])}}">{{$actions->directors}}</a>
                                         </li>
                                         <li>
                                             <span>
@@ -319,7 +237,7 @@
             <div class="col-xl-8 col-lg-7 col-md-12 mb-30">
                 <div class="item-box-dark-md-less30">
                     <div class="topic-border color-white mb-30">
-                        <div class="topic-box-lg color-white">Reviews Films</div>
+                        <div class="topic-box-lg color-white">{{ trans('client.reviewmovie') }}</div>
                     </div>
                     <div class="row">
                         @foreach ($review as $item)
@@ -352,7 +270,16 @@
                                 <h3 class="title-medium-light size-lg mb-15">
                                     <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
                                 </h3>
-                                <p>{{$item->description}}</p>
+                                <p>
+                                    <a class="btn btn-info" data-toggle="collapse" href="#see{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                      {{ trans('client.xemthem') }}
+                                    </a>
+                                </p>
+                                <div class="collapse" id="see{{$item->id}}">
+                                    <div class="card-body" style="color: rgb(187, 179, 179); font: 15px;">
+                                      {{$item->description}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         @endforeach
@@ -361,7 +288,7 @@
             </div>
             <div class="ne-sidebar sidebar-break-md col-xl-4 col-lg-5 col-md-12">
                 <div class="sidebar-box item-box-dark-md">
-                    <div class="topic-box-lg bg-danger">Top Xem Nhiều</div>
+                    <div class="topic-box-lg bg-danger">{{ trans('client.movieviewmost') }}</div>
                 </div>
                 <div class="sidebar-box item-box-dark-md">
                     
@@ -396,7 +323,7 @@
 <section class="section-space-less30 overlay-dark bg-attachment" style="background-image: url('img/banner/video-back1.jpg');">
     <div class="container">
         <div class="topic-border color-white mb-30">
-            <div class="topic-box-lg color-white">Trailer</div>
+            <div class="topic-box-lg color-white">{{ trans('client.trailer') }}</div>
         </div>
         <div class="row">
             @foreach ($trailer as $item)
@@ -407,7 +334,7 @@
                             <img src="{{asset('img/banner/play.png')}}" alt="play" class="img-fluid">
                         </a>
                     </div>
-                    <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100">
+                    <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100 height-520">
                     <div class="mask-content-lg">
                         @foreach ($category as $row)
                         @if ($row->id == $item->categories_id)                     
@@ -437,7 +364,7 @@
                 @foreach ($cate as $item)
                 <div class="media mb-30 bg-primarytextcolor on-hover-bg-gray">
                     <a class="img-opacity-hover width25-lg" href="{{route('category.index',[$item->id,$item->name])}}">
-                        <img src="{{$item->url_picture}}" alt="news" class="img-fluid">
+                        <img src="{{asset($item->url_picture)}}" alt="news" class="img-fluid">
                     </a>
                     <div class="media-body media-padding8">
                         <div class="topic-box-sm bg-danger mb-20">{{$item->name}}</div>

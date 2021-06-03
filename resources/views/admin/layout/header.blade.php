@@ -43,7 +43,7 @@
         <a href="{{route('admin')}}" class="nav-link">{{ trans('admin.home') }}</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('contact')}}" class="nav-link">Contact</a>
+        <a href="{{route('contact')}}" class="nav-link">{{ trans('admin.contact') }}</a>
       </li>
     </ul>
 
@@ -54,7 +54,7 @@
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" placeholder="{{ trans('admin.search') }}" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -202,7 +202,7 @@
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="{{ trans('admin.search') }}" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -220,7 +220,7 @@
             <a href="{{route('admin')}}" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                {{ trans('admin.dashboard') }}
               </p>
             </a>
           </li>
@@ -228,7 +228,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Movie
+                {{ trans('admin.movie') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -236,13 +236,13 @@
               <li class="nav-item">
                 <a href="{{route('admin.movie.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show</p>
+                  <p>{{ trans('admin.show') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.movie.add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add</p>
+                  <p>{{ trans('admin.add') }}</p>
                 </a>
               </li>
             </ul>
@@ -251,7 +251,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
-                Category
+                {{ trans('admin.category') }}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -259,13 +259,13 @@
               <li class="nav-item">
                 <a href="{{route('admin.category.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show</p>
+                  <p>{{ trans('admin.show') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.category.add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add</p>
+                  <p>{{ trans('admin.add') }}</p>
                 </a>
               </li>
             </ul>
@@ -274,7 +274,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                User
+                {{ trans('admin.user') }}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -282,13 +282,13 @@
               <li class="nav-item">
                 <a href="{{route('admin.user.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Show</p>
+                  <p>{{ trans('admin.show') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.user.add')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add</p>
+                  <p>{{ trans('admin.add') }}</p>
                 </a>
               </li>
             </ul>
@@ -297,7 +297,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Type Movie
+                {{ trans('admin.typemovie') }}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

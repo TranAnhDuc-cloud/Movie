@@ -44,7 +44,7 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
         return Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
     }
     public function detail($id){
-        $cate = Category::select('*')->offset(4)->limit(3)->get();
+        $cate = Category::select('*')->inRandomOrder()->offset(4)->limit(3)->get();
         $detail = Movie::find($id);
         $sameCategory = Movie::where('categories_id',$detail->categories_id)->inRandomOrder()->limit(4)->get();
         return view('user.detail.detail')->with([

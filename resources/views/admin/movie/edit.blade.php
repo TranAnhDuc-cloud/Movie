@@ -123,7 +123,7 @@
                             <label>{{trans('admin.category')}}</label>
                             <br>
                             <select name="categories_id" id="categories_id">
-                                <option value="{{$movie->id}}" name="{{$movie->name}}">{{$movie->category->name}}</option>
+                                <option value="{{$movie->category->id}}" name="{{$movie->name}}">{{$movie->category->name}}</option>
                                 @foreach ($category as $item)
                                 <option value="{{$item->id}}" name="{{$item->name}}">{{$item->name}}</option>
                                 @endforeach
@@ -133,7 +133,7 @@
                             <label>{{trans('admin.country')}}</label>
                             <br>
                             <select name="contries_id" id="contries_id">
-                                <option value="{{$movie->id}}" name="{{$movie->name}}">{{$movie->contry->name}}</option>
+                                <option value="{{$movie->contry->id}}" name="{{$movie->name}}">{{$movie->contry->name}}</option>
                                 @foreach ($contry as $item)
                                 <option value="{{$item->id}}" name="{{$item->name}}">{{$item->name}}</option>
                                 @endforeach

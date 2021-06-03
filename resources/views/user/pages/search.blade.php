@@ -2,7 +2,7 @@
 @section('title','PhimTV') 
 
 @section('title-pages')
-Home » Kết Quả Tìm Kiếm » {{$searchTerm}}
+{{ trans('admin.home') }} » {{ trans('client.searchresult') }} » {{$searchTerm}}
 @endsection
 @section('content-pages')
         @foreach ($result as $item)
@@ -11,7 +11,7 @@ Home » Kết Quả Tìm Kiếm » {{$searchTerm}}
                 <div class="position-relative mb-30">
                     <div class="img-scale-animate mb-15 img-overlay-70">
                         <a href="{{route('detail.index',[$item->id,$item->title])}}">
-                            <img src="../../public/{{$item->url_picture}}" alt="news" class="height-200 img-fluid width-100">
+                            <img src="{{asset($item->url_picture)}}" alt="news" class="height-200 img-fluid width-100">
                         </a>
                     </div>
                     <div class="topic-box-top-xs">

@@ -9,9 +9,10 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
     }
     public function create(array $attributes){
         $category = new \App\Category;
-          $category->name = $attributes['name'];
-          $category->description = $attributes['description'];
-          $category->url_picture = $attributes['url_picture'];
-          return $category->save();
+        $category->name = $attributes['name'];
+        $category->description = $attributes['description'];
+        $category->url_picture = $attributes['url_picture'];
+        return $category->save();
     }
+    
 }

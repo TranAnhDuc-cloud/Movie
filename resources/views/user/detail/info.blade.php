@@ -6,7 +6,7 @@
     <div class="container">
         <div class="topic-border color-white mb-30">
             <div class="topic-box-lg category-title">
-                Home » Account
+                {{ trans('admin.home') }} » {{ trans('admin.account') }}
             </div>
         </div>
         <section class="content">

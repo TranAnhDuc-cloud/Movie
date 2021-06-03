@@ -16,33 +16,37 @@ class BaseController extends Controller
 
     // FOOTER
     protected function footerMovies(){
-        return  Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
+        return  Movie::where('view','>',100)->inRandomOrder()->orderBy('view','Desc')->limit(3)->get();
     }
 
     protected function footerCategory(){
         return  Category::all();
     }
 
+    protected function mainCategory(){
+       return Category::select('*')->inRandomOrder()->limit(3)->get();
+    }
+
     // MOVIE
     protected function phimMoiNhat(){
-        return Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
+        return Movie::select('*')->inRandomOrder()->orderby('created_at','Desc')->limit(6)->get();
     }
 
     protected function topXemNhieu(){
-        return Movie::where('view','>',100)->orderBy('view','Desc')->limit(6)->get();
+        return Movie::where('view','>',100)->inRandomOrder()->orderBy('view','Desc')->limit(6)->get();
     }
 
     protected function phimNoiBat(){
-        return  Movie::where('film_hot','=',1)->limit(4)->get();
+        return  Movie::where('film_hot','=',1)->inRandomOrder()->limit(4)->get();
     }
 
     protected function phimNoiBat1(){
-        return Movie::where('view','>',200)->limit(1)->get();
+        return Movie::where('view','>',200)->inRandomOrder()->limit(1)->get();
     }
 
    // Trailer
     protected function trailer(){
-        return Movie::where('film_hot',0)->offset(1)->limit(1)->get();
+        return Movie::where('film_hot',0)->inRandomOrder()->offset(1)->limit(1)->get();
     }
 
 }

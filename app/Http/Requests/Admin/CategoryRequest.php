@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -24,8 +25,8 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:6|max:30|unique:categories',
-            'description' => 'required|min:20|max:500',
+            'name' => 'required|unique:categories',
+            'description' => 'required',
             'url_picture' => 'required',
         ];
     }

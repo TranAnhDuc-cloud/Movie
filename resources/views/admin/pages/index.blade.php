@@ -15,10 +15,10 @@
               @yield('card-header-title')
             </div>
             @if (Session::has('error'))
-              <div class="alert bg-danger text-center">{{Session::has('error')}}</div>
+              <div class="alert bg-danger text-center">{{Session::get('error')}}</div>
             @endif
-            @if (Session::has('success'))
-              <div class="alert bg-success text-center">{{ Session::get('success') }}</div>
+            @if (Session::has('notifi'))
+              <div class="alert bg-success text-center">{{ Session::get('notifi') }}</div>
             @endif
             <!-- /.card-header -->
             <div class="card-body card-body-pages">

@@ -13,6 +13,12 @@ return [
     'show' => 'Show',
     'home' => 'Home',
     'enter'=>' Enter',
+    'dashboard' =>'Dashboard',
+    'search' =>'Search',
+    'contact' =>'Contact',
+    'created_at' => 'Create at',
+    'update_at'=>'Update at',
+    'active' =>'Active',
     // Movie
     'movie' => 'Movie',
     'name' => 'Name',
@@ -32,6 +38,7 @@ return [
     'minutes' =>'Minutes',
     'epoiside' =>'Epoiside',
     // User
+    'account'=>'Account',
     'user' =>'User',
     'password_cofimer' => 'Enter Password Cofimetion',
     'level' =>'Level',

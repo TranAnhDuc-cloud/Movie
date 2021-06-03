@@ -12,6 +12,12 @@ return [
     'show' => 'Danh Sách',
     'home'=>'Trang Chủ',
     'enter'=>'Nhập',
+    'dashboard'=>'Trang Chủ',
+    'search'=>'Tìm Kiếm',
+    'contact'=>'Liên Hệ',
+    'created_at' => 'Ngày Tạo',
+    'update_at'=>'Ngày Cập Nhật',
+    'active'=>'Hoạt Động',
     // MOVIE
     'movie' => 'Phim',
     'name' =>'Tên Thứ 2',
@@ -28,6 +34,7 @@ return [
     // Country
     'country' =>'Quốc Gia',
     'user' =>'Người Dùng',
+    'account'=>'Tài Khoản',
     'password_cofimer' => 'Nhập Lại Password',
     'level' => 'Quyền Truy Cập',
     'admin' =>'Quản Lý',

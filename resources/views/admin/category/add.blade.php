@@ -36,7 +36,6 @@
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror
                             </div>
-                           
                         </div>
                         <div class="row">
                             <div class="form-group col-6">
@@ -48,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" class="form-control btn btn-primary" value="Add">
+                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{trans('admin.add') }}">
                         </div>
                     </div>
                 </div>

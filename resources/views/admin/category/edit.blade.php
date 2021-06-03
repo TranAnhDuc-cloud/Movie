@@ -45,7 +45,7 @@
                                 @enderror
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" class="form-control btn btn-primary" value="Add">
+                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
                         </div>
                     </div>
                 </div>                

@@ -36,7 +36,27 @@
         <header>
             <div id="header-layout1" class="header-style1">
                 <div class="main-menu-area bg-primarytextcolor header-menu-fixed" id="sticker">
+                    
                     <div class="container">
+                        <li class="d-flex header-top">
+                            
+                              <div class="phone">
+                                <b>{{trans('client.contactforwork')}} : <a href="tel:0368417420">0368417420</a></b>
+                              </div>
+                              <address class="phone">
+                                <b>{{trans('client.writtenby')}} : <a href="mailto:ductran.25122001@gmail.com">ductran.25122001@gmail.com</a></b>
+                              </address>
+                              <div class="btn-group">
+                                <div type="button" class="btn m-0 pd-0 dropdown-toggle" style="background-color: #111" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-globe-europe" style="color: #fff"></i>
+                                </div>
+                                <div class="dropdown-menu" style="min-width: 20px">
+                                 <a href="{{ route('language',['en']) }}">EN</a>
+                                 <hr>
+                                 <a href="{{ route('language',['vi']) }}">VI</a>
+                                </div>
+                              </div>
+                        </li>
                         <div class="row no-gutters d-flex align-items-center">
                             <div class="col-lg-1 d-none d-lg-block">
                                 <div class="logo-area">
@@ -54,7 +74,7 @@
                                             </li> 
                                             @foreach ($menu as $menus)
                                             <li class="">
-                                                <a style="cursor: pointer">{{$menus->name}}</a>
+                                                <a style="cursor: pointer">{{trans('client.menu-title',['name'=>$menus->name])}}</a>
                                                 <ul class="sub-menu ne-dropdown-menu">
                                                     <?php $handle = $menus->handle ;
                                                         $nav = DB::table($handle)->select('*')->get();
@@ -62,7 +82,7 @@
                                                         @foreach ($nav as $nav_menus)
                                                             <li class="">
                                                                 <a href="{{route('menu',[$menus->name,$nav_menus->id,$nav_menus->name])}}">
-                                                                    {{$nav_menus->name}}
+                                                                    {{trans('client.menu-title',['name'=>$nav_menus->name])}}
                                                                 </a>
                                                             </li>  
                                                        @endforeach             
@@ -74,18 +94,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-3 col-md-12 text-right position-static">
-                                <li>
-                                    <div class="btn-group">
-                                        <div type="button" class="btn m-0 pd-0 dropdown-toggle" style="background-color: #111" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-globe-europe" style="color: #fff"></i>
-                                        </div>
-                                        <div class="dropdown-menu" style="min-width: 20px">
-                                         <a href="{{ route('language',['en']) }}">EN</a>
-                                         <hr>
-                                         <a href="{{ route('language',['vi']) }}">VI</a>
-                                        </div>
-                                      </div>
-                                </li>
+                               
                                 <div class="header-action-item">
                                     <ul>
                                         <li class="header-search">
@@ -98,7 +107,8 @@
                                         <li class="register">
                                                 <button type="button" class="login-btn">
                                                     <a class="login-link" href="{{route('register')}}">
-                                                    <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.register') }}
+                                                    <i class="fas fa-user-plus"></i>
+                                                        <b>{{ trans('admin.register') }}</b>
                                                     </a>    
                                                 </button>
                                         </li>
@@ -107,13 +117,15 @@
                                             @if (Auth::check())
                                             <button type="button" class="login-btn">
                                                 <a class="login-link" href="{{route('logout')}}">
-                                                <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.logout') }}
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                <b>{{ trans('admin.logout') }}</b>
                                                 </a>    
                                             </button>   
                                             @else
                                             <button type="button" class="login-btn">
                                                     <a class="login-link" href="{{route('login')}}">
-                                                    <i class="fa fa-user" aria-hidden="true"></i>{{ trans('admin.login') }}
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                    <b>{{ trans('admin.login') }}</b>
                                                     </a>    
                                             </button>
                                             @endif                                          
@@ -123,12 +135,16 @@
                                                 @if (Auth::user()->level==1)
                                                     <button type="button" class="login-btn">
                                                         <a class="login-link" href="{{route('admin')}}">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>{{Auth::user()->username}}</a>
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                            <b>{{Auth::user()->username}}</b>
+                                                        </a>
                                                     </button> 
                                                 @else
                                                     <button type="button" class="login-btn">
                                                         <a class="login-link" href="{{route('account',[Auth::user()->username,Auth::user()->id])}}">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>{{Auth::user()->username}}</a>
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                            <b>{{Auth::user()->username}}</b>
+                                                        </a>
                                                     </button>
                                                 @endif
                                             @endif                                           
@@ -137,7 +153,9 @@
                                     </ul>
                                 </div>
                             </div>
+                           
                         </div>
+                        
                     </div>
                 </div>
             </div>

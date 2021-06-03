@@ -52,7 +52,7 @@ use Illuminate\Support\Facades\Route;
       Route::prefix('category')->group(function (){
          Route::get('/','Category\CategoryController@index')->name('admin.category.index');
          Route::get('/add','Category\CategoryController@show')->name('admin.category.add');
-         Route::post('/add','Category\CategoryController@store')->name('admin.category.store');
+         Route::post('/store','Category\CategoryController@store')->name('admin.category.store');
          Route::get('/edit/{id}','Category\CategoryController@edit')->name('admin.category.edit');
          Route::post('/update/{id}','Category\CategoryController@update')->name('admin.category.update');
          Route::get('/delete/{id}','Category\CategoryController@destroy')->name('admin.category.delete');
