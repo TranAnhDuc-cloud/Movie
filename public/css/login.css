@@ -433,3 +433,41 @@ form:after {
 .back:hover{
     background-color: #fde5b6;
 }
+.g-recaptcha div{
+    width: 100% !important;
+}
+/*  */
+.facebook{
+    display: flex;
+    border-radius:10px; 
+    border: 1px solid #bababa;
+    padding: 10px;
+    background-color: #1f42b4;
+    justify-content:flex-start;
+    color: #fff;
+    
+}
+.facebook div {
+    margin: auto;
+}
+.facebook:hover{
+    text-decoration: none !important;
+    color: rgb(252, 190, 190) !important;
+}
+.google{
+    margin-top : 10px;
+    display: flex;
+    border-radius:10px; 
+    border: 1px solid #bababa;
+    padding: 10px;
+    justify-content:flex-start;
+    background-color: rgb(202, 197, 197) !important;
+    color: rgba(201, 24, 24, 0.067);
+}
+.google div {
+    margin: auto;
+}
+.google:hover{
+    text-decoration: none !important;
+    color: rgb(255, 249, 249) !important;
+}

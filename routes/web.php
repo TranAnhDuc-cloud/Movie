@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\Route;
    Route::post('register','Auth\RegisterController@register')->name('register.show');
    Route::get('logout','Auth\LogoutController@index')->name('logout');
    Route::get('register/active/{token}','Auth\RegisterController@active')->name('register.active');
+   Route::get('auth/{social}', 'Auth\FacebookController@redirect');
+   Route::get('auth/callback/{social}', 'Auth\FacebookController@callback');
 
    // Admin
    Route::group(['middleware' => 'admin'], function(){

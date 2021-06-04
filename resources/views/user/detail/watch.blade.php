@@ -11,7 +11,7 @@
                     </div>
                     <div class="watch">
                         <video controls width="100%">
-                            <source src="{{asset('video/video.mp4')}}">
+                            <source src="{{asset($watch->url_link)}}">
                         </video>
                         <div class="watch-notificate mt-20">
                             <div class="watch-title">

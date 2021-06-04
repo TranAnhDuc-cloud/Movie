@@ -104,14 +104,14 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label>{{trans('admin.url_picture')}}</label>
-                                <input type="text" name="url_picture" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.url_picture')}}">
+                                <input type="file" name="url_picture" class="url_picture">
                                 @error('url_picture')
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror
                             </div>
                             <div class="form-group col-6">
                                 <label>{{trans('admin.url_link')}}</label>
-                                <input type="text" name="url_link" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.url_link')}}">
+                                <input type="file" name="url_link" class="url_picture" placeholder="{{trans('admin.enter')}} {{trans('admin.url_link')}}">
                                 @error('url_link')
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror

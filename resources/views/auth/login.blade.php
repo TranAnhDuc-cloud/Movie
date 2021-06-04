@@ -7,6 +7,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.png')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 </head>
 <body></body>
 <div class="back"><a href="{{route('home')}}">{{ trans('admin.back') }}</a></div>
@@ -38,6 +40,18 @@
 				@error('password')
 					<small class="text-danger">{{ $message }}</small> 
 				@enderror
+			
+				<a href="auth/facebook" class="facebook">
+					<i class="fab fa-facebook-square"></i>
+					<div>Facebook</div>
+				</a>
+				<a href="#" class="google">
+					<i class="fab fa-google"></i>
+					<div>Google</div>
+				</a>
+				<style>
+				
+				</style>
 			<div>
 				<input type="submit" value="{{ trans('admin.login') }}" />
 				<a href="#">{{ trans('admin.lostpassword') }} ?</a>

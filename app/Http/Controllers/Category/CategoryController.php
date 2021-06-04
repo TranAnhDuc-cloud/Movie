@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Category;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\CategoryRequest;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
+use App\Services\uploadFileService;
 use Illuminate\Http\Request;
 
 class CategoryController extends BaseController
@@ -18,18 +19,19 @@ class CategoryController extends BaseController
     
     public function index(){
         $getAll = $this->categoryRepository->getAll();
-        return view('admin.category.index')->with([
-            'getAll' => $getAll,
-            ]);
+        return view('admin.category.index')->with('getAll',$getAll);
     }
 
     public function show(){
-        return view('admin.category.add')->with([
-        ]);
+        return view('admin.category.add');
     }
 
     public function store(CategoryRequest $request){
-      $store =  $this->categoryRepository->create($request->all());
+        $image = $request->file('url_picture');
+        $all = $request->all();
+        $all['url_picture'] = 'img/news/'.$image->getClientOriginalName('url_picture');
+        uploadFileService::handleImg($image,$all['url_picture']);
+        $store =  $this->categoryRepository->create($all);
            if($store->save()){
                 return redirect()->route('admin.category.index')->with(
                 'notifi',trans('admin.add-success')
@@ -43,7 +45,11 @@ class CategoryController extends BaseController
     }
 
     public function update(CategoryRequest $request ,$id){
-       $update = $this->categoryRepository->update($id,$request->all());
+        $image = $request->file('url_picture');
+        $all =$request->all();
+        $all['url_picture'] = 'img/news/'.$image->getClientOriginalName('url_picture');
+        uploadFileService::handleImg($image,$all['url_picture']);
+       $update = $this->categoryRepository->update($id,$all);
             if($update->save()){
                 return redirect()->route('admin.category.index')->with(['
                 notifi'=>trans('admin.update-success')

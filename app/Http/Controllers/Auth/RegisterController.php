@@ -19,7 +19,7 @@ class RegisterController extends Controller
         $email_verified = Str::random(40);
         $email = $request->email;
         $username = $request->username;
-      $user =  User::create([
+        $user =  User::create([
             'username' => $username,
             'password' => bcrypt($request->password),
             'fullname' => $request->fullname,

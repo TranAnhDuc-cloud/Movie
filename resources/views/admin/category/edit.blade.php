@@ -24,14 +24,14 @@
                         <div class="row">
                             <div class="form-group col-6">
                                 <label>{{trans('admin.title')}}</label>
-                                <input type="text" name="name" class="form-control"  placeholder="{{$category->name}}">
+                                <input type="text" name="name" class="form-control"  value="{{$category->name}}">
                                 @error('name')
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror
                             </div>
                             <div class="form-group col-6">
                                 <label>{{trans('admin.url_picture')}}</label>
-                                <input type="text" name="url_picture" class="form-control" placeholder="{{$category->url_picture}}">
+                                <input type="file" name="url_picture"  value="{{$category->url_picture}}">
                                 @error('url_picture')
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror
@@ -39,7 +39,7 @@
                         </div>
                         <div class="row">
                                 <label>{{trans('admin.description')}}</label>
-                                <textarea name="description" id="description" rows="10" placeholder={{$category->description}}></textarea>
+                                <input type="text" name="description" id="description" rows="10" value="{{$category->description}}">
                                 @error('description')
                                     <small class="text-danger">{{ $message }}</small> 
                                 @enderror

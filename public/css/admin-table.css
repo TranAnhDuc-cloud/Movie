@@ -49,3 +49,8 @@ th a {
     text-align: center;
     padding: 20px;
   }
+  .url_picture {
+      border-radius: none!important;
+      font-size:12px;
+
+  }
