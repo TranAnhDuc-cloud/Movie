@@ -54,6 +54,13 @@
                                     @enderror
                                 </div>
                             </div>
+                                <div class="form-group ">
+                                    <label>Email</label>
+                                    <input type="email" name="email" class="form-control" placeholder="{{trans('admin.enter')}} Email">
+                                    @error('email')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                    @enderror
+                                </div>
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label>{{trans('admin.level')}}</label>
@@ -67,15 +74,17 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-6">
-                                    <label>Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="{{trans('admin.enter')}} Email">
-                                    @error('email')
-                                        <small class="text-danger">{{ $message }}</small> 
-                                    @enderror
+                                    <label>{{trans('admin.active')}}</label>
+                                    <br>
+                                    <select name="active" id="active">
+                                        <option value="0" name="no_active">Không Hoạt Động</option>
+                                        <option value="1" name="yes_active"> Hoạt Động</option>
+                                    </select>
                                 </div>
                             </div>
+                            
                             <div class="form-group">
-                                <input type="submit" name="submit" class="form-control btn btn-primary" value="{{trans('admin.add')}}">
+                                <input type="submit" class="form-control btn btn-primary" value="{{trans('admin.add')}}">
                             </div>
                         </div>
                     </div>

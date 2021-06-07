@@ -49,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Schema::defaultStringLength(191); // add: default varchar(191)
         //SHARE VIEW
         $shareType = Type_movie::all();
         View::share('shareType', $shareType);

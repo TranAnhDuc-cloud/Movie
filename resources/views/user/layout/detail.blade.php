@@ -14,7 +14,7 @@
                 <div class="position-relative mb-30">
                     <div class="img-scale-animate mb-15 img-overlay-70">
                         <a href="{{route('detail.index',[$item->id,$item->title])}}">
-                            <img src="{{asset($item->url_picture)}}" alt="news" class="img-fluid width-100 height-200">
+                            <img src="{{asset($item->url_picture)}}"  alt="news" class="img-fluid width-100 height-200">
                         </a>
                     </div>
                     <div class="topic-box-top-xs">

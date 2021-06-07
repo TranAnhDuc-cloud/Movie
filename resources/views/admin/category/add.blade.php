@@ -16,11 +16,13 @@
                 @if (Session::has('error'))
                   <div class="alert alert-danger">{{Session::has('error')}}</div>
                 @endif
-            <form action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+            {!! Form::open(array('route' =>'admin.category.store' , 'files' => true , 'method' =>'POST')) !!}
+                {{ Form::hidden('_method', 'POST') }}
                 {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.add')}} {{trans('admin.category')}}</b></div>
                 <div class="container">
                     <div class="content">
+
                         <div class="row">
                             <div class="form-group col-6">
                                 <label>{{trans('admin.title')}}</label>
@@ -37,6 +39,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="form-group col-6">
                                 <label>{{trans('admin.url_picture')}}</label>
@@ -46,12 +49,14 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{trans('admin.add') }}">
+                            <input type="submit" class="form-control btn btn-primary" value="{{trans('admin.add') }}">
                         </div>
+
                     </div>
                 </div>
-            </form>
+            {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

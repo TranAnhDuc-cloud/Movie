@@ -13,43 +13,47 @@
      <!-- Main content -->
      <div class="card-body card-pd">
         <div class="table-responsive">
-                @if (Session::has('error'))
+            @if (Session::has('error'))
                   <div class="alert alert-danger">{{Session::has('error')}}</div>
-                @endif
-            <form action="{{route('admin.category.update',$category->id)}}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.category')}}</b></div>
-                <div class="container">
-                    <div class="content">
-                        <div class="row">
-                            <div class="form-group col-6">
-                                <label>{{trans('admin.title')}}</label>
-                                <input type="text" name="name" class="form-control"  value="{{$category->name}}">
-                                @error('name')
-                                    <small class="text-danger">{{ $message }}</small> 
-                                @enderror
+            @endif
+                    {!! Form::open(array('route' =>array('admin.category.update',$category->id), 'files' => true , 'method' =>'POST')) !!}
+                    {{ Form::hidden('_method', 'PUT') }}
+                    {{ csrf_field() }}
+                    <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.category')}}</b></div>
+                    <div class="container">
+                        <div class="content">
+
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label>{{trans('admin.title')}}</label>
+                                    <input type="text" name="name" class="form-control"  value="{{$category->name}}">
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                    @enderror
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>{{trans('admin.url_picture')}}</label>
+                                    <input type="file" name="url_picture"  value="{{$category->url_picture}}">
+                                    @error('url_picture')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                    @enderror
+                                </div>
                             </div>
-                            <div class="form-group col-6">
-                                <label>{{trans('admin.url_picture')}}</label>
-                                <input type="file" name="url_picture"  value="{{$category->url_picture}}">
-                                @error('url_picture')
-                                    <small class="text-danger">{{ $message }}</small> 
-                                @enderror
+
+                            <div class="row">
+                                    <label>{{trans('admin.description')}}</label>
+                                    <input type="text" name="description" id="description" rows="10" value="{{$category->description}}">
+                                    @error('description')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                    @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
                             </div>
                         </div>
-                        <div class="row">
-                                <label>{{trans('admin.description')}}</label>
-                                <input type="text" name="description" id="description" rows="10" value="{{$category->description}}">
-                                @error('description')
-                                    <small class="text-danger">{{ $message }}</small> 
-                                @enderror
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
-                        </div>
-                    </div>
-                </div>                
-            </form>
+                    </div>                
+                    {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

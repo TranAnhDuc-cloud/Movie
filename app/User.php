@@ -5,10 +5,16 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'fullname','level','remember_token','email_verified','active',
+        'username', 'email', 'password', 'fullname','level','remember_token','email_verified','active','provider_id','provider'
     ];
 
     /**
@@ -37,15 +43,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function addNew($input)
-{
-    $check = static::where('facebook_id',$input['facebook_id'])->first();
-
-    if(is_null($check)){
-        return static::create($input);
-    }
-
-    return $check;
-    
-}
 }

@@ -16,7 +16,8 @@
                 @if (Session::has('error'))
                   <div class="alert alert-danger">{{Session::has('error')}}</div>
                 @endif
-            <form action="{{route('admin.movie.store')}}" method="POST" enctype="multipart/form-data">
+                {!! Form::open(array('route' =>'admin.movie.store' , 'files' => true , 'method' =>'POST')) !!}
+                {{ Form::hidden('_method', 'POST') }}
                 {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.add')}} {{trans('admin.movie')}}</b></div>
                 <div class="container">
@@ -162,8 +163,7 @@
                         </div>
                     </div>
                 </div>
-                
-            </form>
+                {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

@@ -308,7 +308,7 @@
                         @endif
                         @endforeach
                         <a class="img-opacity-hover col-6" href="{{route('detail.index',[$item->id,$item->title])}}">
-                            <img src="{{$item->url_picture}}" alt="news" class="img-fluid">
+                            <img src="{{$item->url_picture}}" alt="news" class="img-fluid wh-50">
                         </a>
                     </div>
                     @endforeach

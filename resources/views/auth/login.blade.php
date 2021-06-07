@@ -17,7 +17,7 @@
 </style>
 <div class="container">
 	<section id="content">
-		<form action="{{route('login.show')}}" method="POST">
+		<form action="{{route('login')}}" method="POST">
             @csrf   
 			<h1>{{ trans('admin.login') }} Form</h1>
             @if (Session::has('error'))
@@ -40,8 +40,8 @@
 				@error('password')
 					<small class="text-danger">{{ $message }}</small> 
 				@enderror
-			
-				<a href="auth/facebook" class="facebook">
+				
+				<a href="{{ url('/auth/redirect/facebook') }}" class="facebook">
 					<i class="fab fa-facebook-square"></i>
 					<div>Facebook</div>
 				</a>

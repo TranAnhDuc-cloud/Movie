@@ -19,37 +19,28 @@
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
                <div class="container">
                    <div class="content">
-                    <div class="row">
-                        <div class="form-group col-6">
+                        <div class="form-group ">
                             <label>{{ trans('admin.fullname') }}</label>
-                            <input type="name" name="fullname" class="form-control" placeholder="{{$user->fullname}}">
+                            <input type="name" name="fullname" class="form-control" value="{{$user->fullname}}">
                             @error('fullname')
                                 <small class="text-danger">{{ $message }}</small> 
                             @enderror
                         </div>
-                        <div class="form-group col-6">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="{{$user->email}}">
-                            @error('email')
-                                <small class="text-danger">{{ $message }}</small> 
-                            @enderror
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="form-group col-6">
                             <label>{{trans('admin.active')}}</label>
                             <br>
                             <select name="active" id="active">
-                                <option value="0" name="active">Không Hoạt Động</option>
-                                <option value="1" name="active"> Hoạt Động</option>
+                                <option value="0" name="no_active">Không Hoạt Động</option>
+                                <option value="1" name="yes_active"> Hoạt Động</option>
                             </select>
                         </div>
                         <div class="form-group col-6">
                             <label>{{ trans('admin.level') }}</label>
                             <br>
                             <select name="level" id="level">
-                                <option value="0" name="level">Member</option>
-                                <option value="1" name="level">Quản Lý</option>
+                                <option value="0" name="member">{{trans('admin.member')}}</option>
+                                <option value="1" name="admin">{{trans('admin.admin')}}</option>
                             </select>
                         </div>
                     </div>

@@ -16,29 +16,30 @@
                 @if (Session::has('error'))
                   <div class="alert alert-danger">{{Session::has('error')}}</div>
                 @endif
-            <form action="{{route('admin.type.movie.update',[$name,$type->id])}}" method="POST" enctype="multipart/form-data">
+                {!! Form::open(array('route' =>array('admin.type.movie.update',[$name,$type->id]), 'files' => true , 'method' =>'POST')) !!}
+                {{ Form::hidden('_method', 'PUT') }}
                 {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{$name}}</b></div>
                 <div class="container">
                     <div class="content">
                         <div class="form-group ">
                             <label>{{trans('admin.name')}}</label>
-                            <input type="text" name="name" class="form-control" placeholder="{{$type->name}}">
+                            <input type="text" name="name" class="form-control" value="{{$type->name}}">
                             @error('name')
-                                <small class="form-text text-muted alert alert-danger">{{$message}}</small>
+                                <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group ">
                             <label>{{trans('admin.year')}}</label>
-                            <input type="number" min ="2000" max ="2023" name="year" class="form-control" placeholder=" {{$type->year}}">
+                            <input type="number" min ="2000" max ="2023" name="year" class="form-control" value="{{$type->year}}">
                             @error('year')
-                                <small class="form-text text-muted alert alert-danger">{{$message}}</small>
+                                <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
-                        <input type="submit" name="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.edit')}}">
+                        <input type="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.edit')}}">
                     </div>
                 </div>
-            </form>
+                {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

@@ -21,5 +21,12 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             $user->email_verified = Str::random(40);
             return $user->save();
     }
+    public function getonlyTrashed(){
+        return  \App\User::onlyTrashed()->get();
+    }
+
+    public function getwithTrashed(){
+        return  \App\User::withTrashed()->get();
+    }
     
 }

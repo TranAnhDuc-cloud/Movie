@@ -5,10 +5,15 @@ namespace App;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Movie extends Model
 {
     //
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'title', 'directors', 'actor','time', 'date', 'url_picture','url_link', 'view', 'description','status', 'film_hot','contries_id','categories_id','year','type_movie','name',
     ];

@@ -12,7 +12,7 @@
 <body></body>
 <div class="container">
 	<section id="content">
-		<form action="{{route('register.show')}}" method="POST">
+		<form action="{{route('register')}}" method="POST">
             @csrf   
 			<div>
 					<h1>{{ trans('admin.register') }} Form</h1>

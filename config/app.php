@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         // App\Providers\EvatoServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -231,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // 'EvatoNumber' => App\Helpers\Evato\Number::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

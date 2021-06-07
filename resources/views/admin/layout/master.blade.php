@@ -1,5 +1,6 @@
 
     @include('admin.layout.header')
+
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -15,8 +16,12 @@
             </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
+
         <!-- /.content-header -->
-    @section('content-wrapper')
-    @show
+        @section('content-wrapper')
+        @show
+
     </div>
+
+
     @include('admin.layout.footer')

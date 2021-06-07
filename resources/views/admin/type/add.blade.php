@@ -16,7 +16,8 @@
                 @if (Session::has('error'))
                   <div class="alert alert-danger">{{Session::has('error')}}</div>
                 @endif
-            <form action="{{route('admin.type.movie.store',$name)}}" method="POST" enctype="multipart/form-data" >
+                {!! Form::open(array('route' =>array('admin.type.movie.store',$name) , 'files' => true , 'method' =>'POST')) !!}
+                {{ Form::hidden('_method', 'POST') }}
                 {{ csrf_field() }}
                     <div class=" mb-1"><b class="add-type">{{$name}}</b></div>
                     <div class="container">
@@ -25,20 +26,20 @@
                                 <label>{{trans('admin.name')}}</label>
                                 <input type="text" name="name" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.name')}} {{$name}}">
                                 @error('name')
-                                    <small class="form-text text-muted alert alert-danger">{{$message}}</small>
+                                    <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="form-group ">
                                 <label>{{trans('admin.year')}}</label>
                                 <input type="number" name="year" class="form-control" placeholder="{{trans('admin.enter')}} {{trans('admin.year')}}">
                                 @error('year')
-                                    <small class="form-text text-muted alert alert-danger">{{$message}}</small>
+                                    <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
-                            <input type="submit" name="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.add')}}">
+                            <input type="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.add')}}">
                         </div>
                     </div>
-            </form>
+                    {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

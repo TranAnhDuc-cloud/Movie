@@ -31,6 +31,8 @@ return [
     'moviehot' =>'Phim Nổi Bật',
     'typemovie' =>'Kiểu Phim',
     'year' =>'Năm',
+    'minutes' =>'Phút',
+    'epoiside' => 'Tập',
     // Country
     'country' =>'Quốc Gia',
     'user' =>'Người Dùng',

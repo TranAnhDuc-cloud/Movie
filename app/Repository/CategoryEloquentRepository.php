@@ -7,4 +7,10 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
     public function getModel(){
         return \App\Category::class;
     }
+    public function getonlyTrashed(){
+        return  \App\Category::onlyTrashed()->get();
+    }
+    public function getwithTrashed(){
+        return  \App\Category::withTrashed()->get();
+    }
 }

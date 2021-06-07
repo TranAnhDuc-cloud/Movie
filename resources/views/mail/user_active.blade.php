@@ -7,7 +7,8 @@
         <h2>Verify Your Email Address</h2>
 
         <div>
-            Thanks for creating an account with the verification demo app.
+            Thanks you for creating an account with the <a href="{{ route('home') }}">PhimHayTV.Com</a>.
+            <br>
             Please follow the link below to verify your email address
             <a href="{{ URL::to('register/active/' . $email_verified) }}">{{ URL::to('register/active/' . $email_verified) }}</a>
             <br/>

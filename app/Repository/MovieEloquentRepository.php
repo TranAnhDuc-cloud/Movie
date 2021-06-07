@@ -13,6 +13,15 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
     public function getModel(){
         return \App\Movie::class;
     }
+
+    public function getonlyTrashed(){
+        return  \App\Movie::onlyTrashed()->get();
+    }
+
+    public function getwithTrashed(){
+        return  \App\Movie::withTrashed()->get();
+    }
+
     public function category(){
         return Category::all();
     }
@@ -37,7 +46,7 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
     }
     
     function sameCategory($social){
-        return Movie::where('categories_id',$social->categories_id)->limit(4)->get();
+        return Movie::where('categories_id',$social->categories_id)->inRandomOrder()->limit(4)->get();
     
     }
     public function detail($id){
