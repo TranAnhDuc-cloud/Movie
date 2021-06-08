@@ -14,15 +14,18 @@ class UserController extends Controller
 {
     //
     protected $userRepository;
+
     public function __construct(UserRepositoryInterface $userRepository){
          $this->userRepository = $userRepository;
     }
+
     public function index(){
         $getAll = $this->userRepository->getAll();
         return view('admin.user.index')->with([
             'getAll'=> $getAll,
         ]);
     }
+    
     public function info() {
         return view('admin.user.info');
     }

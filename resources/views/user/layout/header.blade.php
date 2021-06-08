@@ -98,7 +98,7 @@
                                 <div class="header-action-item">
                                     <ul>
                                         <li class="header-search">
-                                            <form id="demo-2" action="{{route('search')}}" method="GET">
+                                            <form id="demo-2" action="{{route('user.search')}}" method="GET">
                                                 {{csrf_field()}}
                                                 <input type="search" placeholder="Search" name="search">
                                               </form>

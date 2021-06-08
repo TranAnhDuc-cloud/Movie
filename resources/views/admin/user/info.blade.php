@@ -58,7 +58,7 @@
               </p>
               <hr>
               <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ trans('admin.address') }}</strong>
-              <p class="text-muted">Malibu, California</p>
+              <p class="text-muted">{{ Auth::user()->address }}</p> 
               <hr>
               <strong><i class="fas fa-pencil-alt mr-1"></i> {{ trans('admin.date') }} </strong>
               <p class="text-muted">

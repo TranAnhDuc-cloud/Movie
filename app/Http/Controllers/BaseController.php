@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Menu;
 use App\Movie;
+use App\User;
 use Illuminate\Http\Request;
 
 class BaseController extends Controller
@@ -47,6 +48,18 @@ class BaseController extends Controller
    // Trailer
     protected function trailer(){
         return Movie::where('film_hot',0)->inRandomOrder()->offset(1)->limit(1)->get();
+    }
+
+    protected function movieAll(){
+        return Movie::all();
+    }
+
+    protected function userAll(){
+        return User::all();
+    }
+
+    protected function movieHot(){
+        return Movie::where('film_hot',1)->get();
     }
 
 }

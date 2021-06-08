@@ -21,6 +21,7 @@ return [
     'active' =>'Active',
     // Movie
     'movie' => 'Movie',
+    'themovie' => 'The Movie',
     'name' => 'Name',
     'directors' =>'Directors',
     'actors' => 'Actors',
@@ -68,4 +69,14 @@ return [
     'exist' =>'Exist',
     'pleasreturn'=> 'Please Return Input',
     'backwebsite' =>'Back Website',
+    // DashBoard
+    'dashboard' =>'Dashboard',
+    'viewallmovie' => 'View All Movie',
+    'viewalluser' => 'View All User',
+    'latestmember' =>'Latest Members',
+    'latestmovie' =>'Latest Movies',
+    'newmember' =>'New Members',
+    'recentlyaddmovie' =>'Recently Added Movies',
+    'like'=> 'Likes',
+
 ];

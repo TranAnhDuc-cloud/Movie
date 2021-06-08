@@ -20,6 +20,7 @@ return [
     'active'=>'Hoạt Động',
     // MOVIE
     'movie' => 'Phim',
+    'themovie' => 'Bộ Phim',
     'name' =>'Tên Thứ 2',
     'directors' =>'Đạo Diễn',
     'actors' =>'Nhân Vật',
@@ -35,6 +36,7 @@ return [
     'epoiside' => 'Tập',
     // Country
     'country' =>'Quốc Gia',
+    // User
     'user' =>'Người Dùng',
     'account'=>'Tài Khoản',
     'password_cofimer' => 'Nhập Lại Password',
@@ -64,4 +66,13 @@ return [
     'exist' =>'Đã Tồn Tại',
     'pleasreturn'=> 'Vui Lòng Nhập Lại',
     'backwebsite' => 'Trở Về PhimTv',
+    // DashBoard
+    'dashboard' =>'Dashboard',
+    'viewallmovie' => 'Xem Tất Cả Phim',
+    'viewalluser' => 'Xem Tất Cả Người Dùng',
+    'latestmember' =>'Thành Viên Mới',
+    'latestmovie' =>'Phim Mới Nhất',
+    'newmember' =>'Thành viên mới',
+    'recentlyaddmovie' =>'Phim được thêm gần đây',
+    'like'=> 'Lượt Thích',
 ];

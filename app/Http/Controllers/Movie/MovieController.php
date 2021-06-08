@@ -15,21 +15,26 @@ class MovieController extends Controller
 {
     //
     protected $movieRepository;
+
     public function __construct(MovieRepositoryInterface $movieRepository){
         return $this->movieRepository =$movieRepository;
     }
+
     public function detail($id){
+        
         return $this->movieRepository->detail($id);
     }
     public function watch($id){
         return $this->movieRepository->watch($id);
     }
+
     public function index(){
         $getAll = $this->movieRepository->getAll();
         return view('admin.movie.index')->with([
             'getAll'=>$getAll,
         ]);
     }
+
     public function show(){
         return view('admin.movie.add')->with([
             'category'=>Category::all(),
@@ -82,6 +87,11 @@ class MovieController extends Controller
         return redirect()->route('admin.movie.index')->with(
             'success', trans('admin.delete-success')
         );
+    }
+
+    protected function upload($request,$url){
+        $file = $request->file($url);
+        $name = $file->getClientOriginalName($url);
     }
 }
 

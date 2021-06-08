@@ -94,8 +94,10 @@ use Illuminate\Support\Facades\Route;
    Route::get('detail/{id}','Movie\MovieController@detail')->name('detail.index');
    // WATCH
    Route::get('watch/{id}','Movie\MovieController@watch')->name('watch.index');
-   // Searhc
-   Route::get('/pages/search', 'SearchController@search')->name('search');
+   // Search
+   Route::get('/pages/search', 'SearchController@search')->name('user.search');
+   Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search');
+
 
 
 

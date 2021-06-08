@@ -18,6 +18,7 @@
 .table td{
     padding: 10px;
     vertical-align: middle;
+    text-align: center;
 }
 thead th , tfoot th{
     font-size: 14px;
@@ -54,3 +55,18 @@ th a {
       font-size:12px;
 
   }
+
+ul .item{
+    display: none;
+}
+.div-loadmore{
+    margin: auto;
+    text-align: center;
+    margin: 10px;
+}
+.created_at{
+    display: none;
+}
+.item-user{
+    display: none;
+}

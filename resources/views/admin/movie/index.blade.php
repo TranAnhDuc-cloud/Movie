@@ -30,8 +30,8 @@
           <th>{{trans('admin.url_link')}}</th>
           <th>{{trans('admin.view')}}</th>
           <th>{{trans('admin.status')}}</th>
-          <th>{{trans('admin.moviehot')}}</th>
-          <th>{{trans('admin.typemovie')}}</th>
+          <th>{{trans('admin.category')}}</th>
+          <th>{{trans('admin.country')}}</th>
           <th>{{trans('admin.year')}}</th>
           <th>{{trans('admin.edit')}}</th>
           <th>{{trans('admin.delete')}}</th>
@@ -52,8 +52,8 @@
             <td>{{$item->url_link}}</td>
             <td>{{$item->view}}</td>
             <td>{{$item->status}}</td>
-            <td>{{$item->film_hot}}</td>
-            <td>{{$item->type_movie}}</td>
+            <td>{{$item->category->name}}</td>
+            <td>{{$item->contry->name}}</td>
             <td>{{$item->year}}</td>
             <th>
                 <div>
@@ -87,8 +87,8 @@
           <th>{{trans('admin.url_link')}}</th>
           <th>{{trans('admin.view')}}</th>
           <th>{{trans('admin.status')}}</th>
-          <th>{{trans('admin.moviehot')}}</th>
-          <th>{{trans('admin.typemovie')}}</th>
+          <th>{{trans('admin.category')}}</th>
+          <th>{{trans('admin.country')}}</th>
           <th>{{trans('admin.year')}}</th>
           <th>{{trans('admin.edit')}}</th>
           <th>{{trans('admin.delete')}}</th>

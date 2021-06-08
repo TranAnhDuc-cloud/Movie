@@ -25,7 +25,7 @@
           <th>{{ trans('admin.level') }}</th>
           <th>{{ trans('admin.active') }}</th>
           <th>Email</th>
-          <th>{{ trans('admin.token') }}</th>
+          <th>{{ trans('admin.address') }}</th>
           <th>{{ trans('admin.created_at') }}</th>
           <th>{{ trans('admin.update_at') }}</th>
           <th>{{ trans('admin.edit') }}</th>
@@ -42,7 +42,7 @@
             <td>{{$item->level}}</td>
             <td>{{$item->active}}</td>
             <td>{{$item->email}}</td>
-            <td>{{$item->remember_token}}</td>
+            <td>{{$item->address}}</td>
             <td>{{$item->created_at}}</td>
             <td>{{$item->updated_at}}</td>
             <th><a href="{{route('admin.user.edit',$item->id)}}"><i class="fas fa-pencil-alt"></i></a></th>
@@ -58,7 +58,7 @@
           <th>{{ trans('admin.level') }}</th>
           <th>{{ trans('admin.active') }}</th>
           <th>Email</th>
-          <th>{{ trans('admin.token') }}</th>
+          <th>{{ trans('admin.address') }}</th>
           <th>{{ trans('admin.created_at') }}</th>
           <th>{{ trans('admin.update_at') }}</th>
           <th>{{ trans('admin.edit') }}</th>

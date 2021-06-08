@@ -46,6 +46,7 @@ class CategoryController extends BaseController
 
     public function update(CategoryRequest $request ,$id){
         $image = $request->file('url_picture');
+        // $this->upload($request,'url_picture');
         $all =$request->all();
         $all['url_picture'] = 'img/news/'.$image->getClientOriginalName('url_picture');
         uploadFileService::handleImg($image,$all['url_picture']);
@@ -61,6 +62,15 @@ class CategoryController extends BaseController
         $this->categoryRepository->delete($id);
         return redirect()->route('admin.category.index')->with('
         notifi', trans('admin.delete-success')
-    );
+        );
     }
+
+    // protected function upload($request,$url){
+    //     $file = $request->file($url);
+    //     $name = $file->getClientOriginalName($url);
+    //     if(!is_null($file)){
+    //         $file ->move('img/news',$name);
+    //      }
+    // }
+
 }

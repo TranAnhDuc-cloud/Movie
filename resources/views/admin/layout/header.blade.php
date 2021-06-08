@@ -17,7 +17,7 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}"> --}}
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/admin-table.css')}}">
   <link rel="stylesheet" href="{{asset('css/form-admin.css')}}">
+  <script src="{{asset('js/jquery-latest.min.js')}}"></script>
+  <script src="{{asset('js/admin.js')}}"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -52,9 +54,10 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="form-inline" method="GET" action="{{route('admin.search')}}">
+            {{csrf_field()}}
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="{{ trans('admin.search') }}" aria-label="Search">
+              <input class="form-control form-control-navbar" name='search' type="search" placeholder="{{ trans('admin.search') }}" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
