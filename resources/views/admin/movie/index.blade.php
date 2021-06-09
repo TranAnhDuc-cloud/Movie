@@ -55,7 +55,7 @@
             <td>{{$item->category->name}}</td>
             <td>{{$item->contry->name}}</td>
             <td>{{$item->year}}</td>
-            <th>
+              <th>
                 <div>
                   {!! Form::open(array('route' => array('admin.movie.edit',$item->id))) !!}
                   {{ Form::hidden('_method', 'GET') }}

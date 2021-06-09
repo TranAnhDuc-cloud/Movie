@@ -43,11 +43,11 @@
 				
 				<a href="{{ url('/auth/redirect/facebook') }}" class="facebook">
 					<i class="fab fa-facebook-square"></i>
-					<div>Facebook</div>
+					<div>Login With Facebook</div>
 				</a>
-				<a href="#" class="google">
+				<a href="{{ url('/auth/redirect/google') }}" class="google">
 					<i class="fab fa-google"></i>
-					<div>Google</div>
+					<div>Login With Google</div>
 				</a>
 				<style>
 				

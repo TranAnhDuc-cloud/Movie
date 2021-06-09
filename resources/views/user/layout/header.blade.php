@@ -26,6 +26,7 @@
     <script src="{{asset('js/modernizr-2.8.3.min.js')}}"></script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="ppaM9BXr"></script>
+    <link rel="stylesheet" href="{{asset('css/slick.css')}}">
 </head>
 <body>
     

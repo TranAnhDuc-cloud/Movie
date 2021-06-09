@@ -1,9 +1,10 @@
 
 @include('user.layout.header')
+
 @section('title','Account')
-<div class="mt-50"></div>
+
 <section class="section-space-less30 overlay-dark bg-attachment" style="background-image: url('{{asset('img/banner/video-back1.jpg')}}');">
-    <div class="container">
+    <div class="container" style="margin-top:80px;">
         <div class="topic-border color-white mb-30">
             <div class="topic-box-lg category-title">
                 {{ trans('admin.home') }} » {{ trans('admin.account') }}
@@ -28,10 +29,10 @@
         
                       <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                          <b>Followers</b> <a class="float-right">1,322</a>
+                          <b>{{trans('admin.level')}}</b> <a class="float-right">{{Auth::user()->level}}</a>
                         </li>
                         <li class="list-group-item">
-                          <b>Following</b> <a class="float-right">543</a>
+                          <b>{{trans('admin.active')}}</b> <a class="float-right">{{Auth::user()->active}}</a>
                         </li>
                         <li class="list-group-item">
                           <b>Friends</b> <a class="float-right">13,287</a>
@@ -56,10 +57,10 @@
                         {{Auth::user()->email}}
                       </p>
                       <hr>
-                      <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa Chỉ</strong>
-                      <p class="text-muted">Malibu, California</p>
+                      <strong><i class="fas fa-map-marker-alt mr-1"></i>{{ trans('admin.address') }}</strong>
+                      <p class="text-muted">{{Auth::user()->address}}</p>
                       <hr>
-                      <strong><i class="fas fa-pencil-alt mr-1"></i> Ngày Gia Nhập </strong>
+                      <strong><i class="fas fa-pencil-alt mr-1"></i>{{ trans('admin.created_at') }}</strong>
                       <p class="text-muted">
                         {{Auth::user()->created_at}}
                       </p>

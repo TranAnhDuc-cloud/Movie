@@ -139,5 +139,7 @@
 <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('js/ticker.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/main.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/slick.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/client.js')}}" type="text/javascript"></script>
 </body>
 </html>

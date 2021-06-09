@@ -2,7 +2,7 @@
 @section('title','Phim TV')
  
 
-@section('content-new')
+@section('content-index')
  <!-- Category -->
 <section class="section-space-bottom">
     <div class="container">

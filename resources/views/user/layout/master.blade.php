@@ -13,14 +13,14 @@
     </div>
 
     {{-- Pages --}}
-    @section('content-header')
+    @section('content-pages')
         
     @show
     
-@include('user.layout.filmhot')
+    @include('user.layout.filmhot')
 
     {{-- Index --}}
-    @section('content-new')
+    @section('content-index')
         
     @show
     

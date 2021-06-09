@@ -46,7 +46,7 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
     }
     
     function sameCategory($social){
-        return Movie::where('categories_id',$social->categories_id)->inRandomOrder()->limit(4)->get();
+        return Movie::where('categories_id',$social->categories_id)->inRandomOrder()->get();
     
     }
     public function detail($id){

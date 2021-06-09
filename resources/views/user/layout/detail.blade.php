@@ -1,17 +1,16 @@
 
 @include('user.layout.header')
 {{-- MAIN DETAIL --}}
-    <div style="margin-top : 80px"></div>
     @section('detail-content')
         
     @show
    <div class="container">
     <div class="detail-seemore">
         <div class="detail-seemore-title col-12">{{ trans('client.cothebanmuonxem') }}</div>
-        <div class="row">
+        <div class="autoplay">
             @foreach ($sameCategory as $item)
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="position-relative mb-30">
+            <div class="sameCategory " >
+                <div class="position-relative mb-30 ">
                     <div class="img-scale-animate mb-15 img-overlay-70">
                         <a href="{{route('detail.index',[$item->id,$item->title])}}">
                             <img src="{{asset($item->url_picture)}}"  alt="news" class="img-fluid width-100 height-200">
@@ -27,7 +26,9 @@
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                     {{$item->date}}
                                 </span>
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <div>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
                             </li>
                         </ul>
                     </div>

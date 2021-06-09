@@ -4,7 +4,7 @@
 @section('title-pages')
 {{ trans('admin.home') }} » {{ trans('admin.category') }} » {{$key->name}}
 @endsection
-@section('content-pages')
+@section('content-page')
         @foreach ($theloai as $item)
         <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 pl-4 pr-0">
             <div class="position-relative mb-30">

@@ -9,10 +9,40 @@
         <div>
             Thanks you for creating an account with the <a href="{{ route('home') }}">PhimHayTV.Com</a>.
             <br>
+            <br>
             Please follow the link below to verify your email address
-            <a href="{{ URL::to('register/active/' . $email_verified) }}">{{ URL::to('register/active/' . $email_verified) }}</a>
+            <br>
+            <br>
+            <a class="url_email" href="{{ route('register.active',$email_verified)}}">View Account in Client Area</a>
             <br/>
-
+            {{-- {!! Form::open(array('route' =>'auth.mail.active' , 'method' =>'POST')) !!}
+            {{ Form::hidden('_method', 'POST') }}
+                {{ csrf_field() }}
+                <label>Mã Xác Nhận</label>
+                <input type="text" name="code" id="code" value="{{$email_verified}}" disabled />
+                <br>
+                <br>
+                <label>Nhap Ma Xac Nhan Cua Ban</label>
+                <input type="text" name="inputCode" id="inputCode" onpaste="return false" autocomplete="off" />
+                {{-- {!! Form::submit() !!} --}}
+                
+            {{-- {!! Form::close() !!} --}} 
+            <style>
+                .url_email{
+                    box-sizing: border-box;
+                    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+                    border-radius: 4px;
+                    color: #fff;
+                    display: inline-block;
+                    overflow: hidden;
+                    text-decoration: none;
+                    background-color: #48bb78;
+                    border-bottom: 8px solid #48bb78;
+                    border-left: 18px solid #48bb78;
+                    border-right: 18px solid #48bb78;
+                    border-top: 8px solid #48bb78;
+                }
+            </style>
         </div>
 
     </body>

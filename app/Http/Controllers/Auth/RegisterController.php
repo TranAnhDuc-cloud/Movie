@@ -7,9 +7,8 @@ use App\Http\Requests\Auth\Register;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -60,7 +59,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
             'fullname' => $request->fullname,
             'email' => $email,
-            'remember_token' => Str::random(20),
+            'remember_token' => Str::random(10),
             'email_verified' => $email_verified,
             'active' => 0,
             'level' => 0,
@@ -74,6 +73,7 @@ class RegisterController extends Controller
     }
     
     public function active($token) {
+        // $code = $request['inputCode'];
         $user = User::where('email_verified', $token);
         if ($user->count() > 0) {
             $user->update([
@@ -86,5 +86,5 @@ class RegisterController extends Controller
         }
         return redirect()->route('login')->with('success', $notification);
     }
-    
+
 }

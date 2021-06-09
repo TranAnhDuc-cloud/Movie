@@ -3,7 +3,7 @@
 
 @section('detail-content')
 <section class="section-space-less30 overlay-dark bg-attachment" style="background-image: url('{{asset('img/banner/video-back1.jpg')}}');">
-    <div class="container">
+    <div class="container" style="margin-top:80px;">
         <div class="topic-border color-white mb-30">
             <div class="topic-box-lg category-title">
                 {{ trans('admin.home') }} » {{$detail->category->name}} » {{$detail->title}}

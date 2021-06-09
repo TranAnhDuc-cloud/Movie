@@ -45,8 +45,22 @@
             <td>{{$item->address}}</td>
             <td>{{$item->created_at}}</td>
             <td>{{$item->updated_at}}</td>
-            <th><a href="{{route('admin.user.edit',$item->id)}}"><i class="fas fa-pencil-alt"></i></a></th>
-            <th><a href="{{route('admin.user.delete',$item->id)}}"><i class="far fa-trash-alt"></i></a></th>
+            <th>
+              <div>
+                {!! Form::open(array('route' => array('admin.user.edit',$item->id))) !!}
+                {{ Form::hidden('_method', 'GET') }}
+                <button type="submit" class="btn btn-success btn-ok"><i class="fas fa-pencil-alt"></i></button>
+                {!! Form::close() !!}
+            </div>
+            </th>
+            <th>
+              <div>
+                  {!! Form::open(array('route' => array('admin.user.delete',$item->id))) !!}
+                  {{ Form::hidden('_method', 'DELETE') }}
+                  <button type="submit" class="btn btn-danger btn-ok"><i class="far fa-trash-alt"></i></button>
+                  {!! Form::close() !!}
+              </div>
+            </th>
         </tr>                     
         @endforeach
         </tbody>

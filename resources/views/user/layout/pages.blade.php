@@ -1,6 +1,6 @@
 @extends('user.layout.master')
 
-@section('content-header')
+@section('content-pages')
 <!-- Pages-->
  <section class="section-space-bottom">
     <div class="container">
@@ -19,7 +19,7 @@
                 <div class="row action">
                     <div class="col-xl-8 col-lg-5 col-md-12">
                         <div class="row">
-                            @yield('content-pages')
+                            @yield('content-page')
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-7 col-md-12 mb-30">

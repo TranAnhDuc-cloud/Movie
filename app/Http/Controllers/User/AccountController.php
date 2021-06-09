@@ -18,6 +18,7 @@ class AccountController extends BaseController
             'menu'=>BaseController::menu(),
             'movies'=>BaseController::footerMovies(),
             'category'=>BaseController::footerCategory(),
+            'new'=>BaseController::phimMoiNhat(),
         ]);
     }
     

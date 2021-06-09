@@ -14,8 +14,9 @@
      <!-- Main content -->
      <div class="card-body card-pd">
         <div class="table-responsive">
-            <form action="{{route('admin.user.update',$user->id)}}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+            {!! Form::open(array('route' =>array('admin.user.update',$user->id), 'files' => true , 'method' =>'POST')) !!}
+            {{ Form::hidden('_method', 'PUT') }}
+            {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
                <div class="container">
                    <div class="content">
@@ -49,8 +50,7 @@
                     </div>
                    </div>
                </div>
-                
-            </form>
+            {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

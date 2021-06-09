@@ -44,9 +44,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('admin')}}" class="nav-link">{{ trans('admin.home') }}</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('contact')}}" class="nav-link">{{ trans('admin.contact') }}</a>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- Right navbar links -->
@@ -315,7 +315,15 @@
               @endforeach
             </ul>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{route('admin.list.delete')}}" class="nav-link">
+              <i class="nav-icon fas fa-tree"></i>
+              <p>
+                {{ trans('admin.deleted') }}
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

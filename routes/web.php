@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
    // Admin
    Route::group(['middleware' => 'admin'], function(){
       Route::get('/admin','Admin\AdminController@index')->name('admin');
-      Route::get('/contact','Admin\AdminController@contact')->name('contact');
+      Route::get('/list/delete','Admin\AdminController@deleteList')->name('admin.list.delete');
       Route::prefix('movie')->group(function (){
          Route::get('/','Movie\MovieController@index')->name('admin.movie.index');
          Route::get('/add','Movie\MovieController@show')->name('admin.movie.add');
@@ -97,7 +97,6 @@ use Illuminate\Support\Facades\Route;
    // Search
    Route::get('/pages/search', 'SearchController@search')->name('user.search');
    Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search');
-
 
 
 

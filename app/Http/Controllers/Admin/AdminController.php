@@ -31,4 +31,9 @@ class AdminController extends BaseController
             'movieHot' => $movieHot,
         ]);
     }
+
+    public function deleteList(){
+        $userdelete = 
+        return view('admin.dashboard.delete');
+    }
 }
