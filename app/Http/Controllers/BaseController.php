@@ -3,13 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Contry;
 use App\Menu;
 use App\Movie;
+use App\Type_movie;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class BaseController extends Controller
 {
+    public function __construct(){
+        $category = $this->footerCategory();
+        $film_hot = $this->phimNoiBat();
+        $film_hot1 = $this->phimNoiBat1();
+        $menu= $this->menu();
+        $new = $this->phimMoiNhat();
+        $movies = $this->footerMovies();
+        $view = $this->topXemNhieu();
+        $trailer = $this->trailer();
+        $cate = $this->mainCategory();
+        $contry = $this->contryAll();
+        $typeMovie = $this->typeMovieAll();
+        $siderbarAdmin = $this->movieNewUpdate();
+        View::share([
+            'category'=>$category,
+            'film_hot'=> $film_hot,
+            'film_hot1' => $film_hot1,
+            'menu'=> $menu,
+            'new' => $new,
+            'movies'=>$movies,
+            'view'=>$view,
+            'trailer' => $trailer,
+            'cate' => $cate,
+            'contry' => $contry,
+            'typeMovie' => $typeMovie,
+            'siderbar' => $siderbarAdmin,
+        ]);
+    }
+    
     //Menu
     protected function menu(){
         return Menu::all();
@@ -56,6 +88,14 @@ class BaseController extends Controller
 
     protected function userAll(){
         return User::all();
+    }
+
+    protected function typeMovieAll(){
+        return Type_movie::all();
+    }
+
+    protected function contryAll(){
+        return Contry::all();
     }
 
     protected function movieHot(){

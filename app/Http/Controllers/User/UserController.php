@@ -69,7 +69,7 @@ class UserController extends BaseController
         $getAll = $this->userRepository->getonlyTrashed();
         return view('admin.user.delete')->with([
             'deleted'=> $getAll,
-            'movies' => BaseController::movieNewUpdate(),
+            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 

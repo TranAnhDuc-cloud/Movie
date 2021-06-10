@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\View;
 
 class MenuController  extends BaseController 
 {
+    
     public function index($pages,$id,$name){
         $menu = Menu::all();
         foreach($menu as $item){
@@ -44,13 +45,6 @@ class MenuController  extends BaseController
         $cate = Category::find($id);
         $theloai = Movie::where('categories_id',$id)->paginate(9);
         return view('user.pages.category')->with([
-            'category'=>BaseController::footerCategory(),
-            'film_hot'=>BaseController::phimNoiBat(),
-            'film_hot1'=>BaseController::phimNoiBat1(),
-            'menu'=>BaseController::menu(),
-            'new'=>BaseController::phimMoiNhat(),
-            'movies'=>BaseController::footerMovies(),
-            'view'=>BaseController::topXemNhieu(),
             'theloai'=>$theloai,
             'cate'=>$cate,
         ]);
@@ -59,16 +53,9 @@ class MenuController  extends BaseController
     public function country($id){
         $contry = Movie::where('contries_id',$id)->paginate(10);
         $nameContry = Contry::find($id);
-        View::share('nameContry', $nameContry);
         return view('user.pages.contry')->with([
-            'category'=>BaseController::footerCategory(),
-            'movies'=>BaseController::footerMovies(),
-            'film_hot'=>BaseController::phimNoiBat(),
-            'film_hot1'=>BaseController::phimNoiBat1(),
-            'menu'=>BaseController::menu(),
-            'view'=>BaseController::topXemNhieu(),
             'contry'=>$contry,
-            'new'=>BaseController::phimMoiNhat(),
+            'nameContry' => $nameContry,
         ]);
     }
 
@@ -77,22 +64,15 @@ class MenuController  extends BaseController
         foreach($allTypes as $item){
             $handle = $item->handle;
             $memi = DB::table($handle)->where('name',$name)->get();
-                foreach ($memi as $row){
-                    $typeMovies = Movie::where('year',$row->year)->where('type_movie',$item->id)->paginate(10);
-                }
+            foreach ($memi as $row){
+                $typeMovies = Movie::where('year',$row->year)->where('type_movie',$item->id)->paginate(10);
+            }
         }
         $typeMovie = $typeMovies;
         $titleMovies = $name;
-        View::share('titleMovies', $titleMovies);
         return view('user.pages.type_movies')->with([
-            'category'=>BaseController::footerCategory(),
-            'film_hot'=>BaseController::phimNoiBat(),
-            'film_hot1'=>BaseController::phimNoiBat1(),
-            'menu'=>BaseController::menu(),
-            'view'=>BaseController::topXemNhieu(),
-            'movies'=>BaseController::footerMovies(),
             'typeMovies'=>$typeMovie,
-            'new'=>BaseController::phimMoiNhat(),
+            'titleMovies'=>$titleMovies
         ]);
     }
 }

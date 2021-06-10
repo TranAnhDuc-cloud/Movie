@@ -15,7 +15,7 @@
       </div>
       <div class="card-body p-0">
           <ul class="products-list product-list-in-card pl-2 pr-2">
-              @foreach ($movies as $item)
+              @foreach ($siderbar as $item)
               <li class="item">
                   <div class="product-img">
                   <img src="{{asset($item->url_picture)}}" alt="Product Image" class="img-size-50">

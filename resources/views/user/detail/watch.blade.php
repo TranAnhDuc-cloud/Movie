@@ -1,8 +1,8 @@
 @extends('user.layout.detail')
 @section('title','PhimTV') 
 @section('detail-content')
-<section class="section-space-bottom-less30" style="padding-top:35px;">
-    <div class="container">
+<section class="section-space-bottom-less30">
+    <div class="container" style="margin-top:100px;">
         <div class="row">
             <div class="col-xl-8 col-lg-7 col-md-12 mb-30">
                 <div class="item-box-dark-md-less30">
@@ -43,28 +43,7 @@
                     <div class="topic-box-lg bg-danger">{{ trans('client.movieviewmost') }}</div>
                 </div>
                 <div class="sidebar-box item-box-dark-md">
-                    
-                    @foreach ($view as $item)
-                    <div class="media mb30-list bg-secondary-body">
-                        
-                        @foreach ($category as $row)
-                        @if ($item->categories_id == $row->id)
-                        <div class="media-body media-padding10">
-                            <div class="topic-box-sm color-white mb-15">{{$row->name}}</div>
-                            <h3 class="title-medium-light mb-none">
-                                <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
-                            </h3>
-                            <h3 class="mb-none">
-                                <a href="{{route('detail.index',[$item->id,$item->title])}}" style="font-size:13px; color:#666">{{ trans('view') }} : {{$item->view}}</a>
-                            </h3>
-                        </div>
-                        @endif
-                        @endforeach
-                        <a class="img-opacity-hover" href="single-news-1.html">
-                            <img src="{{asset('img/news/news223.jpg')}}" alt="news" class="img-fluid">
-                        </a>
-                    </div>
-                    @endforeach
+                    @include('user.layout.siderbar_mostview')
                 </div>
             </div>
         </div>

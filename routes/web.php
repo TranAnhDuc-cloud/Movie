@@ -101,10 +101,9 @@ use Illuminate\Support\Facades\Route;
    Route::get('phimle/{name}','MenuController@typeMovies')->name('single.index');
    Route::get('phimbo/{name}','MenuController@typeMovies')->name('series.index');
    Route::get('phimchieurap/{name}','MenuController@typeMovies')->name('theater.index');
-   // DETAIL
-   Route::get('detail/{id}','Movie\MovieController@detail')->name('detail.index');
-   // WATCH
-   Route::get('watch/{id}','Movie\MovieController@watch')->name('watch.index');
+   // Pages
+   Route::get('detail/{id}','PagesController@detail')->name('detail.index');
+   Route::get('watch/{id}','PagesController@watch')->name('watch.index');
    // Search
    Route::get('/pages/search', 'SearchController@search')->name('user.search');
    Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search');

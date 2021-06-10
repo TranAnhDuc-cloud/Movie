@@ -7,6 +7,7 @@ use App\Contry;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MovieRequest;
+use App\Movie;
 use Illuminate\Http\Request;
 use App\Repository\Interfaces\MovieRepositoryInterface;
 use App\Services\uploadFileService;
@@ -19,14 +20,6 @@ class MovieController extends BaseController
 
     public function __construct(MovieRepositoryInterface $movieRepository){
         return $this->movieRepository =$movieRepository;
-    }
-
-    public function detail($id){
-        
-        return $this->movieRepository->detail($id);
-    }
-    public function watch($id){
-        return $this->movieRepository->watch($id);
     }
 
     public function index(){
@@ -94,7 +87,7 @@ class MovieController extends BaseController
         $getAll = $this->movieRepository->getonlyTrashed();
         return view('admin.movie.delete')->with([
             'deleted'=> $getAll,
-            'movies' => BaseController::movieNewUpdate(),
+            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 

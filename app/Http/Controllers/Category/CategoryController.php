@@ -68,7 +68,7 @@ class CategoryController extends BaseController
         $getAll = $this->categoryRepository->getonlyTrashed();
         return view('admin.category.delete')->with([
             'deleted'=> $getAll,
-            'movies' => BaseController::movieNewUpdate(),
+            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 
