@@ -15,6 +15,7 @@
 @section('table')
     <div class="add mb-2 mt-2">
         <a href="{{route('admin.type.movie.add',$name)}}"><button class="btn btn-add btn-success p-30">{{trans('admin.add')}}</button></a>
+        <a href="{{route('admin.type.movie.delete.list',$name)}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.daxoaganday') }}</button></a>
     </div>
     <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -45,7 +46,7 @@
               </th>
               <th>
                 <div>
-                    {!! Form::open(array('route' => array('admin.type.movie.delete',[$name,$item->id]))) !!}
+                    {!! Form::open(array('route' => array('admin.type.movie.delete.soft',[$name,$item->id]))) !!}
                     {{ Form::hidden('_method', 'DELETE') }}
                     <button type="submit" class="btn btn-danger btn-ok"><i class="far fa-trash-alt"></i></button>
                     {!! Form::close() !!}

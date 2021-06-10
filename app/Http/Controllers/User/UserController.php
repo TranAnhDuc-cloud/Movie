@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
+use App\Movie;
 use App\Repository\Interfaces\UserRepositoryInterface;
-use App\Type_movie;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     //
     protected $userRepository;
@@ -63,5 +63,27 @@ class UserController extends Controller
         return redirect()->route('admin.user.index')->with([
             'success' =>trans('admin.delete-success')
         ]);
+    }
+
+    public function deleteList(){
+        $getAll = $this->userRepository->getonlyTrashed();
+        return view('admin.user.delete')->with([
+            'deleted'=> $getAll,
+            'movies' => BaseController::movieNewUpdate(),
+        ]);
+    }
+
+    public function restore($id){
+        $this->userRepository->restore($id);
+            return redirect()->route('admin.user.delete.list')->with([
+                'success'=>trans('admin.restore-success'),
+        ]);
+    }
+
+    public function deleteHard($id){
+       $this->userRepository->deleteHard($id);
+        return  redirect()->route('admin.user.delete.list')->with(
+            'success',trans('admin.delete-success')
+        );
     }
 }

@@ -42,7 +42,6 @@ class MenuController  extends BaseController
     }
     public function category($id){
         $cate = Category::find($id);
-        View::share('key', $cate);
         $theloai = Movie::where('categories_id',$id)->paginate(9);
         return view('user.pages.category')->with([
             'category'=>BaseController::footerCategory(),

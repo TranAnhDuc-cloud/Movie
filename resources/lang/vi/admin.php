@@ -16,8 +16,11 @@ return [
     'search'=>'Tìm Kiếm',
     'contact'=>'Liên Hệ',
     'created_at' => 'Ngày Tạo',
+    'deleted_at' => 'Ngày Xóa',
     'update_at'=>'Ngày Cập Nhật',
     'active'=>'Hoạt Động',
+    'restore' => ' Khôi Phục',
+    'harddelete' => 'Xóa Hẳn',
     // MOVIE
     'movie' => 'Phim',
     'themovie' => 'Bộ Phim',
@@ -63,6 +66,7 @@ return [
     'update-error' =>'Cập Nhật Thất Bại',
     'add-error' =>'Thêm Thất Bại',
     'data-error' =>'Chưa Nhập Dữ Liệu',
+    'restore-success' => ' Khôi Phục Thành Công ',
     'exist' =>'Đã Tồn Tại',
     'pleasreturn'=> 'Vui Lòng Nhập Lại',
     'backwebsite' => 'Trở Về PhimTv',
@@ -75,4 +79,5 @@ return [
     'newmember' =>'Thành viên mới',
     'recentlyaddmovie' =>'Phim được thêm gần đây',
     'like'=> 'Lượt Thích',
+    'daxoaganday' => ' Đã Xóa Gần Đây '
 ];

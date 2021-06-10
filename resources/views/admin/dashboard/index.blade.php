@@ -10,69 +10,7 @@
     <li class="pl-2"> » {{trans('admin.show')}}</li>
 @endsection
 @section('table')
-    <!-- Info boxes -->
-    <div class="row">
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box">
-            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">{{ trans('admin.movie') }}</span>
-              <span class="info-box-number">
-                {{ $movieAll }}
-                <small>{{ trans('admin.themovie') }}</small>
-              </span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">{{ trans('admin.like') }}</span>
-              <span class="info-box-number">1.000</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-        <!-- fix for small devices only -->
-        <div class="clearfix hidden-md-up"></div>
-
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">{{ trans('admin.moviehot') }}</span>
-              <span class="info-box-number">{{ $movieHot }}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
-            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">{{ trans('admin.member') }}</span>
-              <span class="info-box-number">{{$memberAll}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-    </div>
-
+  
      <!-- Main row -->
      <div class="row">
         <div class="col-md-8">
@@ -97,7 +35,7 @@
                   <ul class="users-list clearfix">
                     @foreach ($member as $item)
                         <li class="item-user">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                            <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Image">
                             {{-- {{asset('dist/img/'.$item->url_picture)}} --}}
                             <a class="users-list-name" href="#">{{$item->username}}</a>
                             <span class="users-list-date">{{$item->created_at}}</span>
@@ -160,43 +98,7 @@
             <!-- /.card-footer -->
           </div>
         </div>
-        <div class="col-md-4">
-          <!-- PRODUCT LIST -->
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">{{ trans('admin.recentlyaddmovie') }}</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body p-0">
-                <ul class="products-list product-list-in-card pl-2 pr-2">
-                    @foreach ($movies as $item)
-                    <li class="item">
-                        <div class="product-img">
-                        <img src="{{asset($item->url_picture)}}" alt="Product Image" class="img-size-50">
-                        </div>
-                        <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">{{$item->title}}</a>
-                            <span class="badge badge-warning float-right">{{trans('admin.view')}} : {{$item->view}}</span></a>
-                        <span class="product-description">
-                            {{$item->name}}
-                        </span>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
-                    <div class="div-loadmore">
-                        <button class="btn btn-danger center-block loadMore">Load More</button>
-                    </div>
-                <script src="{{asset('js/admin.js')}}"></script>
-          </div>
-        </div>
+        @include('admin.layout.siderbar')
       </div>
+      
 @endsection

@@ -10,15 +10,15 @@ use Faker\Generator as Faker;
 $factory->define(App\Movie::class, function (Faker $faker) {
     return [
         //
-        'title'=>$faker->title(),
-        'name'=>$faker->title(),
+        'title'=>$faker->name(),
+        'name'=>$faker->name(),
         'directors'=>$faker->name(),
         'actor'=>$faker->name(),
         'time'=>rand(20,120),
         'date'=>$faker->date(),
-        'url_picture'=>'abc.com',
-        'url_link'=>'abc.com',
-        'view'=>rand(0,12),
+        'url_picture'=>'img/news/news'.rand(200,247).'.jpg',
+        'url_link'=>'video/video.mp4',
+        'view'=>rand(0,500),
         'description'=>$faker->text(1000),
         'status'=>$faker->name(),
         'film_hot'=>$faker->boolean(),
@@ -28,4 +28,5 @@ $factory->define(App\Movie::class, function (Faker $faker) {
         'categories_id'=>Category::all()->random()->id,
 
     ];
+    
 });

@@ -14,12 +14,19 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
         return \App\Movie::class;
     }
 
+
+    // Lấy Movie Đã Xóa Mềm
     public function getonlyTrashed(){
-        return  \App\Movie::onlyTrashed()->get();
+        return  \App\Movie::onlyTrashed()->paginate(10);
     }
 
+    // Lấy Movie Chưa Xóa
     public function getwithTrashed(){
-        return  \App\Movie::withTrashed()->get();
+        return  \App\Movie::withTrashed()->paginate(10);
+    }
+
+    public function getAll(){
+        return \App\Movie::paginate(10);
     }
 
     public function category(){
@@ -78,8 +85,11 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
              ]);
     }
 
-    
-
-    
-    
+    public function restore($id){
+        return \App\Movie::withTrashed()->where('id', $id)->restore();
+     }
+ 
+     public function deleteHard($id){
+         return \App\Movie::withTrashed()->where('id', $id)->forceDelete();
+     }
 }

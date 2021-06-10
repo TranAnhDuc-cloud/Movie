@@ -16,9 +16,12 @@ return [
     'dashboard' =>'Dashboard',
     'search' =>'Search',
     'contact' =>'Contact',
-    'created_at' => 'Create at',
-    'update_at'=>'Update at',
+    'created_at' => 'Created at',
+    'updated_at'=>'Updated at',
+    'deleted_at'=>'Deleted at',
     'active' =>'Active',
+    'restore' =>'Restore',
+    'harddelete' =>'Hard Delete',
     // Movie
     'movie' => 'Movie',
     'themovie' => 'The Movie',
@@ -66,6 +69,7 @@ return [
     'update-error' =>'Update Error',
     'add-error' =>'Add Error',
     'data-error' =>'No Input Data ',
+    'restore-success' => ' Restore Success',
     'exist' =>'Exist',
     'pleasreturn'=> 'Please Return Input',
     'backwebsite' =>'Back Website',
@@ -78,5 +82,6 @@ return [
     'newmember' =>'New Members',
     'recentlyaddmovie' =>'Recently Added Movies',
     'like'=> 'Likes',
+    'daxoaganday' => ' Recently Deleted '
 
 ];

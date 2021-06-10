@@ -9,6 +9,10 @@ interface TypeMovieRepositoryInterface{
     public function delete($id);
     public function findHandler($handle,$id);
     public function getHandler($handle);
-    public function createHandler($name, array $attributes);
-
+    public function createHandler($handle, array $attributes);
+    public function restore($handle,$id);
+    public function deleteHard($handle,$id);
+    public function getonlyTrashed($handle);
+    public function getwithTrashed($handle);
+    public function deleteSoft($handle,$id);
 }

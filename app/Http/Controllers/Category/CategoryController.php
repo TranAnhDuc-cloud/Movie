@@ -34,7 +34,7 @@ class CategoryController extends BaseController
         $store =  $this->categoryRepository->create($all);
            if($store->save()){
                 return redirect()->route('admin.category.index')->with(
-                'notifi',trans('admin.add-success')
+                'success',trans('admin.add-success')
             );
         }
     }
@@ -46,14 +46,13 @@ class CategoryController extends BaseController
 
     public function update(CategoryRequest $request ,$id){
         $image = $request->file('url_picture');
-        // $this->upload($request,'url_picture');
         $all =$request->all();
         $all['url_picture'] = 'img/news/'.$image->getClientOriginalName('url_picture');
         uploadFileService::handleImg($image,$all['url_picture']);
        $update = $this->categoryRepository->update($id,$all);
             if($update->save()){
                 return redirect()->route('admin.category.index')->with(['
-                notifi'=>trans('admin.update-success')
+                success'=>trans('admin.update-success')
             ]);
         }
     }
@@ -61,16 +60,30 @@ class CategoryController extends BaseController
     public function destroy($id){
         $this->categoryRepository->delete($id);
         return redirect()->route('admin.category.index')->with('
-        notifi', trans('admin.delete-success')
+        success', trans('admin.delete-success')
         );
     }
 
-    // protected function upload($request,$url){
-    //     $file = $request->file($url);
-    //     $name = $file->getClientOriginalName($url);
-    //     if(!is_null($file)){
-    //         $file ->move('img/news',$name);
-    //      }
-    // }
+    public function deleteList(){
+        $getAll = $this->categoryRepository->getonlyTrashed();
+        return view('admin.category.delete')->with([
+            'deleted'=> $getAll,
+            'movies' => BaseController::movieNewUpdate(),
+        ]);
+    }
+
+    public function restore($id){
+        $this->categoryRepository->restore($id);
+            return redirect()->route('admin.category.delete.list')->with([
+                'success'=>trans('admin.restore-success'),
+        ]);
+    }
+
+    public function deleteHard($id){
+       $this->categoryRepository->deleteHard($id);
+        return  redirect()->route('admin.category.delete.list')->with(
+            'success',trans('admin.delete-success')
+        );
+    }
 
 }

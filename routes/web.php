@@ -45,7 +45,6 @@ use Illuminate\Support\Facades\Route;
    // Admin
    Route::group(['middleware' => 'admin'], function(){
       Route::get('/admin','Admin\AdminController@index')->name('admin');
-      Route::get('/list/delete','Admin\AdminController@deleteList')->name('admin.list.delete');
       Route::prefix('movie')->group(function (){
          Route::get('/','Movie\MovieController@index')->name('admin.movie.index');
          Route::get('/add','Movie\MovieController@show')->name('admin.movie.add');
@@ -53,6 +52,9 @@ use Illuminate\Support\Facades\Route;
          Route::get('/edit/{id}','Movie\MovieController@edit')->name('admin.movie.edit');
          Route::put('/update/{id}','Movie\MovieController@update')->name('admin.movie.update');
          Route::delete('/delete/{id}','Movie\MovieController@destroy')->name('admin.movie.delete');
+         Route::get('/delete/list','Movie\MovieController@deleteList')->name('admin.movie.delete.list');
+         Route::put('/restore/{id}','Movie\MovieController@restore')->name('admin.movie.restore');
+         Route::delete('/delete/hard/{id}','Movie\MovieController@deleteHard')->name('admin.movie.deleteHard');
       });
       Route::prefix('category')->group(function (){
          Route::get('/','Category\CategoryController@index')->name('admin.category.index');
@@ -61,6 +63,9 @@ use Illuminate\Support\Facades\Route;
          Route::get('/edit/{id}','Category\CategoryController@edit')->name('admin.category.edit');
          Route::put('/update/{id}','Category\CategoryController@update')->name('admin.category.update');
          Route::delete('/delete/{id}','Category\CategoryController@destroy')->name('admin.category.delete');
+         Route::get('/delete/list','Category\CategoryController@deleteList')->name('admin.category.delete.list');
+         Route::put('/restore/{id}','Category\CategoryController@restore')->name('admin.category.restore');
+         Route::delete('/delete/hard/{id}','Category\CategoryController@deleteHard')->name('admin.category.deleteHard');
       });
       Route::prefix('user')->group(function (){
          Route::get('/','User\UserController@index')->name('admin.user.index');
@@ -70,6 +75,9 @@ use Illuminate\Support\Facades\Route;
          Route::get('/edit/{id}','User\UserController@edit')->name('admin.user.edit');
          Route::put('/update/{id}','User\UserController@update')->name('admin.user.update');
          Route::delete('/delete/{id}','User\UserController@destroy')->name('admin.user.delete');
+         Route::get('/delete/list','User\UserController@deleteList')->name('admin.user.delete.list');
+         Route::put('/restore/{id}','User\UserController@restore')->name('admin.user.restore');
+         Route::delete('/delete/hard/{id}','User\UserController@deleteHard')->name('admin.user.deleteHard');
       });
       Route::prefix('type')->group(function (){
          Route::get('/{name}','Movie\TypeController@index')->name('admin.type.movie.index');
@@ -77,7 +85,10 @@ use Illuminate\Support\Facades\Route;
          Route::post('/{name}/add','Movie\TypeController@store')->name('admin.type.movie.store');
          Route::get('/{name}/edit/{id}','Movie\TypeController@edit')->name('admin.type.movie.edit');
          Route::put('/{name}/update/{id}','Movie\TypeController@update')->name('admin.type.movie.update');
-         Route::delete('/{name}/delete/{id}','Movie\TypeController@destroy')->name('admin.type.movie.delete');
+         Route::delete('/{name}/delete/{id}','Movie\TypeController@destroy')->name('admin.type.movie.delete.soft');
+         Route::get('/{name}/delete/list','Movie\TypeController@deleteList')->name('admin.type.movie.delete.list');
+         Route::put('/{name}/restore/{id}','Movie\TypeController@restore')->name('admin.type.movie.restore');
+         Route::delete('/{name}/delete/hard/{id}','Movie\TypeController@deleteHard')->name('admin.type.movie.deleteHard');
       });
    });
 

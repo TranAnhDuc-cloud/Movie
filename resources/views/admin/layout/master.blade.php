@@ -19,6 +19,7 @@
 
         <!-- /.content-header -->
         @section('content-wrapper')
+            
         @show
 
     </div>

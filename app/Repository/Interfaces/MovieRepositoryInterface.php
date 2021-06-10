@@ -11,5 +11,6 @@ interface MovieRepositoryInterface {
     public function delete($id);
     public function getwithTrashed();
     public function getonlyTrashed();
-
+    public function restore($id);
+    public function deleteHard($id);
 }

@@ -2,7 +2,7 @@
 @section('title','PhimTV / Category') 
 
 @section('title-pages')
-{{ trans('admin.home') }} » {{ trans('admin.category') }} » {{$key->name}}
+{{ trans('admin.home') }} » {{ trans('admin.category') }} » {{$cate->name}}
 @endsection
 @section('content-page')
         @foreach ($theloai as $item)

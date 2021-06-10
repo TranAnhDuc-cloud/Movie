@@ -17,11 +17,12 @@
             @if (Session::has('error'))
               <div class="alert bg-danger text-center">{{Session::get('error')}}</div>
             @endif
-            @if (Session::has('notifi'))
-              <div class="alert bg-success text-center">{{ Session::get('notifi') }}</div>
+            @if (Session::has('success'))
+              <div class="alert bg-success text-center">{{ Session::get('success') }}</div>
             @endif
             <!-- /.card-header -->
             <div class="card-body card-body-pages">
+                @include('admin.layout.info_box')
                 @yield('table')
             </div>
             <!-- /.card-body -->

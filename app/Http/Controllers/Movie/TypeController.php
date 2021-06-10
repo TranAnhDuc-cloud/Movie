@@ -61,10 +61,33 @@ class TypeController extends BaseController
     }
 
     public function destroy($name,$id){
-        $type = $this->typeMovieRepository->findHandler($name,$id);
-        $type->delete();
+        $this->typeMovieRepository->deleteSoft($name,$id);
         return redirect()->route('admin.type.movie.index',$name)->with(
             'success', trans('admin.delete-success')
         );
     }
+
+    public function deleteList($handle){
+        $getAll = $this->typeMovieRepository->getonlyTrashed($handle)->get();
+        return view('admin.type.delete')->with([
+            'deleted'=> $getAll,
+            'movies' => BaseController::movieNewUpdate(),
+            'name' => $handle,
+        ]);
+    }
+
+    public function restore($handle,$id){
+        $this->typeMovieRepository->restore($handle,$id);
+            return redirect()->route('admin.type.movie.delete.list',$handle)->with([
+                'success'=>trans('admin.restore-success'),
+        ]);
+    }
+
+    public function deleteHard($handle,$id){
+       $this->typeMovieRepository->deleteHard($handle,$id);
+        return  redirect()->route('admin.type.movie.delete.list',$handle)->with(
+            'success',trans('admin.delete-success')
+        );
+    }
+    
 }

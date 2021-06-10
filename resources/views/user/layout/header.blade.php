@@ -74,21 +74,21 @@
                                                 <a href="{{route('home')}}">{{ trans('admin.home') }}</a>
                                             </li> 
                                             @foreach ($menu as $menus)
-                                            <li class="">
-                                                <a style="cursor: pointer">{{trans('client.menu-title',['name'=>$menus->name])}}</a>
-                                                <ul class="sub-menu ne-dropdown-menu">
-                                                    <?php $handle = $menus->handle ;
-                                                        $nav = DB::table($handle)->select('*')->get();
-                                                    ?>
+                                                <li class="">
+                                                    <a style="cursor: pointer">{{trans('client.menu-title',['name'=>$menus->name])}}</a>
+                                                    <ul class="sub-menu ne-dropdown-menu">
+                                                        <?php $handle = $menus->handle ;
+                                                            $nav = navMenu($handle);
+                                                        ?>
                                                         @foreach ($nav as $nav_menus)
-                                                            <li class="">
-                                                                <a href="{{route('menu',[$menus->name,$nav_menus->id,$nav_menus->name])}}">
-                                                                    {{trans('client.menu-title',['name'=>$nav_menus->name])}}
-                                                                </a>
-                                                            </li>  
-                                                       @endforeach             
-                                                </ul>
-                                            </li>
+                                                                <li class="">
+                                                                    <a href="{{route('menu',[$menus->name,$nav_menus->id,$nav_menus->name])}}">
+                                                                        {{trans('client.menu-title',['name'=>$nav_menus->name])}}
+                                                                    </a>
+                                                                </li>  
+                                                        @endforeach             
+                                                    </ul>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </nav>

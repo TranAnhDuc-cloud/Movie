@@ -21,12 +21,26 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             $user->email_verified = Str::random(40);
             return $user->save();
     }
-    public function getonlyTrashed(){
-        return  \App\User::onlyTrashed()->get();
+
+    public function getAll(){
+        return \App\User::paginate(10);
     }
 
-    public function getwithTrashed(){
-        return  \App\User::withTrashed()->get();
+    // Lấy các delete_at đã xóa
+    public function getonlyTrashed(){
+        return  \App\User::onlyTrashed()->paginate(10);
     }
-    
+
+    // Lấy tất cả có cả delete_at đã xóa
+    public function getwithTrashed(){
+        return  \App\User::withTrashed()->paginate(10);
+    }
+
+    public function restore($id){
+       return \App\User::withTrashed()->where('id', $id)->restore();
+    }
+
+    public function deleteHard($id){
+        return \App\User::withTrashed()->where('id', $id)->forceDelete();
+    }
 }

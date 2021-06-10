@@ -69,6 +69,7 @@ abstract class EloquentRepository implements RepositoryInterface{
     }
     return false;
     }
+
     /**
     * Delete
     *

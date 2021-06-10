@@ -15,6 +15,7 @@
 @section('table')
   <div class="add mb-2 mt-2">
     <a href="{{route('admin.user.add')}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.add') }}</button></a>
+    <a href="{{route('admin.user.delete.list')}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.daxoaganday') }}</button></a>
   </div>
     <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -27,7 +28,7 @@
           <th>Email</th>
           <th>{{ trans('admin.address') }}</th>
           <th>{{ trans('admin.created_at') }}</th>
-          <th>{{ trans('admin.update_at') }}</th>
+          <th>{{ trans('admin.updated_at') }}</th>
           <th>{{ trans('admin.edit') }}</th>
           <th>{{ trans('admin.delete') }}</th>
         </tr>
@@ -80,4 +81,5 @@
         </tr>
         </tfoot>
       </table>
+      {!! $getAll->render() !!}
 @endsection

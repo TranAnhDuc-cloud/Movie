@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Movie;
 
 use App\Category;
 use App\Contry;
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MovieRequest;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ use App\Repository\Interfaces\MovieRepositoryInterface;
 use App\Services\uploadFileService;
 use App\Type_movie;
 
-class MovieController extends Controller
+class MovieController extends BaseController
 {
     //
     protected $movieRepository;
@@ -89,9 +90,26 @@ class MovieController extends Controller
         );
     }
 
-    protected function upload($request,$url){
-        $file = $request->file($url);
-        $name = $file->getClientOriginalName($url);
+    public function deleteList(){
+        $getAll = $this->movieRepository->getonlyTrashed();
+        return view('admin.movie.delete')->with([
+            'deleted'=> $getAll,
+            'movies' => BaseController::movieNewUpdate(),
+        ]);
+    }
+
+    public function restore($id){
+        $this->movieRepository->restore($id);
+            return redirect()->route('admin.movie.delete.list')->with([
+                'success'=>trans('admin.restore-success'),
+        ]);
+    }
+
+    public function deleteHard($id){
+       $this->movieRepository->deleteHard($id);
+        return  redirect()->route('admin.movie.delete.list')->with(
+            'success',trans('admin.delete-success')
+        );
     }
 }
 

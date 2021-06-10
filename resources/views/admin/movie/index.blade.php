@@ -15,6 +15,7 @@
 @section('table')
     <div class="add mb-2 mt-2">
     <a href="{{route('admin.movie.add')}}"><button class="btn btn-add btn-success p-30">{{trans('admin.add')}}</button></a>
+    <a href="{{route('admin.movie.delete.list')}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.daxoaganday') }}</button></a>
     </div>
     <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -95,4 +96,5 @@
         </tr>
         </tfoot>
       </table>
+      {!! $getAll->render() !!}
 @endsection

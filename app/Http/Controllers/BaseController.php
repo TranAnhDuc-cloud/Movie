@@ -62,4 +62,9 @@ class BaseController extends Controller
         return Movie::where('film_hot',1)->get();
     }
 
+    // MovieSiderBar ADMIN
+    protected function movieNewUpdate(){
+        return Movie::orderby('created_at','Desc')->limit(10)->get();
+    }
+
 }
