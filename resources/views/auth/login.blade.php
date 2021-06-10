@@ -54,7 +54,7 @@
 				</style>
 			<div>
 				<input type="submit" value="{{ trans('admin.login') }}" />
-				<a href="#">{{ trans('admin.lostpassword') }} ?</a>
+				<a href="{{route('password.request')}}">{{ trans('admin.lostpassword') }} ?</a>
 				<a href="{{route('register')}}">{{ trans('admin.register') }}</a>
 			</div>
 		</form>

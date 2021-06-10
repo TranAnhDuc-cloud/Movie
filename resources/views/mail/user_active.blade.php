@@ -15,18 +15,6 @@
             <br>
             <a class="url_email" href="{{ route('register.active',$email_verified)}}">View Account in Client Area</a>
             <br/>
-            {{-- {!! Form::open(array('route' =>'auth.mail.active' , 'method' =>'POST')) !!}
-            {{ Form::hidden('_method', 'POST') }}
-                {{ csrf_field() }}
-                <label>Mã Xác Nhận</label>
-                <input type="text" name="code" id="code" value="{{$email_verified}}" disabled />
-                <br>
-                <br>
-                <label>Nhap Ma Xac Nhan Cua Ban</label>
-                <input type="text" name="inputCode" id="inputCode" onpaste="return false" autocomplete="off" />
-                {{-- {!! Form::submit() !!} --}}
-                
-            {{-- {!! Form::close() !!} --}} 
             <style>
                 .url_email{
                     box-sizing: border-box;
