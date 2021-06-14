@@ -46,6 +46,7 @@ return [
     'level' => 'Quyền Truy Cập',
     'admin' =>'Quản Lý',
     'member' =>'Thành Viên',
+    'viewprofile' => 'Xem Hồ Sơ',
     'username' =>'Tên Người Dùng',
     'fullname' =>'Tên Đầy Đủ',
     'password' =>'Mật Khẩu',

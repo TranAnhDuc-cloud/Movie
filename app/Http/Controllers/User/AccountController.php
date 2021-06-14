@@ -14,4 +14,7 @@ class AccountController extends BaseController
         return view('user.detail.info');
     }
 
+    public function updateAvatar(){
+        
+    }
 }

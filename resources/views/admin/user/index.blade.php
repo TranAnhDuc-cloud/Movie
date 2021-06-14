@@ -10,12 +10,11 @@
     <li class="pl-2"> » {{ trans('admin.show') }}</li>
 @endsection
 @section('card-header-title')
-    <h3 class="card-title">The Movie In DataBase</h3>
 @endsection
 @section('table')
   <div class="add mb-2 mt-2">
-    <a href="{{route('admin.user.add')}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.add') }}</button></a>
-    <a href="{{route('admin.user.delete.list')}}"><button class="btn btn-add btn-success p-30">{{ trans('admin.daxoaganday') }}</button></a>
+    <a class="add-item" href="{{route('admin.user.add')}}"><button class="btn btn-add p-30"><i class="fas fa-plus"></i>{{ trans('admin.add') }}</button></a>
+    <a class="trash-item"href="{{route('admin.user.delete.list')}}"><button class="btn btn-add p-30"><i class="fas fa-trash"></i>{{ trans('admin.daxoaganday') }}</button></a>
   </div>
     <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -81,5 +80,12 @@
         </tr>
         </tfoot>
       </table>
-      {!! $getAll->render() !!}
+      
+      <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+          <ul class="pagination justify-content-center m-0">
+            {!! $getAll->render() !!}
+          </ul>
+        </nav>
+      </div>
 @endsection

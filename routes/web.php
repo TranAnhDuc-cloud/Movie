@@ -45,6 +45,7 @@ use Illuminate\Support\Facades\Route;
    // Admin
    Route::group(['middleware' => 'admin'], function(){
       Route::get('/admin','Admin\AdminController@index')->name('admin');
+      Route::get('/contact','Admin\AdminController@contact')->name('admin.contact');
       Route::prefix('movie')->group(function (){
          Route::get('/','Movie\MovieController@index')->name('admin.movie.index');
          Route::get('/add','Movie\MovieController@show')->name('admin.movie.add');

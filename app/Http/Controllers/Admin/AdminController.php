@@ -27,4 +27,10 @@ class AdminController extends BaseController
             'created_at'=>$created_at,
         ]);
     }
+    public function contact() {
+        $user = User::paginate(9);
+        return view('admin.dashboard.contact')->with([
+            'getAll'=>$user,
+        ]);
+    }
 }

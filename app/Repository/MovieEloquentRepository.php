@@ -29,22 +29,6 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
         return \App\Movie::paginate(10);
     }
 
-    // public function menu(){
-    //     return Menu::all();
-    // }
-    
-    // public function movies(){
-    //     return  Movie::where('view','>',10)->orderBy('view','Desc')->limit(3)->get();
-    // }
-    
-    // public function news(){
-    //     return Movie::select('*')->orderby('created_at','Desc')->limit(9)->get();
-    // }
-    
-    // public function sameCategory($social){
-    //     return Movie::where('categories_id',$social->categories_id)->inRandomOrder()->get();
-    // }
-
     public function restore($id){
         return \App\Movie::withTrashed()->where('id', $id)->restore();
      }

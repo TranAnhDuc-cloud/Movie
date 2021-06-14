@@ -7,6 +7,7 @@ use App\Contry;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MovieRequest;
+use App\Jobs\ProcessImageThumbnails;
 use App\Movie;
 use Illuminate\Http\Request;
 use App\Repository\Interfaces\MovieRepositoryInterface;
@@ -38,6 +39,7 @@ class MovieController extends BaseController
     }
 
     public function store(MovieRequest $request){
+        // UploadFile
         $image = $request->file('url_picture');
         $video = $request->file('url_link');
         $all =$request->all();
@@ -63,6 +65,7 @@ class MovieController extends BaseController
     }
         
     public function update($id , MovieRequest $request ){
+        // upLoadfile
         $image = $request->file('url_picture');
         $video = $request->file('url_link');
         $all= $request->all();
@@ -70,6 +73,7 @@ class MovieController extends BaseController
         $all['url_link'] = 'video/'.$video->getClientOriginalName('url_link');
         uploadFileService::handleImg($image,$all['url_picture']);
         uploadFileService::handleVideo($video,$all['url_link']);
+        // update
         $update = $this->movieRepository->update($id,$all); 
         if($update->save())
             return redirect()->route('admin.movie.index')->with('

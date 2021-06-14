@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $available_avatars =  ['avatar1.png', 'avatar2.png', 'avatar3.png', 'avatar4.png', 'avatar5.png'];
     return [
         'username' => $faker->name,
         'fullname' => $faker->name,
@@ -29,6 +30,7 @@ $factory->define(User::class, function (Faker $faker) {
         'provider' => null,
         'provider_id'=> null,
         'address'=> null,
+        'avatar' => $available_avatars[array_rand($available_avatars)],
         'remember_token' => Str::random(10),
     ];
 });

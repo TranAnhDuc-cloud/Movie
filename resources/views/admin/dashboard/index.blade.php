@@ -35,9 +35,8 @@
                   <ul class="users-list clearfix">
                     @foreach ($member as $item)
                         <li class="item-user">
-                            <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Image">
-                            {{-- {{asset('dist/img/'.$item->url_picture)}} --}}
-                            <a class="users-list-name" href="#">{{$item->username}}</a>
+                            <img src="{{asset('dist/img/'.$item->avatar)}}" alt="User Image wh-50">
+                            <a class="users-list-name" href="{{route('admin.user.info',[$item->username, $item->id])}}">{{$item->username}}</a>
                             <span class="users-list-date">{{$item->created_at}}</span>
                         </li>
                     @endforeach

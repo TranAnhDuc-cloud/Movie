@@ -19,13 +19,13 @@
             <div class="card-body-info card-body box-profile">
               <div class="text-center">
                 <img class="profile-user-img img-fluid img-circle"
-                     src="{{asset('dist/img/user4-128x128.jpg')}}"
+                     src="{{asset('dist/img/'.$member->avatar)}}"
                      alt="User profile picture">
               </div>
 
-              <h3 class="profile-username text-center" style="text-transform: uppercase">{{Auth::user()->username}}</h3>
+              <h3 class="profile-username text-center" style="text-transform: uppercase">{{$member->username}}</h3>
 
-              <p class="text-muted text-center">{{Auth::user()->fullname}}</p>
+              <p class="text-muted text-center">{{$member->fullname}}</p>
 
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
@@ -54,15 +54,15 @@
             <div class="card-body">
               <strong><i class="fas fa-book mr-1"></i>Email</strong>
               <p class="text-muted">
-                {{Auth::user()->email}}
+                {{$member->email}}
               </p>
               <hr>
               <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ trans('admin.address') }}</strong>
-              <p class="text-muted">{{ Auth::user()->address }}</p> 
+              <p class="text-muted">{{ $member->address }}</p> 
               <hr>
               <strong><i class="fas fa-pencil-alt mr-1"></i> {{ trans('admin.date') }} </strong>
               <p class="text-muted">
-                {{Auth::user()->created_at}}
+                {{$member->created_at}}
               </p>
               <hr>
               <strong><i class="far fa-file-alt mr-1"></i> {{ trans('admin.note') }}</strong>

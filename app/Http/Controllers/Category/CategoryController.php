@@ -59,8 +59,8 @@ class CategoryController extends BaseController
 
     public function destroy($id){
         $this->categoryRepository->delete($id);
-        return redirect()->route('admin.category.index')->with('
-        success', trans('admin.delete-success')
+        return redirect()->route('admin.category.index')->with(
+            'success',trans('admin.delete-success')
         );
     }
 

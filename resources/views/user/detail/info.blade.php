@@ -19,10 +19,15 @@
                     <div class="card-body-info card-body box-profile">
                       <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle"
-                             src="{{asset('dist/img/user4-128x128.jpg')}}"
+                             src="{{asset('dist/img/'.Auth::user()->avatar)}}"
                              alt="User profile picture">
+                              {{-- <img src="{{asset('dist/img/'.Auth::user()->avatar)}}" alt="Avatar" class="image profile-user-img img-fluid img-circle">
+                              <div class="overlay">
+                              <a href="#" class="icon" title="User Profile">
+                                <i class="fa fa-user"></i>
+                              </a>
+                              </div> --}}
                       </div>
-        
                       <h3 class="profile-username text-center "  style="text-transform: uppercase">{{Auth::user()->username}}</h3>
         
                       <p class="text-muted text-center">{{Auth::user()->fullname}}</p>

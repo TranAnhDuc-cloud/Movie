@@ -70,3 +70,28 @@ ul .item{
 .item-user{
     display: none;
 }
+/* ADD */
+.add{
+    display: flex;
+    justify-content:space-around;
+}
+.add a button i{
+    margin: 0 10px 0 5px ;
+}
+.add a button i{
+    color: #fff;
+}
+.add .add-item button{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.add .trash-item button{
+    background-image: radial-gradient(red, yellow);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn-ok{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.item-user img{
+    width:100px;
+}

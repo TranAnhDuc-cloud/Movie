@@ -26,8 +26,9 @@ class UserController extends BaseController
         ]);
     }
     
-    public function info() {
-        return view('admin.user.info');
+    public function info($name,$id) {
+        $member = $this->userRepository->find($id);
+        return view('admin.user.info')->with(['member'=>$member]);
     }
 
     public function show(){

@@ -48,6 +48,7 @@ return [
     'level' =>'Level',
     'admin' =>'Admin',
     'member' =>'Member',
+    'viewprofile' =>'View Profile',
     'username' =>'Username',
     'fullname' =>'Full Name',
     'password' =>'Password',

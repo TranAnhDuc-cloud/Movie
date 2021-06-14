@@ -54,6 +54,7 @@ class RegisterController extends Controller
         $email_verified = Str::random(40);
         $email = $request->email;
         $username = $request->username;
+        $available_avatars =  ['avatar1.png', 'avatar2.png', 'avatar3.png', 'avatar4.png', 'avatar5.png'];
         $user =  User::create([
             'username' => $username,
             'password' => bcrypt($request->password),
@@ -63,6 +64,7 @@ class RegisterController extends Controller
             'email_verified' => $email_verified,
             'active' => 0,
             'level' => 0,
+            'avatar' => $available_avatars[array_rand($available_avatars)],
         ]);
         if($user->save()){
             Mail::send('mail.user_active',['email_verified'=>$email_verified],function($message) use($username,$email){

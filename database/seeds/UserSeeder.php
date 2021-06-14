@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         //
         factory(App\User::class,10)->create();
+        $available_avatars =  ['avatar1.png', 'avatar2.png', 'avatar3.png', 'avatar4.png', 'avatar5.png'];
         User::create([
             'username' => 'anhduc',
             'fullname' => 'anhduc',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'provider' =>null,
             'provider_id'=>null,
             'address'=>null,
+            'avatar' => $available_avatars[array_rand($available_avatars)],
             'remember_token' => Str::random(10),
         ]);
         User::create([
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
             'provider' =>null,
             'provider_id'=>null,
             'address'=>null,
+            'avatar' => $available_avatars[array_rand($available_avatars)],
             'remember_token' => Str::random(10),
         ]);
     }

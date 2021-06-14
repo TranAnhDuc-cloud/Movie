@@ -191,7 +191,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('dist/img/'.Auth::user()->avatar)}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a style="text-transform: uppercase" href="{{route('admin.user.info',[Auth::user()->username, Auth::user()->id])}}" class="d-block">{{Auth::user()->username}}</a>
@@ -311,6 +311,14 @@
               </li>
               @endforeach
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.contact') }}" class="nav-link">
+              <i class="nav-icon fas fa-id-card"></i>
+              <p>
+                {{ trans('admin.contact') }}
+              </p>
+            </a>
           </li>
         </ul>
       </nav>
