@@ -34,7 +34,7 @@
                                 {{$watch->description}}
                             </div>
                         </div>
-                        <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+                        <div class="fb-comments text-white" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                     <div class="topic-box-lg bg-danger">{{ trans('client.movieviewmost') }}</div>
                 </div>
                 <div class="sidebar-box item-box-dark-md">
-                    @include('user.layout.siderbar_mostview')
+                    @include('user.component.siderbar_mostview')
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@
         
     @show
     
-    @include('user.layout.filmhot')
+    @include('user.component.filmhot')
 
     {{-- Index --}}
     @section('content-index')

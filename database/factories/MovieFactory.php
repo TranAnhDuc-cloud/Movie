@@ -19,7 +19,7 @@ $factory->define(App\Movie::class, function (Faker $faker) {
         'url_picture'=>'img/news/news'.rand(200,247).'.jpg',
         'url_link'=>'video/video.mp4',
         'view'=>rand(0,500),
-        'description'=>$faker->text(1000),
+        'description'=>$faker->text(255),
         'status'=>$faker->name(),
         'film_hot'=>$faker->boolean(),
         'type_movie'=>rand(1,3),

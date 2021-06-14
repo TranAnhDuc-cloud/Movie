@@ -10,6 +10,6 @@ $factory->define(App\Category::class, function (Faker $faker) {
         //
         'name'=>$faker->title(),
         'description'=>$faker->text(),
-        'url_picture'=>'abc.com',
+        'url_picture'=>'img/news/news'.rand(200,247).'.jpg',
     ];
 });

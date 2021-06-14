@@ -45,5 +45,6 @@
         </div>
     </div>
    </div>
+   
 {{-- END MAIN DETAIL --}}
 @include('user.layout.footer')

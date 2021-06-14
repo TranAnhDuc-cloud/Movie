@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-7 col-md-12 mb-30">
                         <div class="sidebar-box item-box-dark-md">
-                           @include('user.layout.siderbar_mostview')
+                           @include('user.component.siderbar_mostview')
                         </div>
                     </div>
                 </div>
