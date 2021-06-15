@@ -37,7 +37,7 @@ class ProcessImageThumbnails implements ShouldQueue
         $resized_image_path = public_path('thumbs' . DIRECTORY_SEPARATOR .  $image->avatar);
  
         // create image thumbs from the original image
-        $img = \Image::make($full_image_path)->resize(300, 200);
+        $img = \Image::make($full_image_path)->resize(215, 215);
         $img->save($resized_image_path);
     }
 }

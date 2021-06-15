@@ -25,7 +25,6 @@ class BaseController extends Controller
         $cate = $this->mainCategory();
         $contry = $this->contryAll();
         $typeMovie = $this->typeMovieAll();
-        $siderbarAdmin = $this->movieNewUpdate();
         View::share([
             'category'=>$category,
             'film_hot'=> $film_hot,
@@ -38,7 +37,6 @@ class BaseController extends Controller
             'cate' => $cate,
             'contry' => $contry,
             'typeMovie' => $typeMovie,
-            'siderbar' => $siderbarAdmin,
         ]);
     }
     
@@ -103,8 +101,6 @@ class BaseController extends Controller
     }
 
     // MovieSiderBar ADMIN
-    protected function movieNewUpdate(){
-        return Movie::orderby('created_at','Desc')->limit(10)->get();
-    }
+    
 
 }

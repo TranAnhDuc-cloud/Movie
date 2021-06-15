@@ -91,7 +91,6 @@ class MovieController extends BaseController
         $getAll = $this->movieRepository->getonlyTrashed();
         return view('admin.movie.delete')->with([
             'deleted'=> $getAll,
-            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 

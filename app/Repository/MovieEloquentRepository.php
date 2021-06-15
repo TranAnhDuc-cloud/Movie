@@ -33,7 +33,11 @@ class MovieEloquentRepository extends EloquentRepository implements MovieReposit
         return \App\Movie::withTrashed()->where('id', $id)->restore();
      }
  
-     public function deleteHard($id){
+    public function deleteHard($id){
          return \App\Movie::withTrashed()->where('id', $id)->forceDelete();
-     }
+    }
+
+    public function category(){
+        return \App\Category::all();
+    }
 }

@@ -39,7 +39,7 @@
                             <input type="submit" class="mt-5 form-control btn btn-primary" value="{{trans('admin.add')}}">
                         </div>
                     </div>
-                    {!! Form::close() !!}
+                {!! Form::close() !!}
         </div>
     </div>
       <!-- /.content -->

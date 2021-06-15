@@ -37,12 +37,32 @@
         @foreach ($getAll as $item)
         <tr class="old">
             <td>{{ number($i++) }}</td>
-            <td>{{$item->username}}</td>
+            <td>
+              <a href="{{route('admin.user.info',$item->id)}}">
+                <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">{{$item->username}}
+              </a>
+            </td>
             <td>{{$item->fullname}}</td>
-            <td>{{$item->level}}</td>
-            <td>{{$item->active}}</td>
+            <td>
+                @if ($item->level === 1)
+                {{trans('admin.admin')}}
+                @endif
+                @if ($item->level === 0)
+                {{trans('admin.member')}}
+                @endif
+
+            </td>
+            <td>
+              @if ($item->active === 1)
+              {{trans('admin.active')}}
+              @endif
+              @if ($item->active === 0)
+              {{trans('admin.noactive')}}
+              @endif
+
+          </td>
             <td>{{$item->email}}</td>
-            <td>{{$item->address}}</td>
+            <td>{{$item->avatar }}</td>
             <td>{{$item->created_at}}</td>
             <td>{{$item->updated_at}}</td>
             <th>

@@ -9,15 +9,15 @@ class CategoryEloquentRepository extends EloquentRepository implements CategoryR
     }
     
     public function getAll(){
-        return \App\Category::paginate(10);
+        return \App\Category::paginate(5);
     }
 
     public function getonlyTrashed(){
-        return  \App\Category::onlyTrashed()->paginate(10);
+        return  \App\Category::onlyTrashed()->paginate(5);
     }
 
     public function getwithTrashed(){
-        return  \App\Category::withTrashed()->paginate(10);
+        return  \App\Category::withTrashed()->paginate(5);
     }
 
     public function restore($id){

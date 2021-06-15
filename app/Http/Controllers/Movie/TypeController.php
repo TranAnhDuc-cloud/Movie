@@ -71,7 +71,6 @@ class TypeController extends BaseController
         $getAll = $this->typeMovieRepository->getonlyTrashed($handle)->get();
         return view('admin.type.delete')->with([
             'deleted'=> $getAll,
-            'siderbar' => BaseController::movieNewUpdate(),
             'name' => $handle,
         ]);
     }

@@ -36,4 +36,10 @@ class SearchController extends BaseController
             'category' => $category
         ]);
     }
+
+    public function searchContact(Request $request){
+        $searchTerm = $request->search;
+        $user =  User::whereLike(['username', 'fullname'], $searchTerm)->paginate(6)->withQueryString();
+        return view('admin.dashboard.contact')->with('getAll',$user);
+    }
 }

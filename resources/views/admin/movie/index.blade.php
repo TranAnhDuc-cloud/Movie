@@ -26,13 +26,12 @@
           <th>{{trans('admin.actors')}}</th>
           <th>{{trans('admin.time')}}</th>
           <th>{{trans('admin.date')}}</th>
-          <th>{{trans('admin.url_picture')}}</th>
-          <th>{{trans('admin.url_link')}}</th>
           <th>{{trans('admin.view')}}</th>
           <th>{{trans('admin.status')}}</th>
           <th>{{trans('admin.category')}}</th>
           <th>{{trans('admin.country')}}</th>
           <th>{{trans('admin.year')}}</th>
+          <th>{{trans('admin.url_picture')}}</th>
           <th>{{trans('admin.edit')}}</th>
           <th>{{trans('admin.delete')}}</th>
         </tr>
@@ -48,13 +47,12 @@
             <td>{{$item->actor}}</td>
             <td>{{$item->time}}</td>
             <td>{{$item->date}}</td>
-            <td>{{$item->url_picture}}</td>
-            <td>{{$item->url_link}}</td>
             <td>{{$item->view}}</td>
             <td>{{$item->status}}</td>
             <td>{{$item->category->name}}</td>
             <td>{{$item->contry->name}}</td>
             <td>{{$item->year}}</td>
+            <td><img src="{{asset($item->url_picture)}}" class="wh-50 img-fluid" alt=""></td>
               <th>
                 <div>
                   {!! Form::open(array('route' => array('admin.movie.edit',$item->id))) !!}
@@ -74,26 +72,12 @@
         </tr>                     
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-            <th>{{trans('admin.number')}}</th>
-          <th>{{trans('admin.title')}}</th>
-          <th>{{trans('admin.name')}}</th>
-          <th>{{trans('admin.directors')}}</th>
-          <th>{{trans('admin.actors')}}</th>
-          <th>{{trans('admin.time')}}</th>
-          <th>{{trans('admin.date')}}</th>
-          <th>{{trans('admin.url_picture')}}</th>
-          <th>{{trans('admin.url_link')}}</th>
-          <th>{{trans('admin.view')}}</th>
-          <th>{{trans('admin.status')}}</th>
-          <th>{{trans('admin.category')}}</th>
-          <th>{{trans('admin.country')}}</th>
-          <th>{{trans('admin.year')}}</th>
-          <th>{{trans('admin.edit')}}</th>
-          <th>{{trans('admin.delete')}}</th>
-        </tr>
-        </tfoot>
       </table>
-      {!! $getAll->render() !!}
+      <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+          <ul class="pagination justify-content-center m-0">
+            {!! $getAll->render() !!}
+          </ul>
+        </nav>
+      </div>
 @endsection

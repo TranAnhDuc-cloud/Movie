@@ -19,6 +19,7 @@ return [
     'deleted_at' => 'Ngày Xóa',
     'update_at'=>'Ngày Cập Nhật',
     'active'=>'Hoạt Động',
+    'noactive'=>'Không Hoạt Động',
     'restore' => ' Khôi Phục',
     'harddelete' => 'Xóa Hẳn',
     // MOVIE

@@ -49,7 +49,7 @@ class CategoryController extends BaseController
         $all =$request->all();
         $all['url_picture'] = 'img/news/'.$image->getClientOriginalName('url_picture');
         uploadFileService::handleImg($image,$all['url_picture']);
-       $update = $this->categoryRepository->update($id,$all);
+        $update = $this->categoryRepository->update($id,$all);
             if($update->save()){
                 return redirect()->route('admin.category.index')->with(['
                 success'=>trans('admin.update-success')
@@ -68,7 +68,6 @@ class CategoryController extends BaseController
         $getAll = $this->categoryRepository->getonlyTrashed();
         return view('admin.category.delete')->with([
             'deleted'=> $getAll,
-            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 

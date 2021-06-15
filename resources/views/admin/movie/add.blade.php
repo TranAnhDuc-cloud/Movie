@@ -9,7 +9,7 @@
     <li class="pl-2"> » {{trans('admin.movie')}}</li>
     <li class="pl-2"> » {{trans('admin.add')}}</li>
 @endsection
-@section('content-wrapper')
+@section('content-wrapper') 
      <!-- Main content -->
      <div class="card-body card-pd">
         <div class="table-responsive">

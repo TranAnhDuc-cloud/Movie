@@ -21,6 +21,13 @@
                     {{ csrf_field() }}
                     <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.category')}}</b></div>
                     <div class="container">
+                        <div class="content d-flex p-5">
+                            <img src="{{asset($category->url_picture)}}" class="wh-100" alt="">
+                            <div class="ml-5">
+                                <div><strong>{{ trans('admin.description') }}</strong>  : {{$category->description}}</div>
+                            </div>
+                        </div>
+
                         <div class="content">
 
                             <div class="row">

@@ -194,7 +194,7 @@
           <img src="{{asset('dist/img/'.Auth::user()->avatar)}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a style="text-transform: uppercase" href="{{route('admin.user.info',[Auth::user()->username, Auth::user()->id])}}" class="d-block">{{Auth::user()->username}}</a>
+          <a style="text-transform: uppercase" href="{{route('admin.user.info',Auth::user()->id)}}" class="d-block">{{Auth::user()->username}}</a>
         </div>
         <div class="info"><a class="d-block" href="{{route('logout')}}">{{ trans('admin.logout') }}</a></div>
       </div>

@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
-use App\Movie;
 use App\Repository\Interfaces\UserRepositoryInterface;
+use App\Services\uploadFileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends BaseController
+class UserController extends AdminController
 {
     //
     protected $userRepository;
@@ -26,14 +27,13 @@ class UserController extends BaseController
         ]);
     }
     
-    public function info($name,$id) {
+    public function info($id) {
         $member = $this->userRepository->find($id);
         return view('admin.user.info')->with(['member'=>$member]);
     }
 
     public function show(){
-        return view('admin.user.add')->with([
-        ]);
+        return view('admin.user.add');
     }
 
     public function store(UserRequest $request){
@@ -70,21 +70,23 @@ class UserController extends BaseController
         $getAll = $this->userRepository->getonlyTrashed();
         return view('admin.user.delete')->with([
             'deleted'=> $getAll,
-            'siderbar' => BaseController::movieNewUpdate(),
         ]);
     }
 
     public function restore($id){
-        $this->userRepository->restore($id);
-            return redirect()->route('admin.user.delete.list')->with([
-                'success'=>trans('admin.restore-success'),
-        ]);
+        return $this->userRepository->restore($id);
     }
 
     public function deleteHard($id){
-       $this->userRepository->deleteHard($id);
-        return  redirect()->route('admin.user.delete.list')->with(
-            'success',trans('admin.delete-success')
-        );
+        return $this->userRepository->deleteHard($id);
+    }
+
+    public function updateAvatar($id ,Request $request){
+        $image = $request->file('avatar');
+        $all = $request->all();
+        $all['avatar'] = $image->getClientOriginalName('avatar');
+        $name = $all['avatar'];
+        uploadFileService::updateAvatar($image,$name);
+        return $this->userRepository->updateAvatar($id,$name);
     }
 }

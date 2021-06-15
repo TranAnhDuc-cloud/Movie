@@ -11,6 +11,7 @@
     <li class="pl-2"> » {{ trans('admin.edit') }}</li>
 @endsection
 @section('content-wrapper')
+
      <!-- Main content -->
      <div class="card-body card-pd">
         <div class="table-responsive">
@@ -19,6 +20,14 @@
             {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
                <div class="container">
+                <div class="content d-flex p-5">
+                    <img src="{{asset('dist/img/'.$user->avatar)}}" alt="">
+                    <div class="ml-5">
+                        <div><strong>EMail</strong>:{{$user->email}}</div>
+                        <div><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
+                        <div><strong>{{ trans('admin.created_at') }}</strong> : {{$user->created_at}}</div>
+                    </div>
+                </div>
                    <div class="content">
                         <div class="form-group ">
                             <label>{{ trans('admin.fullname') }}</label>

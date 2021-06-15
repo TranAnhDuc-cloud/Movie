@@ -70,7 +70,8 @@ use Illuminate\Support\Facades\Route;
       });
       Route::prefix('user')->group(function (){
          Route::get('/','User\UserController@index')->name('admin.user.index');
-         Route::get('/info/{name}/{id}','User\UserController@info')->name('admin.user.info');
+         Route::get('/info/{id}','User\UserController@info')->name('admin.user.info');
+         Route::put('/info/update/{id}','User\UserController@updateAvatar')->name('admin.user.update.avatar');
          Route::get('/add','User\UserController@show')->name('admin.user.add');
          Route::post('/store','User\UserController@store')->name('admin.user.store');
          Route::get('/edit/{id}','User\UserController@edit')->name('admin.user.edit');
@@ -108,6 +109,7 @@ use Illuminate\Support\Facades\Route;
    // Search
    Route::get('/pages/search', 'SearchController@search')->name('user.search');
    Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search');
+   Route::get('/contact/search', 'SearchController@searchContact')->name('admin.contact.search');
 
 
 

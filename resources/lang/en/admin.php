@@ -20,6 +20,7 @@ return [
     'updated_at'=>'Updated at',
     'deleted_at'=>'Deleted at',
     'active' =>'Active',
+    'noactive'=>'No Active',
     'restore' =>'Restore',
     'harddelete' =>'Hard Delete',
     // Movie

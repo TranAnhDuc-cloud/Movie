@@ -12,10 +12,8 @@
 @section('card-header-title')
 @endsection
 @section('table')
-<section class="content-fuild" style="position:relative">
-    @include('admin.component.chat')
-
-    <div class="navbar-search-block container">
+<section class="content-fuild">
+  <div class="navbar-search-block container">
     <form class="form-inline" method="GET" action="{{route('admin.contact.search')}}">
       {{csrf_field()}}
       <div class="input-group input-group-sm div-input">
@@ -88,7 +86,5 @@
     </div>
     <!-- /.card -->
 
-  
-</section>
-
+  </section>
 @endsection

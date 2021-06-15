@@ -42,7 +42,7 @@
       <!-- /.card-footer -->
     </div>
   </div>
-  @include('admin.layout.siderbar')
+  @include('admin.component.siderbar')
 </div>
     
 @endsection

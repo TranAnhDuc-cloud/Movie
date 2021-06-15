@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository;
 
+use App\Jobs\ProcessImageThumbnails;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\EloquentRepository;
 use Illuminate\Support\Str;
@@ -37,10 +38,28 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
     }
 
     public function restore($id){
-       return \App\User::withTrashed()->where('id', $id)->restore();
+        \App\User::withTrashed()->where('id', $id)->restore();
+       return redirect()->route('admin.user.delete.list')->with([
+        'success'=>trans('admin.restore-success'),
+]);
     }
 
     public function deleteHard($id){
-        return \App\User::withTrashed()->where('id', $id)->forceDelete();
+         \App\User::withTrashed()->where('id', $id)->forceDelete();
+        return redirect()->route('admin.user.delete.list')->with(
+            'success',trans('admin.delete-success')
+        );
+    }
+
+    public function updateAvatar($id,$atributes){
+       $result = $this->find($id);
+        if($result){
+            $result->avatar = $atributes;
+            $result->save();
+            return redirect()->route('admin.user.info',$id)->with(['
+                success'=>trans('admin.update-success')
+            ]);
+        }
+        return false;
     }
 }

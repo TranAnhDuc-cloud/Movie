@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Movie;
 use App\Type_movie;
 use App\User;
 use Illuminate\Database\Eloquent\Builder;
@@ -55,6 +56,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('shareType', $shareType);
         $nameShare = User::all();
         View::share('nameShare',$nameShare);
+        $siderbarAdmin = Movie::orderby('created_at','Desc')->limit(10)->get();
+        View::share('siderbar',$siderbarAdmin);
         // SEARCH
         Builder::macro('whereLike', function ($attributes, string $searchTerm) {
             $this->where(function (Builder $query) use ($attributes, $searchTerm) {

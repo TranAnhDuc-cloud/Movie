@@ -178,6 +178,8 @@ return [
         // App\Providers\EvatoServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
+
 
     ],
 

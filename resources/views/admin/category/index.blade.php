@@ -34,7 +34,7 @@
             <td>{{ number($i++) }}</td>
             <td>{{$item->name}}</td>
             <td>{{$item->description}}</td>
-            <td>{{$item->url_picture}}</td>
+            <td><img src="{{asset($item->url_picture)}}" class="wh-50" alt=""></td>
             <th>
               <div>
                 {!! Form::open(array('route' => array('admin.category.edit',$item->id))) !!}
@@ -54,16 +54,12 @@
         </tr>                     
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-          <th>{{ trans('admin.number') }}</th>
-          <th>{{ trans('admin.title') }}</th>
-          <th>{{ trans('admin.description') }}</th>
-          <th>{{ trans('admin.url_picture') }}</th>
-          <th>{{ trans('admin.edit') }}</th>
-          <th>{{ trans('admin.delete') }}</th>
-        </tr>
-        </tfoot>
       </table>
-      {!! $getAll->render() !!}
+      <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+          <ul class="pagination justify-content-center m-0">
+            {!! $getAll->render() !!}
+          </ul>
+        </nav>
+      </div>
 @endsection
