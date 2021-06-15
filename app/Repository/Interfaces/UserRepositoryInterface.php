@@ -11,5 +11,6 @@ interface UserRepositoryInterface {
     public function restore($id);
     public function deleteHard($id);
     public function updateAvatar($id, $atributes);
+    public function info($id);
 
 }

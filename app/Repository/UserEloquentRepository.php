@@ -4,6 +4,7 @@ namespace App\Repository;
 use App\Jobs\ProcessImageThumbnails;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\EloquentRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
@@ -61,5 +62,36 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             ]);
         }
         return false;
+    }
+
+    public function info($id){
+        $member = $this->find($id);
+       $a = Carbon::now()->year;
+       $b  =  $member->created_at->year;
+       $result = $a - $b;
+       if($result != 0){    
+        return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.year')]);
+       }else{
+            $a = Carbon::now()->month;
+            $b  =  $member->created_at->month;
+            $result = $a - $b;
+            if($result !=0){
+                return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.month')]);
+            }else{
+                $a = Carbon::now()->day;
+                $b  =  $member->created_at->day;
+                $result = $a - $b;
+                if($result !=0){
+                    return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.day')]);
+                }else{
+                    $a = Carbon::now()->hour;
+                    $b  =  $member->created_at->hour;
+                    $result = $a - $b;
+                    if($result !=0){
+                        return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.hour')]);
+                    }
+                }
+            }
+       }
     }
 }

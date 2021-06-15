@@ -41,13 +41,27 @@
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
-                <b>Followers</b> <a class="float-right">1,322</a>
+                <b>{{ trans('admin.level') }}</b> 
+                <a class="float-right">
+                  @if ($member->level==0)
+                      {{ trans('admin.member') }}
+                  @else
+                  {{ trans('admin.admin') }}
+                  @endif
+                </a>
               </li>
               <li class="list-group-item">
-                <b>Following</b> <a class="float-right">543</a>
+                <b>{{ trans('admin.status') }}</b> 
+                <a class="float-right">
+                  @if ($member->active ==0)
+                  {{ trans('admin.noactive') }}
+                  @else
+                  {{ trans('admin.active') }}
+                  @endif
+                </a>
               </li>
               <li class="list-group-item">
-                <b>Friends</b> <a class="float-right">13,287</a>
+                <b>{{ trans('admin.jointime') }}</b> <a class="float-right">{{$jointime}}</a>
               </li>
             </ul>
 

@@ -36,7 +36,7 @@
                     @foreach ($member as $item)
                         <li class="item-user">
                             <img src="{{asset('dist/img/'.$item->avatar)}}" alt="User Image wh-50">
-                            <a class="users-list-name" href="{{route('admin.user.info',[$item->username, $item->id])}}">{{$item->username}}</a>
+                            <a class="users-list-name" href="{{route('admin.user.info',$item->id)}}">{{$item->username}}</a>
                             <span class="users-list-date">{{$item->created_at}}</span>
                         </li>
                     @endforeach

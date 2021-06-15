@@ -20,8 +20,12 @@ return [
     'update_at'=>'Ngày Cập Nhật',
     'active'=>'Hoạt Động',
     'noactive'=>'Không Hoạt Động',
+    'jointime' =>'Ngày Hoạt Động',
     'restore' => ' Khôi Phục',
     'harddelete' => 'Xóa Hẳn',
+    'month' => 'Tháng',
+    'day' => 'Ngày',
+    'hour' => 'Giờ',
     // MOVIE
     'movie' => 'Phim',
     'themovie' => 'Bộ Phim',

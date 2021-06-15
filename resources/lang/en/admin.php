@@ -21,6 +21,7 @@ return [
     'deleted_at'=>'Deleted at',
     'active' =>'Active',
     'noactive'=>'No Active',
+    'jointime' =>'Join Time',
     'restore' =>'Restore',
     'harddelete' =>'Hard Delete',
     // Movie
@@ -38,6 +39,9 @@ return [
     'moviehot' =>'Movie Hot',
     'typemovie' =>'Type Movie',
     'year' =>'Year',
+    'month' => 'Month',
+    'day' => 'Day',
+    'hour' => 'Hour',
     //Country
     'country' =>'Country',
     'minutes' =>'Minutes',

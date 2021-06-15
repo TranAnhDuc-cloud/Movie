@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Services\uploadFileService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,8 +29,7 @@ class UserController extends AdminController
     }
     
     public function info($id) {
-        $member = $this->userRepository->find($id);
-        return view('admin.user.info')->with(['member'=>$member]);
+       return $this->userRepository->info($id);
     }
 
     public function show(){
