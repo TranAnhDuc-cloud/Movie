@@ -7,7 +7,6 @@
 @section('content-header-url')
     <li class="breadcrumb-item"><a href="{{route('admin')}}">{{trans('admin.home')}}</a></li>
     <li class="pl-2"> » {{trans('admin.dashboard')}}</li>
-    <li class="pl-2"> » {{trans('admin.show')}}</li>
 @endsection
 @section('table')
   
@@ -35,7 +34,11 @@
                   <ul class="users-list clearfix">
                     @foreach ($member as $item)
                         <li class="item-user">
+                          @if ($item->provider)
+                            <img src="{{asset($item->avatar)}}" alt="User Image wh-50">
+                          @else
                             <img src="{{asset('dist/img/'.$item->avatar)}}" alt="User Image wh-50">
+                          @endif
                             <a class="users-list-name" href="{{route('admin.user.info',$item->id)}}">{{$item->username}}</a>
                             <span class="users-list-date">{{$item->created_at}}</span>
                         </li>

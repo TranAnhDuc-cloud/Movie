@@ -23,7 +23,11 @@
               <!-- Default dropright button -->
                 <div class="btn-group dropright">
                   <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="profile-user-img img-fluid img-circle " src="{{asset('dist/img/'.$member->avatar)}}" alt="User profile picture">
+                    @if ($member->provider)
+                      <img class="profile-user-img img-fluid img-circle " src="{{$member->avatar}}" alt="User profile picture">
+                    @else
+                      <img class="profile-user-img img-fluid img-circle " src="{{asset('dist/img/'.$member->avatar)}}" alt="User profile picture">
+                    @endif
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
@@ -105,6 +109,7 @@
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a></li>
               <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{route('admin.user.edit',$member->id)}}" >Edit User</a></li>
             </ul>
           </div><!-- /.card-header -->
           <div class="card-body">

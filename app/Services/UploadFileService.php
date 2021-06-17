@@ -4,6 +4,7 @@ namespace App\Services;
 
 class uploadFileService{
 
+
     public static function handleImg($image,$name){
         if(!is_null($image)){
            $image ->move('img/news',$name);

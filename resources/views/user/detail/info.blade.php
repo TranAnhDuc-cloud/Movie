@@ -1,8 +1,8 @@
 
 @include('user.layout.header')
+<link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
-@section('title','Account')
-
+@section('title','Profile')
 <section class="section-space-less30 overlay-dark bg-attachment" style="background-image: url('{{asset('img/banner/video-back1.jpg')}}');">
     <div class="container" style="margin-top:80px;">
         <div class="topic-border color-white mb-30">
@@ -18,15 +18,17 @@
                   <div class="card-info card card-primary card-outline">
                     <div class="card-body-info card-body box-profile">
                       <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="{{asset('dist/img/'.Auth::user()->avatar)}}"
-                             alt="User profile picture">
-                              {{-- <img src="{{asset('dist/img/'.Auth::user()->avatar)}}" alt="Avatar" class="image profile-user-img img-fluid img-circle">
-                              <div class="overlay">
-                              <a href="#" class="icon" title="User Profile">
-                                <i class="fa fa-user"></i>
-                              </a>
-                              </div> --}}
+
+                        @if (Auth::user()->provider)
+                          <img class="profile-user-img img-fluid img-circle"
+                          src="{{Auth::user()->avatar}}"
+                          alt="User profile picture">
+                        @else
+                          <img class="profile-user-img img-fluid img-circle"
+                          src="{{asset('dist/img/'.Auth::user()->avatar)}}"
+                          alt="User profile picture">
+                        @endif
+
                       </div>
                       <h3 class="profile-username text-center "  style="text-transform: uppercase">{{Auth::user()->username}}</h3>
         
@@ -34,13 +36,31 @@
         
                       <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                          <b>{{trans('admin.level')}}</b> <a class="float-right">{{Auth::user()->level}}</a>
+                          <b>{{trans('admin.level')}}</b> 
+                          <a class="float-right">
+
+                            @if (Auth::user()->level==1)
+                                {{ trans('admin.admin') }}
+                            @else
+                                {{ trans('admin.member') }}
+                            @endif
+
+                          </a>
                         </li>
                         <li class="list-group-item">
-                          <b>{{trans('admin.active')}}</b> <a class="float-right">{{Auth::user()->active}}</a>
+                          <b>{{trans('admin.status')}}</b> 
+                          <a class="float-right">
+
+                            @if (Auth::user()->active ==0)
+                              {{ trans('admin.noactive') }}
+                            @else
+                              {{ trans('admin.active') }}
+                            @endif
+
+                          </a>
                         </li>
                         <li class="list-group-item">
-                          <b>Friends</b> <a class="float-right">13,287</a>
+                          <b>{{ trans('admin.jointime') }}</b> <a class="float-right">{{ getJoinTimeUser(Auth::user()->id) }}</a>
                         </li>
                       </ul>
         
@@ -70,8 +90,8 @@
                         {{Auth::user()->created_at}}
                       </p>
                       <hr>
-                      <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                      <strong><i class="fas fa-phone"></i> {{ trans('admin.phone') }}</strong>
+                      <p class="text-muted">{{Auth::user()->phone}}</p>
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -84,6 +104,10 @@
                       <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a></li>
                         <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#infomation" data-toggle="tab">Infomation Update</a></li>
+                        @if(session('success'))
+                        <li class="nav-item"><a class="nav-link bg-success" href="#settings" data-toggle="tab">{{session('success')}}</a></li>
+                        @endif
                       </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -185,28 +209,105 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="settings">
-                          <form class="form-horizontal" method="POST" action="{{route('admin.user.update',Auth::user()->id)}}">
-                            {{ csrf_field() }}
-                            <div class="form-group row">
-                              <label for="inputName" class="col-sm-2 col-form-label">FullName</label>
-                              <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                              </div>
+                                <!-- general form elements -->
+                                <div class="card card-primary">
+                                  <div class="card-header">
+                                    <h3 class="card-title">Change Password</h3>
+                                  </div>
+                                  <!-- /.card-header -->
+                                  <!-- form start -->
+                                  <form action="{{route('setting.changepassword')}}" method="post">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                                    <div class="card-body">
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">{{ trans('admin.password') }} {{trans('admin.old')}}</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }} {{trans('admin.old')}}" name="passwordOld">
+                                        @error('passwordOld')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                        @enderror
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">{{ trans('admin.password') }} {{trans('admin.new')}}</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }} {{trans('admin.new')}}" name="password">
+                                        @error('password')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                        @enderror
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputPassword1">{{ trans('admin.password_cofimer') }}</>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="{{ trans('admin.password_cofimer') }}" name="password_confirmation">
+                                        @error('password_confirmation')
+                                        <small class="text-danger">{{ $message }}</small> 
+                                        @enderror
+                                      </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                  </form>
                             </div>
-                            <div class="form-group row">
-                              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                              <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                              </div>
-                            </div>
-                            <div class="form-group row">
-                              <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" class="btn btn-danger">Submit</button>
-                              </div>
-                            </div>
-                          </form>
                         </div>
                         <!-- /.tab-pane -->
+                        <div class="tab-pane" id="infomation">
+                          <div class="row justify-content-center">
+                            <div class="col-md-6">
+                  
+                              <div class="card card-danger">
+                                <div class="card-header">
+                                  <h3 class="card-title">Settings Infomation</h3>
+                                </div>
+                                <form action="{{route('setting.changeinfomations')}}" method="post">
+                                  {{ csrf_field() }}
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                                <div class="card-body">
+                                  {{-- FUllname --}}
+                                  <div class="form-group">
+                                    <label>{{ trans('admin.fullname') }}</label>
+                  
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                      </div>
+                                      <input type="text" class="form-control" value="{{Auth::user()->fullname}}">
+                                    </div>
+                                  </div>
+                                  <!-- phone mask -->
+                                  <div class="form-group">
+                                    <label>US phone mask:</label>
+                  
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                      </div>
+                                      <input type="text" name="phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                    </div>
+                                    <!-- /.input group -->
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label>{{ trans('admin.address') }}</label>
+                  
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                      </div>
+                                      <input type="text" class="form-control" value="{{Auth::user()->address}}">
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </form>
+                              </div>
+                              <!-- /.card -->
+                            </div>
+                          </div>
+                      </div>
                       </div>
                       <!-- /.tab-content -->
                     </div><!-- /.card-body -->

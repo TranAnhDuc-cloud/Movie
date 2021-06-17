@@ -44,8 +44,12 @@
             @foreach ($user as $item)
             <tr class="old">
                 <td>{{ number($i++) }}</td>
-                <td>{{$item->username}}</td>
-                <td>{{$item->fullname}}</td>
+                <td>
+                    <a href="{{route('admin.user.info',$item->id)}}">
+                      <img src="{{asset('dist/img/'.$item->avatar)}}" alt="User Avatar" class="img-size-50 img-circle mr-3">{{$item->username}}
+                    </a>
+                </td>
+                <td>{{$item->email}}</td>
             </tr>                     
             @endforeach
             </tbody>

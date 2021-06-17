@@ -3091,9 +3091,9 @@ ul.header-social li a {
 .header-action-item ul li {
     border-right: 1px solid #dcdcdc;
     line-height: 18px;
-    padding-right: 15px;
+    padding-right: 5px;
     display: inline-block;
-    margin-right: 15px
+    margin-right: 5px
 }
 
 .header-action-item ul li:last-child {
@@ -7850,4 +7850,9 @@ ul li button a b{
 }
 .height-520{
     height : 520px;
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
 }

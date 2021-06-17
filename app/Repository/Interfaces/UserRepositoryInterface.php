@@ -9,8 +9,9 @@ interface UserRepositoryInterface {
     public function getwithTrashed();
     public function getonlyTrashed();
     public function restore($id);
+    public function deleteList();
     public function deleteHard($id);
     public function updateAvatar($id, $atributes);
-    public function info($id);
+    // public function info($id,$view);
 
 }

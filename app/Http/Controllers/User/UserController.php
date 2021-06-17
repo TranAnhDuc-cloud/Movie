@@ -29,7 +29,9 @@ class UserController extends AdminController
     }
     
     public function info($id) {
-       return $this->userRepository->info($id);
+        $member = $this->userRepository->find($id);
+        $jointime = getJoinTimeUser($id);
+       return view('admin.user.info')->with(['jointime'=>$jointime,'member'=>$member]);
     }
 
     public function show(){
@@ -37,6 +39,7 @@ class UserController extends AdminController
     }
 
     public function store(UserRequest $request){
+        //  $request->only('name', 'password', 'role').
         $this->userRepository->create($request->all());
         return redirect()->route('admin.user.index')->with('
             success',trans('admin.add-success')
@@ -51,6 +54,7 @@ class UserController extends AdminController
     }
 
     public function update(Request $request ,$id){
+        // $request->only('name', 'password', 'role').
         $update = $this->userRepository->update($id,$request->all());
         if($update->save()){
             return redirect()->route('admin.user.index')->with(['
@@ -67,10 +71,7 @@ class UserController extends AdminController
     }
 
     public function deleteList(){
-        $getAll = $this->userRepository->getonlyTrashed();
-        return view('admin.user.delete')->with([
-            'deleted'=> $getAll,
-        ]);
+        return $this->userRepository->deleteList();
     }
 
     public function restore($id){
@@ -82,11 +83,10 @@ class UserController extends AdminController
     }
 
     public function updateAvatar($id ,Request $request){
-        $image = $request->file('avatar');
-        $all = $request->all();
-        $all['avatar'] = $image->getClientOriginalName('avatar');
-        $name = $all['avatar'];
-        uploadFileService::updateAvatar($image,$name);
+        $name = $request->file('avatar')->getClientOriginalName('avatar');
+        uploadFileService::updateAvatar($request->file('avatar'),$name);
+        // dispatch(new ProcessImageThumbnails($image));
         return $this->userRepository->updateAvatar($id,$name);
     }
+
 }

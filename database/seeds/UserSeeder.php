@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'active' =>1,
             'provider' =>null,
             'provider_id'=>null,
-            'address'=>null,
+            'address'=>'Tổ 1, Phú Bài, Hương Thủy ,TT Huế',
             'avatar' => $available_avatars[array_rand($available_avatars)],
             'remember_token' => Str::random(10),
         ]);
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'active' =>1,
             'provider' =>null,
             'provider_id'=>null,
-            'address'=>null,
+            'address'=>'Tổ 1, Phú Bài, Hương Thủy ,TT Huế',
             'avatar' => $available_avatars[array_rand($available_avatars)],
             'remember_token' => Str::random(10),
         ]);

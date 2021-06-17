@@ -26,7 +26,7 @@
       @foreach ($deleted as $item)
       <tr class="created_at">
         <td><a href="pages/examples/invoice.html">{{$item->id}}</a></td>
-        <td>{{$item->username}}</td>
+        <td><img src="{{asset('dist/img/'.$item->avatar)}}" alt="" class="wh-50">{{$item->username}}</td>
         <td><span class="badge badge-success">{{$item->created_at}}</span></td>
         <td><span class="badge badge-danger">{{$item->deleted_at}}</span></td>
         <td>

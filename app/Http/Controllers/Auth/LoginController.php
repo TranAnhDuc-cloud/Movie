@@ -52,12 +52,13 @@ class LoginController extends Controller
     }
     
     public function redirectTo(Request $request){
+        $remember = $request->has('remember') ? true : false;
        $check = [
             'username' => $request->username,
             'password' => $request->password,
             'active' => 1
        ];
-        if(!Auth::attempt($check)){
+        if(!Auth::attempt($check,$remember)){
            Session::flash('error',trans('auth.youcannotlogin'));
             return redirect()->back();
         }

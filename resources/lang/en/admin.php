@@ -67,6 +67,10 @@ return [
     'lostpassword' =>'Lost your password',
     'login'=>'Login',
     'logout'=>'Logout',
+    'remember' => 'Remember',
+    'new' =>'New',
+    'old' =>'Old',
+    'phone' =>'Phone',
     // ADMIN
     'delete-success' =>'Delete Success',
     'update-success' =>'Update Success',

@@ -38,8 +38,8 @@
         <tr class="old">
             <td>{{ number($i++) }}</td>
             <td>
-              <a href="{{route('admin.user.info',$item->id)}}">
-                <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">{{$item->username}}
+              <a href="{{route('admin.user.info',$item->id)}}" class="d-lex">
+                <img src="{{asset('dist/img/'.$item->avatar)}}" alt="User Avatar" class="img-size-50 img-circle mr-3">{{$item->username}}
               </a>
             </td>
             <td>{{$item->fullname}}</td>

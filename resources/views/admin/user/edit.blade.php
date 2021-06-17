@@ -21,7 +21,7 @@
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
                <div class="container">
                 <div class="content d-flex p-5">
-                    <img src="{{asset('dist/img/'.$user->avatar)}}" alt="">
+                    <img src="{{asset('dist/img/'.$user->avatar)}}" alt="" class="wh-100">
                     <div class="ml-5">
                         <div><strong>EMail</strong>:{{$user->email}}</div>
                         <div><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
@@ -36,27 +36,37 @@
                                 <small class="text-danger">{{ $message }}</small> 
                             @enderror
                         </div>
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label>{{trans('admin.active')}}</label>
-                            <br>
-                            <select name="active" id="active">
-                                <option value="0" name="no_active">Không Hoạt Động</option>
-                                <option value="1" name="yes_active"> Hoạt Động</option>
-                            </select>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label>{{trans('admin.password')}}</label>
+                                <input type="password" name="password" id="" class="form-control">
+                            </div>
+                            <div class="form-group col-6">
+                                <label>{{ trans('admin.password_confirm') }}</label>
+                                <input type="password" name="password_confirmation" id="" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group col-6">
-                            <label>{{ trans('admin.level') }}</label>
-                            <br>
-                            <select name="level" id="level">
-                                <option value="0" name="member">{{trans('admin.member')}}</option>
-                                <option value="1" name="admin">{{trans('admin.admin')}}</option>
-                            </select>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label>{{trans('admin.active')}}</label>
+                                <br>
+                                <select name="active" id="active">
+                                    <option value="0" name="no_active">Không Hoạt Động</option>
+                                    <option value="1" name="yes_active"> Hoạt Động</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label>{{ trans('admin.level') }}</label>
+                                <br>
+                                <select name="level" id="level">
+                                    <option value="0" name="member">{{trans('admin.member')}}</option>
+                                    <option value="1" name="admin">{{trans('admin.admin')}}</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
-                    </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
+                        </div>
                    </div>
                </div>
             {!! Form::close() !!}

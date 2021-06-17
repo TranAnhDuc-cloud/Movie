@@ -1,4 +1,4 @@
-<div class="" style="position: fixed; z-index:1000; max-height: 1000px; max-width: 300px; top: 52%;">
+{{-- <div class="" style="position: fixed; z-index:1000; max-height: 1000px; max-width: 300px; top: 52%;">
     <!-- DIRECT CHAT -->
     <div class="card direct-chat direct-chat-warning">
       <div class="card-header">
@@ -201,4 +201,4 @@
     </div>
     <!--/.direct-chat -->
   </div>
-        <!-- /.col -->
+        <!-- /.col --> --}}

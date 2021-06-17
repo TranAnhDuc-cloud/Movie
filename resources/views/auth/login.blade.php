@@ -28,26 +28,33 @@
 				<div class="alert alert-success">{{Session::get('success')}}</div>
 				<br>
 			@endif
-			<div>
-				<input type="text" placeholder="{{ trans('admin.enter') }} {{ trans('admin.username') }}" id="username" name="username"/>
-			</div>
-				@error('username')
-					<small class="text-danger">{{ $message }}</small> 
-				@enderror
-			<div>
-				<input type="password" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }}" name="password" id="password">
-			</div>
-				@error('password')
-					<small class="text-danger">{{ $message }}</small> 
-				@enderror
-				
-				<a href="{{ url('/auth/redirect/facebook') }}" class="facebook">
+				<div>
+					<input type="text" placeholder="{{ trans('admin.enter') }} {{ trans('admin.username') }}" id="username" name="username"/>
+				</div>
+					@error('username')
+						<small class="text-danger">{{ $message }}</small> 
+					@enderror
+				<div>
+					<input type="password" placeholder="{{ trans('admin.enter') }} {{ trans('admin.password') }}" name="password" id="password">
+				</div>
+					@error('password')
+						<small class="text-danger">{{ $message }}</small> 
+					@enderror
+				<div>
+					<input type="checkbox" name="remember" id="remember">
+					<label class=" remember" for="">{{trans('admin.remember')}}</label>
+				</div>
+				<a href="{{ url('/auth/redirect/facebook') }}" class="facebook socalite">
 					<i class="fab fa-facebook-square"></i>
 					<div>Login With Facebook</div>
 				</a>
-				<a href="{{ url('/auth/redirect/google') }}" class="google">
+				<a href="{{ url('/auth/redirect/google') }}" class="google socalite">
 					<i class="fab fa-google"></i>
 					<div>Login With Google</div>
+				</a>
+				<a href="{{ url('/auth/redirect/github') }}" class="github socalite">
+					<i class="fab fa-github"></i>
+					<div>Login With GitHub</div>
 				</a>
 				<style>
 				

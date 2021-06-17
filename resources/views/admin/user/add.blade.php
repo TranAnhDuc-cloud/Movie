@@ -78,8 +78,8 @@
                                     <label>{{trans('admin.active')}}</label>
                                     <br>
                                     <select name="active" id="active">
-                                        <option value="0" name="no_active">Không Hoạt Động</option>
-                                        <option value="1" name="yes_active"> Hoạt Động</option>
+                                        <option value="0" name="no_active">{{ trans('admin.active') }}</option>
+                                        <option value="1" name="yes_active"> {{ trans('admin.noactive') }}</option>
                                     </select>
                                 </div>
                             </div>

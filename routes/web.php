@@ -95,7 +95,15 @@ use Illuminate\Support\Facades\Route;
    });
 
    //Account
-   Route::get('account/{name}/{id}','User\AccountController@index')->name('account');
+   Route::group(['middleware' =>'auth'], function(){
+      Route::prefix('account')->group(function(){
+         Route::get('{name}/{id}','User\AccountController@index')->name('account');
+         Route::post('settings/changepassword','User\AccountController@changePassword')->name('setting.changepassword');
+         Route::post('settings/changeinfomation','User\AccountController@changeInfomation')->name('setting.changeinfomation');
+         Route::get('settings/history','User\AccountController@history')->name('setting.history');
+      });
+   });
+
    // Menu
    Route::get('{pages}/{id}/{name}','MenuController@index')->name('menu');
    Route::get('category/{id}','MenuController@category')->name('category.index');
@@ -108,8 +116,12 @@ use Illuminate\Support\Facades\Route;
    Route::get('watch/{id}','PagesController@watch')->name('watch.index');
    // Search
    Route::get('/pages/search', 'SearchController@search')->name('user.search');
-   Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search');
+   Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search')->middleware('auth');
    Route::get('/contact/search', 'SearchController@searchContact')->name('admin.contact.search');
+   // Job Events Listener
+   Route::get('image/index', 'JobController@index');
+   Route::post('image/upload', 'JobController@upload');
+   Route::get('event/{id}','JobController@processSubmitChangePassword');
 
 
 

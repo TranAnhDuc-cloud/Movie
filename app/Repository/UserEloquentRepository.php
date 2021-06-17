@@ -4,6 +4,7 @@ namespace App\Repository;
 use App\Jobs\ProcessImageThumbnails;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\EloquentRepository;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +14,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         return \App\User::class;
     }
     public function create(array $attributes){
+            $available_avatars =  ['avatar1.png', 'avatar2.png', 'avatar3.png', 'avatar4.png', 'avatar5.png'];
             $user = new \App\User;
             $user->username = $attributes['username'];
             $user->password = bcrypt($attributes['password']);
@@ -21,9 +23,18 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             $user->email = $attributes['email'];
             $user->remember_token =  Str::random(40);
             $user->email_verified = Str::random(40);
+            $user->avatar = $available_avatars[array_rand($available_avatars)];
             return $user->save();
     }
-
+    public function update($id, array $attributes){
+            $user = $this->find($id);
+            if($user)
+                $user->fullname = $attributes['fullname'];
+                $user->password = bcrypt($attributes['password']);
+                $user->active = $attributes['active'];
+                $user->level = $attributes['level'];
+            return $user;
+    }
     public function getAll(){
         return \App\User::paginate(10);
     }
@@ -45,6 +56,13 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
 ]);
     }
 
+    public function deleteList(){
+        $getAll = $this->getonlyTrashed();
+        return view('admin.user.delete')->with([
+            'deleted'=> $getAll,
+        ]);
+    }
+
     public function deleteHard($id){
          \App\User::withTrashed()->where('id', $id)->forceDelete();
         return redirect()->route('admin.user.delete.list')->with(
@@ -52,10 +70,10 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         );
     }
 
-    public function updateAvatar($id,$atributes){
+    public function updateAvatar($id,$name){
        $result = $this->find($id);
         if($result){
-            $result->avatar = $atributes;
+            $result->avatar = $name;
             $result->save();
             return redirect()->route('admin.user.info',$id)->with(['
                 success'=>trans('admin.update-success')
@@ -64,34 +82,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         return false;
     }
 
-    public function info($id){
-        $member = $this->find($id);
-       $a = Carbon::now()->year;
-       $b  =  $member->created_at->year;
-       $result = $a - $b;
-       if($result != 0){    
-        return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.year')]);
-       }else{
-            $a = Carbon::now()->month;
-            $b  =  $member->created_at->month;
-            $result = $a - $b;
-            if($result !=0){
-                return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.month')]);
-            }else{
-                $a = Carbon::now()->day;
-                $b  =  $member->created_at->day;
-                $result = $a - $b;
-                if($result !=0){
-                    return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.day')]);
-                }else{
-                    $a = Carbon::now()->hour;
-                    $b  =  $member->created_at->hour;
-                    $result = $a - $b;
-                    if($result !=0){
-                        return view('admin.user.info')->with(['member'=>$member,'jointime'=>$result.trans('admin.hour')]);
-                    }
-                }
-            }
-       }
-    }
+    // public function info($id,$view){
+    //     return getJoinTimeUser($id,$view);
+    // }
 }

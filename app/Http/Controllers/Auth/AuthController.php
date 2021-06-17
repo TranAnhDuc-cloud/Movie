@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -20,24 +22,24 @@ class AuthController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('login');
         }
-        $user = $this->createUser($getInfo,$provider); 
-        auth()->login($user,true); 
+        // Return home after login
+        $this->createUser($getInfo,$provider); 
         return redirect()->to('/');
     }
-    function createUser($getInfo,$provider){
-        $email = User::where('email', $getInfo->email)->first();
-        if (!$email) {
-            $user = User::create([
-                'username'     => $getInfo->name,
-                'fullname' => $getInfo->name,
-                'email'    => $getInfo->email,
-                'password' => $getInfo->name,
-                'active' => 1 ,
-                'level' => 0,
-                'provider' => $provider,
-                'provider_id' => $getInfo->id
-            ]);
-        }
-        return $user;
+    protected function createUser($getInfo,$provider){
+        $user = User::where('email', $getInfo->email)->first();
+            if (!$user) {
+                $user = new User();
+                $user->username = $getInfo->name;
+                $user->fullname = $getInfo->name;
+                $user->email = $getInfo->email;
+                $user->level = 0;
+                $user->active = 1;
+                $user->provider = $provider;
+                $user->provider_id = $getInfo->id;
+                $user->avatar = $getInfo->avatar;
+                $user->save();
+            }
+        Auth::login($user,true);
     }
 }

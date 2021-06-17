@@ -59,6 +59,7 @@ return [
     'profile' =>'Hồ Sơ',
     'address' =>'Địa Chỉ',
     'note' => 'Ghi Chú',
+    'phone' => 'Số Điện Thoại',
     // Auth
     'back'=>'Trở Về',
     'register' =>'Đăng Ký',
@@ -76,6 +77,9 @@ return [
     'exist' =>'Đã Tồn Tại',
     'pleasreturn'=> 'Vui Lòng Nhập Lại',
     'backwebsite' => 'Trở Về PhimTv',
+    'remember' => 'Ghi Nhớ Người Dùng',
+    'new' =>'Mới',
+    'old' =>'Cũ',
     // DashBoard
     'dashboard' =>'Dashboard',
     'viewallmovie' => 'Xem Tất Cả Phim',
