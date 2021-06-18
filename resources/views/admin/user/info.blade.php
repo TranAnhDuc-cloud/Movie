@@ -23,11 +23,13 @@
               <!-- Default dropright button -->
                 <div class="btn-group dropright">
                   <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @if ($member->provider)
-                      <img class="profile-user-img img-fluid img-circle " src="{{$member->avatar}}" alt="User profile picture">
+
+                    @if ($user->provider)
+                      <img class="profile-user-img img-fluid img-circle " src="{{$user->avatar}}" alt="User profile picture">
                     @else
-                      <img class="profile-user-img img-fluid img-circle " src="{{asset('dist/img/'.$member->avatar)}}" alt="User profile picture">
+                      <img class="profile-user-img img-fluid img-circle " src="{{asset('dist/img/'.$user->avatar)}}" alt="User profile picture">
                     @endif
+                    
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
@@ -39,15 +41,15 @@
                 </div>
             </div>
 
-            <h3 class="profile-username text-center" style="text-transform: uppercase">{{$member->username}}</h3>
+            <h3 class="profile-username text-center" style="text-transform: uppercase">{{$user->username}}</h3>
 
-            <p class="text-muted text-center">{{$member->fullname}}</p>
+            <p class="text-muted text-center">{{$user->fullname}}</p>
 
             <ul class="list-group list-group-unbordered mb-3">
               <li class="list-group-item">
                 <b>{{ trans('admin.level') }}</b> 
                 <a class="float-right">
-                  @if ($member->level==0)
+                  @if ($user->level==0)
                       {{ trans('admin.member') }}
                   @else
                   {{ trans('admin.admin') }}
@@ -57,7 +59,7 @@
               <li class="list-group-item">
                 <b>{{ trans('admin.status') }}</b> 
                 <a class="float-right">
-                  @if ($member->active ==0)
+                  @if ($user->active ==0)
                   {{ trans('admin.noactive') }}
                   @else
                   {{ trans('admin.active') }}
@@ -84,15 +86,15 @@
           <div class="card-body">
             <strong><i class="fas fa-book mr-1"></i>Email</strong>
             <p class="text-muted">
-              {{$member->email}}
+              {{$user->email}}
             </p>
             <hr>
             <strong><i class="fas fa-map-marker-alt mr-1"></i> {{ trans('admin.address') }}</strong>
-            <p class="text-muted">{{ $member->address }}</p> 
+            <p class="text-muted">{{ $user->address }}</p> 
             <hr>
             <strong><i class="fas fa-pencil-alt mr-1"></i> {{ trans('admin.date') }} </strong>
             <p class="text-muted">
-              {{$member->created_at}}
+              {{$user->created_at}}
             </p>
             <hr>
             <strong><i class="far fa-file-alt mr-1"></i> {{ trans('admin.note') }}</strong>
@@ -109,7 +111,7 @@
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a></li>
               <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-              <li class="nav-item"><a class="nav-link" href="{{route('admin.user.edit',$member->id)}}" >Edit User</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{route('admin.user.edit',$user->id)}}" >Edit User</a></li>
             </ul>
           </div><!-- /.card-header -->
           <div class="card-body">

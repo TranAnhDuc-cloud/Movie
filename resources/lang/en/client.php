@@ -5,6 +5,7 @@ return [
     'contactforwork' =>'Contact For Work',
     'writtenby' => 'Written By',
     'menu-title' => ':name',
+    'category_newly' => ':name',
     // FOOTER
     'moviehot' =>'Movie Hot',
     'popularcategory' => 'Popular Category',
@@ -36,4 +37,20 @@ return [
     'khamphakhotang'=>'Explore With Treasures',
     'nhieumausac' =>'Colorful and Fresh',
     'cothebanmuonxem'=>'Maybe You Want To See',
+    // FILM Hot
+    'by' =>'By',
+    // AVATAR
+    'updateavatar'=>'Avatar Update',
+    'close' => 'Close',
+    // PHONE
+    'usphonemark'=>'US phone mask',
+    'settingsinfomation' => 'Settings Information',
+    'changepassword' => 'Change Password',
+    'settings' => 'Settings',
+    'timeline' =>'TimeLine',
+    'infomationupdate' =>'Information Update',
+    'aboutme' =>'About Me',
+    'follow' =>'Follow',
+    'viewavatar' => 'View Avatar',
+    'updateavatar' => 'Update Avatar',
 ];

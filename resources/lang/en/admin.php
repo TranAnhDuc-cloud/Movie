@@ -71,7 +71,7 @@ return [
     'new' =>'New',
     'old' =>'Old',
     'phone' =>'Phone',
-    'usernameorpasswordfalse' =>' Username Or Password False',
+    'usernameorpasswordfalse' =>' Username Or Password Wrong',
     // ADMIN
     'delete-success' =>'Delete Success',
     'update-success' =>'Update Success',

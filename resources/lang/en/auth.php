@@ -18,5 +18,5 @@ return [
     'youcannotlogin' =>'You Can Not Login',
     'pleasecheckemail' => 'Thanks for signing up! Please check your email.',
     'verified-successfully'=>'You have successfully verified your account.',
-    'verified-error'=>'You have error verified your account.'
+    'verified-error'=>'You have error verified your account.',
 ];

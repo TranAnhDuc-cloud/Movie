@@ -2,34 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Movie;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends BaseController
 {
 
     public function index(){
-        // Action Film
-        $film_action = Movie::where('categories_id','2')->offset(1)->inRandomOrder()->limit(6)->get();
-        $film_action1 = Movie::where('categories_id','=','2')->orderby('created_at','Desc')->inRandomOrder()->limit(1)->get();
-        // Võ Thuật Film
-        $vothuat_film = Movie::where('categories_id','=','9')->inRandomOrder()->offset(1)->limit(6)->get();
-        $vothuat_film1 = Movie::where('categories_id','=','9')->orderby('created_at','Desc')->inRandomOrder()->limit(1)->get();
-        // Hoạt Hình Film
-        $hoathinh_film = Movie::where('categories_id','=','3')->inRandomOrder()->offset(1)->limit(6)->get();
-        $hoathinh_film1 = Movie::where('categories_id','=','3')->orderby('created_at','Desc')->inRandomOrder()->limit(1)->get();
-        // Review Film
-        $review = Movie::where('film_hot',1)->inRandomOrder()->limit(4)->get();
         
+        $category3 = Category::select('*')->limit(3)->get();
+        $review = Movie::where('film_hot',1)->inRandomOrder()->limit(4)->get();
         return view('user.pages.index')->with([
-                'action'=>$film_action,
-                'action1'=>$film_action1,
-                'vothuat_film'=>$vothuat_film,
-                'vothuat_film1'=>$vothuat_film1,
-                'hoathinh_film'=>$hoathinh_film,
-                'hoathinh_film1'=>$hoathinh_film1,
                 'review'=>$review,
+                'category3' => $category3,
         ]);
+        
     }
 
     public function language($lang){

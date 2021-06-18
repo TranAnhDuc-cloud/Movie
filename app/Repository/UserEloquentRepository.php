@@ -75,9 +75,9 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         if($result){
             $result->avatar = $name;
             $result->save();
-            return redirect()->back()->with(['
-                success'=>trans('admin.update-success')
-            ]);
+            return redirect()->route('admin.user.info',$id)->with([
+                'success'=>trans('admin.update-success'),
+        ]);
         }
         return false;
     }

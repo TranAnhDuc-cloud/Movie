@@ -13,7 +13,7 @@
                            <div class="post-date-light">
                                <ul>
                                    <li>
-                                       <span>by</span>
+                                       <span>{{ trans('client.by') }}</span>
                                        <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->directors}}</a>
                                    </li>
                                    <li>
@@ -40,14 +40,14 @@
                                            <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
                                            <ul>
                                                <li>
-                                                   <span>by</span>
+                                                   <span>{{ trans('client.by') }}</span>
                                                    <a href="{{route('detail.index',[$item->id,$item->title])}}" class="directors">{{$item->directors}}</a>
                                                </li>
                                                <li>
                                                    <span>
                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                       Thời Lượng :
-                                                   </span>{{$item->time}} Phút</li>
+                                                       {{ trans('admin.time') }} :
+                                                   </span>{{$item->time}} {{ trans('admin.minutes') }}</li>
                                            </ul>
                                        </h3>
                                    </div>

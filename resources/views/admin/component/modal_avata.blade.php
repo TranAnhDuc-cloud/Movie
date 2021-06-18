@@ -10,7 +10,11 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-          <img class="img-fluid modal-img" src="{{asset('dist/img/'.$member->avatar)}}" alt="User profile picture">
+         @if ($user->provider)
+            <img class="img-fluid" style="width:100%;" src="{{asset($user->avatar)}}" alt="User profile picture">
+         @else
+            <img class="img-fluid" style="width:100%;" src="{{asset('dist/img/'.$user->avatar)}}" alt="User profile picture">
+         @endif
         </div>
       </div>
     </div>
@@ -29,18 +33,25 @@
         
         <!-- Modal body -->
         <div class="modal-body">
-          {!! Form::open(array('route' =>array('admin.user.update.avatar',$member->id) , 'files' => true , 'method' =>'POST')) !!}
+          {!! Form::open(array('url' =>array('user/info/update/'.$user->id) , 'files' => true , 'method' =>'POST')) !!}
             {{ Form::hidden('_method', 'PUT') }}
                 {{ csrf_field() }}
-                  <img class="img-fluid modal-img" src="{{asset('dist/img/'.$member->avatar)}}" alt="User profile picture">
+
+                  @if($user->provider)
+                    <img class="img-fluid modal-img" src="{{asset($user->avatar)}}" alt="User profile picture">
+                  @else
+                    <img class="img-fluid modal-img" src="{{asset('dist/img/'.$user->avatar)}}" alt="User profile picture">
+                  @endif
+
                   <label class="dropdown-iteam" for="upload">
                     <input type="file" name="avatar" id="avatar">
-                    {{-- <p class="text-center m-5 text-danger"><i class="fas fa-hand-point-right"></i> Chọn Ảnh Đại Diện</p> --}}
                     @error('avatar')
                       <small class="text-danger">{{ $message }}</small> 
                     @enderror
+                    
                   </label>
                   <input type="submit" value="Update">
+
           {!! Form::close() !!}
         </div>
         <div class="modal-footer">

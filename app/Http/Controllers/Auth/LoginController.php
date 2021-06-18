@@ -59,7 +59,7 @@ class LoginController extends Controller
             'active' => 1
        ];
         if(!Auth::attempt($check,$remember)){
-           Session::flash('error',trans('auth.usernameorpasswordfalse'));
+           Session::flash('error',trans('admin.usernameorpasswordfalse'));
             return redirect()->back();
         }
         return redirect('/');

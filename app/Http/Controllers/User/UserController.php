@@ -29,9 +29,9 @@ class UserController extends AdminController
     }
     
     public function info($id) {
-        $member = $this->userRepository->find($id);
+        $user = $this->userRepository->find($id);
         $jointime = getJoinTimeUser($id);
-       return view('admin.user.info')->with(['jointime'=>$jointime,'member'=>$member]);
+       return view('admin.user.info')->with(['jointime'=>$jointime,'user'=>$user]);
     }
 
     public function show(){

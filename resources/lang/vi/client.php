@@ -34,5 +34,21 @@ return [
     'neubankhongxemduoc'=>'Nếu bạn không xem được phim vui lòng nhấn CTRL + F5 hoặc CMD + R trên MAC vài lần',
     'khamphakhotang'=>'Khám Phá Với Kho Tàng',
     'nhieumausac' => 'Nhiều Màu Sắc Và Mới Mẻ',
-    'cothebanmuonxem'=>'Có Thể Bạn Muốn Xem'
+    'cothebanmuonxem'=>'Có Thể Bạn Muốn Xem',
+    // FILM-HOT
+    'by' =>'Bởi',
+    // AVATAR
+    'updateavatar'=>'Cập Nhật Ảnh Đại Diện',
+    'close' => 'Đóng',
+    // PHONE
+    'usphonemark'=>'SỐ Điện Thoại',
+    'settingsinfomation' => 'Sửa Thông Tin Người Dùng',
+    'changepassword' => 'Đổi Mật Khẩu',
+    'settings' => 'Cài Đặt',
+    'timeline' =>'Mốc Thời Gian',
+    'infomationupdate' =>'Cập Nhập Thông Tin',
+    'aboutme' =>'Về Tôi',
+    'follow' =>'Theo Dõi',
+    'viewavatar' => 'Xem Ảnh Đại Diện',
+    'updateavatar' => 'Cập Nhật Ảnh Đại Diện',
 ];

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Login extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,9 +29,10 @@ class Login extends FormRequest
         ];
     }
     public function messages(){
-        // return [
-        //     'username.required' => " Bạn Phải Nhập Username Của Mình Chứ",
-        //     'password.required' => " Bạn Chưa Nhập Password Rồi"
-        // ];
+        return [
+            'username.required' => trans('auth.username.required'),
+            'password.required' => trans('password.required'),
+        ];
     }
 }
+

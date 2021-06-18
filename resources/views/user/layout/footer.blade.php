@@ -26,7 +26,7 @@
                                                     </span>{{$item->date}}
                                                     <br>
                                                     <br>
-                                                    <span>View : {{$item->view}}</span>
+                                                    <span>{{ trans('admin.view') }} : {{$item->view}}</span>
                                                 </li>
                             
                                             </ul>
@@ -46,7 +46,7 @@
                                 <li class="row" style="justify-content: space-between;">
                                     <a href="{{route('category.index',[$item->id,$item->name])}}">{{$item->name}}</a>
                                     </a>
-                                    <span>20</span>
+                                    <span class="text-white">{{$item->movies->count()}}</span>
                                 </li>
                             @endforeach
                         </ul>

@@ -33,8 +33,8 @@
                     </h3>
                     <span>
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        Thời Lượng :
-                    </span>{{$item->time}} Phút</li>
+                        {{ trans('admin.time') }} :
+                    </span>{{$item->time}} {{ trans('admin.minutes') }}</li>
                 </div>
             </div>
         @endforeach

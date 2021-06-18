@@ -22,7 +22,7 @@
                         <div class="post-date-light">
                             <ul>
                                 <li>
-                                    <span>by</span>
+                                    <span>{{ trans('client.by') }}</span>
                                     <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->directors}}</a>
                                 </li>
                                 <li>

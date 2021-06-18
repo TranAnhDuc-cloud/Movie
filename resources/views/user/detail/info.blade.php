@@ -36,9 +36,9 @@
 
                           </a>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">{{ trans('client.viewavatar') }}</a>
                             
-                            <a class="dropdown-iteam" data-toggle="modal" data-target="#updateAvata" href="#">Cập Nhật Ảnh Đại Diện</a>
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#updateAvata" href="#">{{ trans('updateavatar') }}</a>
                           </div>
                             <!-- The Modal -->
                             @include('user.component.modal_avatar')
@@ -80,7 +80,7 @@
                         </li>
                       </ul>
         
-                      <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                      <a href="#" class="btn btn-primary btn-block"><b>{{ trans('client.follow') }}</b></a>
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -89,7 +89,7 @@
                   <!-- About Me Box -->
                   <div class="card card-about card-primary">
                     <div class="card-header card-about-header">
-                      <h3 class="card-title">About Me</h3>
+                      <h3 class="card-title">{{ trans('client.aboutme') }}</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -118,9 +118,9 @@
                   <div class="card">
                     <div class="card-header p-2">
                       <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Timeline</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#infomation" data-toggle="tab">Infomation Update</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">{{ trans('client.timeline') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">{{ trans('client.settings') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#infomation" data-toggle="tab">{{ trans('client.infomationupdate') }}</a></li>
                         @if(session('success'))
                         <li class="nav-item"><a class="nav-link bg-success" href="#" data-toggle="tab">{{session('success')}}</a></li>
                         @endif
@@ -228,7 +228,7 @@
                                 <!-- general form elements -->
                                 <div class="card card-primary">
                                   <div class="card-header">
-                                    <h3 class="card-title">Change Password</h3>
+                                    <h3 class="card-title">{{ trans('client.changepassword') }}</h3>
                                   </div>
                                   <!-- /.card-header -->
                                   <!-- form start -->
@@ -260,7 +260,7 @@
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      <input type="submit" value="{{ trans('admin.update') }}">
                                     </div>
                                   </form>
                             </div>
@@ -272,7 +272,7 @@
                   
                               <div class="card card-danger">
                                 <div class="card-header">
-                                  <h3 class="card-title">Settings Infomation</h3>
+                                  <h3 class="card-title">{{ trans('client.settingsinfomation') }}</h3>
                                 </div>
                                 <form action="{{route('setting.changeinfomation')}}" method="post">
                                   {{ csrf_field() }}
@@ -294,7 +294,7 @@
                                   </div>
                                   <!-- phone mask -->
                                   <div class="form-group">
-                                    <label>US phone mask:</label>
+                                    <label>{{ trans('client.usphonemark') }}</label>
                   
                                     <div class="input-group">
                                       <div class="input-group-prepend">
@@ -325,7 +325,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                  <input type="submit" value="{{ trans('admin.update') }}">
                                 </div>
                               </form>
                               </div>

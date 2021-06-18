@@ -24,7 +24,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Cập Nhật Ảnh Đại Diện</h4>
+          <h4 class="modal-title">{{ trans('client.updateavatar') }}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -53,7 +53,7 @@
         </div>
 
         <div class="modal-footer">
-            <button data-dismiss="modal" class="btn btn-danger">Close</button>
+            <button data-dismiss="modal" class="btn btn-danger">{{ trans('client.close') }}</button>
         </div>
 
       </div>

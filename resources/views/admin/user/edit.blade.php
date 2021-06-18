@@ -19,16 +19,35 @@
             {{ Form::hidden('_method', 'PUT') }}
             {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
-               <div class="container">
-                <div class="content d-flex p-5">
-                    <img src="{{asset('dist/img/'.$user->avatar)}}" alt="" class="wh-100">
-                    <div class="ml-5">
-                        <div><strong>EMail</strong>:{{$user->email}}</div>
-                        <div><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
-                        <div><strong>{{ trans('admin.created_at') }}</strong> : {{$user->created_at}}</div>
+                <div class="container">
+
+                    <div class="content d-flex ">
+                        <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            @if($user->provider)
+                                <img src="{{asset($user->avatar)}}" alt="" class="wh-avatar">
+                            @else
+                                <img src="{{asset('dist/img/'.$user->avatar)}}" alt="" class="wh-avatar">
+                            @endif
+                            
+                        </a>
+                    
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
+                            
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#updateAvata" href="#">Cập Nhật Ảnh Đại Diện</a>
+                        </div>
+                            <!-- The Modal -->
+                            @include('admin.component.modal_avata')
+
+                        <div class="">
+                            <div><strong>Email</strong>:{{$user->email}}</div>
+                            <div><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
+                            <div><strong>{{ trans('admin.created_at') }}</strong> : {{$user->created_at}}</div>
+                        </div>
                     </div>
-                </div>
-                   <div class="content">
+
+                    <div class="content">
                         <div class="form-group ">
                             <label>{{ trans('admin.fullname') }}</label>
                             <input type="name" name="fullname" class="form-control" value="{{$user->fullname}}">
@@ -68,6 +87,7 @@
                             <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
                         </div>
                    </div>
+                   
                </div>
             {!! Form::close() !!}
         </div>
