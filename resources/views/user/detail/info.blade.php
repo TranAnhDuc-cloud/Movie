@@ -7,7 +7,7 @@
     <div class="container" style="margin-top:80px;">
         <div class="topic-border color-white mb-30">
             <div class="topic-box-lg category-title">
-                {{ trans('admin.home') }} » {{ trans('admin.account') }}
+                {{ trans('admin.home') }} » {{ trans('admin.profile') }}
             </div>
         </div>
         <section class="content">
@@ -19,17 +19,33 @@
                     <div class="card-body-info card-body box-profile">
                       <div class="text-center">
 
-                        @if (Auth::user()->provider)
-                          <img class="profile-user-img img-fluid img-circle"
-                          src="{{Auth::user()->avatar}}"
-                          alt="User profile picture">
-                        @else
-                          <img class="profile-user-img img-fluid img-circle"
-                          src="{{asset('dist/img/'.Auth::user()->avatar)}}"
-                          alt="User profile picture">
-                        @endif
+                        
+                        <!-- Default dropright button -->
+                        <div class="btn-group dropright">
+                          <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            @if (Auth::user()->provider)
+                                <img class="profile-user-img img-fluid img-circle"
+                                src="{{Auth::user()->avatar}}"
+                                alt="User profile picture">
+                            @else
+                                <img class="profile-user-img img-fluid img-circle"
+                                src="{{asset('dist/img/'.Auth::user()->avatar)}}"
+                                alt="User profile picture">
+                            @endif
+
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
+                            
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#updateAvata" href="#">Cập Nhật Ảnh Đại Diện</a>
+                          </div>
+                            <!-- The Modal -->
+                            @include('user.component.modal_avatar')
+                        </div>
 
                       </div>
+
                       <h3 class="profile-username text-center "  style="text-transform: uppercase">{{Auth::user()->username}}</h3>
         
                       <p class="text-muted text-center">{{Auth::user()->fullname}}</p>
@@ -106,7 +122,7 @@
                         <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
                         <li class="nav-item"><a class="nav-link" href="#infomation" data-toggle="tab">Infomation Update</a></li>
                         @if(session('success'))
-                        <li class="nav-item"><a class="nav-link bg-success" href="#settings" data-toggle="tab">{{session('success')}}</a></li>
+                        <li class="nav-item"><a class="nav-link bg-success" href="#" data-toggle="tab">{{session('success')}}</a></li>
                         @endif
                       </ul>
                     </div><!-- /.card-header -->
@@ -258,7 +274,7 @@
                                 <div class="card-header">
                                   <h3 class="card-title">Settings Infomation</h3>
                                 </div>
-                                <form action="{{route('setting.changeinfomations')}}" method="post">
+                                <form action="{{route('setting.changeinfomation')}}" method="post">
                                   {{ csrf_field() }}
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                                 <div class="card-body">
@@ -270,8 +286,11 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                       </div>
-                                      <input type="text" class="form-control" value="{{Auth::user()->fullname}}">
+                                      <input type="text" name="fullname" class="form-control" value="{{Auth::user()->fullname}}">
                                     </div>
+                                      @error('fullname')
+                                        <small class="text-danger">{{ $message }}</small>
+                                      @enderror
                                   </div>
                                   <!-- phone mask -->
                                   <div class="form-group">
@@ -281,8 +300,11 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                       </div>
-                                      <input type="text" name="phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                      <input type="number" name="phone" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                     </div>
+                                      @error('phone')
+                                        <small class="text-danger">{{ $message }}</small>
+                                      @enderror
                                     <!-- /.input group -->
                                   </div>
 
@@ -293,8 +315,11 @@
                                       <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-address-card"></i></span>
                                       </div>
-                                      <input type="text" class="form-control" value="{{Auth::user()->address}}">
+                                      <input type="text" name="address" class="form-control" value="{{Auth::user()->address}}">
                                     </div>
+                                      @error('address')
+                                        <small class="text-danger">{{ $message }}</small>
+                                      @enderror
                                   </div>
 
                                 </div>

@@ -96,11 +96,12 @@ use Illuminate\Support\Facades\Route;
 
    //Account
    Route::group(['middleware' =>'auth'], function(){
-      Route::prefix('account')->group(function(){
+      Route::prefix('profile')->group(function(){
          Route::get('{name}/{id}','User\AccountController@index')->name('account');
-         Route::post('settings/changepassword','User\AccountController@changePassword')->name('setting.changepassword');
-         Route::post('settings/changeinfomation','User\AccountController@changeInfomation')->name('setting.changeinfomation');
-         Route::get('settings/history','User\AccountController@history')->name('setting.history');
+         Route::post('settings/changepassword','User\AccountController@settingPassword')->name('setting.changepassword');
+         Route::post('settings/changeinfomation','User\AccountController@settingInfomation')->name('setting.changeinfomation');
+         // Route::get('settings/history','User\AccountController@settingHistory')->name('setting.history');
+         Route::put('/settings/avatar','User\AccountController@settingAvatar')->name('setting.avatar');
       });
    });
 

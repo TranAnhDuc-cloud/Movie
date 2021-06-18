@@ -7693,11 +7693,11 @@ ul.footer-social li a:hover {
 }
 .wh-50 {
     width: 100px;
-    height:80px;
+    height:80px !important;
 }
 .wh-30{
     width: 80px;
-    height:60px;
+    height:60px !important;
 }
 /* SEARCH */
 /* Demo 2 */

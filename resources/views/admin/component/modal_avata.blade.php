@@ -45,7 +45,7 @@
         </div>
         <div class="modal-footer">
             Close
-          </div>
+        </div>
 
       </div>
     </div>

@@ -80,6 +80,7 @@ return [
     'remember' => 'Ghi Nhớ Người Dùng',
     'new' =>'Mới',
     'old' =>'Cũ',
+    'usernameorpasswordfalse' =>'Tên Đăng Nhập Hoặc Mật Khẩu Sai',
     // DashBoard
     'dashboard' =>'Dashboard',
     'viewallmovie' => 'Xem Tất Cả Phim',

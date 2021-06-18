@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Auth\Register;
 use App\Http\Requests\ChangePassword;
 use App\Http\Requests\InfomationRequest;
+use App\Services\uploadFileService;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ class AccountController extends BaseController
         return view('user.detail.info');
     }
 
-    public function changePassword(ChangePassword $request){
+    public function settingPassword(ChangePassword $request){
         if(Hash::check($request->get('passwordOld'),Auth::user()->password)){
             $user = User::findOrFail(Auth::user()->id);
             $user->password = Hash::make($request->get('password'));
@@ -35,20 +36,34 @@ class AccountController extends BaseController
             return redirect()->back();
         }
     }
-    public function changeInfomation(InfomationRequest $request){
+
+    public function settingInfomation(InfomationRequest $request){
         $user = User::findOrFail(Auth::user()->id);
-        if($user){
+        if($user)
             $user->fullname = $request->get('fullname');
             $user->phone = $request->get('phone');
             $user->address = $request->get('address');
             $user->save();
-            echo "đã save";
-            // Session::flash('success',trans('admin.update-success'));
-            // return redirect()->back();
-        }else{
-            // Session::flash('error',trans('admin.update-error'));
-            // return redirect()->back();
-            echo "chưa save save";
+            Session::flash('success',trans('admin.update-success'));
+        return redirect()->back();
+    }
+
+    public function settingAvatar(Request $request){
+        $name = $request->file('avatar')->getClientOriginalName('avatar');
+        uploadFileService::updateAvatar($request->file('avatar'),$name);
+        return $this->updateAvatar($name);
+    }
+
+
+    public function updateAvatar($name){
+        $result = User::findOrFail(Auth::user()->id);
+        if($result){
+            $result->avatar = $name;
+            $result->save();
+            return redirect()->back()->with(['
+                success'=>trans('admin.update-success')
+            ]);
         }
+        return false;
     }
 }

@@ -51,9 +51,9 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
 
     public function restore($id){
         \App\User::withTrashed()->where('id', $id)->restore();
-       return redirect()->route('admin.user.delete.list')->with([
-        'success'=>trans('admin.restore-success'),
-]);
+            return redirect()->route('admin.user.delete.list')->with([
+                'success'=>trans('admin.restore-success'),
+        ]);
     }
 
     public function deleteList(){
@@ -75,7 +75,7 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         if($result){
             $result->avatar = $name;
             $result->save();
-            return redirect()->route('admin.user.info',$id)->with(['
+            return redirect()->back()->with(['
                 success'=>trans('admin.update-success')
             ]);
         }

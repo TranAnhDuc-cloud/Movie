@@ -26,9 +26,9 @@ class InfomationRequest extends FormRequest
     {
         return [
             //
-            'fullname' => 'required|min:6',
+            'fullname' => 'required|string|min:6',
             // 'phone' => 'required|regex:/(01)[0-9]{9}/',
-            'phone' => 'required|numeric|size:11',
+            'phone' => 'required|numeric|digits:10',
             'address' => 'required|string',
         ];
     }
