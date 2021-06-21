@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class TagController extends Controller
 {
-    
+    public function index(){
+        
+    }
     
 }

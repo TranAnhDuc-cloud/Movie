@@ -7856,3 +7856,27 @@ ul li button a b{
     height: 30px;
     border-radius:50%;
 }
+/* TAGS */
+ul .tag-li {
+    margin: 5px;
+    border: 1px solid #bababa;
+    text-align: center;
+    border-radius: 50px;
+}
+ul li .tag-item{
+    padding: 3px;
+    color: white;
+    font-weight: bold;
+}
+ul .tag-li:hover{
+   background-color: #fff;
+   color: red;
+    transition: all .9s ease-out;
+}
+ul li .tag-item:hover{
+    color: red;
+    transition: all .9s ease-out;
+}
+ul{
+    padding: 0px !important;
+}

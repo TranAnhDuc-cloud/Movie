@@ -36,6 +36,7 @@
             </div>
 
             <div class="col-lg-4 col-md-12">
+
                 @foreach ($cate as $item)
                 <div class="media mb-30 bg-primarytextcolor on-hover-bg-gray">
                     <a class="img-opacity-hover width25-lg" href="{{route('category.index',[$item->id,$item->name])}}">
@@ -49,12 +50,31 @@
                     </div>
                 </div>
                 @endforeach
+
             </div>
+
             <div class="description col-12">
                 <div class="description-title">
                  {{ trans('client.contentmovie') }}
                 </div>
                  {{$detail->description}}
+            </div>
+            
+            <div class="tag mt-5">
+                <span class="mt-2 detail-tag">
+                    <i class="fas fa-tag"></i>
+                    <a href="" class="text-warning">{{"Từ Khóa Nổi Bật"}}</a>
+                </span>
+                <div class="row">
+                @foreach ($tags as $item)
+                        <ul class="col-md-3">
+                            <li class="tag-li">
+                                <a href="{{ route('tags.index',$item->id) }}" class="tag-item" >{{$item->title}}</a>
+                                <i class="fas fa-tag"></i>
+                            </li>
+                        </ul>
+                @endforeach
+                </div>
             </div>
         </div>
         

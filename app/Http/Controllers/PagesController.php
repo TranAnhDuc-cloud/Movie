@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Movie;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PagesController extends BaseController
@@ -28,6 +29,16 @@ class PagesController extends BaseController
             'view'=>$view,
             'watch' =>$watch,
             'sameCategory'=>$sameCategory,
+        ]);
+    }
+
+    public function tags($id){
+        $tag = Tag::find($id); 
+        $tag = $tag->movies()->where('tags_id',$id )->get();
+        $tagTitle = Tag::find($id);
+        return view('user.pages.tag')->with([
+            'tag'=>$tag,
+            'tagTitle' =>$tagTitle,
         ]);
     }
 }

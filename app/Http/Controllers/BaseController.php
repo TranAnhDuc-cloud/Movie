@@ -8,6 +8,7 @@ use App\Menu;
 use App\Movie;
 use App\Type_movie;
 use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -25,6 +26,7 @@ class BaseController extends Controller
         $cate = $this->mainCategory();
         $contry = $this->contryAll();
         $typeMovie = $this->typeMovieAll();
+        $tags = $this->tagsMovie();
         View::share([
             'category'=>$category,
             'film_hot'=> $film_hot,
@@ -37,6 +39,7 @@ class BaseController extends Controller
             'cate' => $cate,
             'contry' => $contry,
             'typeMovie' => $typeMovie,
+            'tags' => $tags,
         ]);
     }
     
@@ -102,5 +105,7 @@ class BaseController extends Controller
 
     // MovieSiderBar ADMIN
     
-
+    protected function tagsMovie(){
+        return Tag::all();
+    }
 }

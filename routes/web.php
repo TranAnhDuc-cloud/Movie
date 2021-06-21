@@ -115,6 +115,7 @@ use Illuminate\Support\Facades\Route;
    // Pages
    Route::get('detail/{id}','PagesController@detail')->name('detail.index');
    Route::get('watch/{id}','PagesController@watch')->name('watch.index');
+   Route::get('tags/{id}','PagesController@tags')->name('tags.index');
    // Search
    Route::get('/pages/search', 'SearchController@search')->name('user.search');
    Route::get('/admin/search', 'SearchController@searchAdmin')->name('admin.search')->middleware('auth');

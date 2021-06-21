@@ -26,6 +26,6 @@ class Movie extends Model
         return $this->belongsTo(Category::class,'categories_id');
     }
     public function tags(){
-        return $this->belongsToMany(Tag::class,'Tags_movies');
+        return $this->belongsToMany(Tag::class,'tags_movies','movies_id','tags_id');
     }
 }

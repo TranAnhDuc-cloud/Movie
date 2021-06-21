@@ -8,48 +8,64 @@
                     </div>
                     <div class="row">
                         @foreach ($review as $item)
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="games-review-box">
-                                <div class="img-overlay-70 img-scale-animate mb-30">
-                                    <a href="{{route('detail.index',[$item->id,$item->title])}}">
-                                        <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100" style="height: 200px;">
-                                    </a>
-                                    <div class="topic-box-top-xs">
-                                        @foreach ($category as $row)
-                                        @if ($item->categories_id == $row->id)
-                                        <div class="topic-box-sm color-cinnabar">{{$row->name}}</div>
-                                        @endif
-                                        @endforeach
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="games-review-box">
+                                    <div class="img-overlay-70 img-scale-animate mb-30">
+                                        <a href="{{route('detail.index',[$item->id,$item->title])}}">
+                                            <img src="{{$item->url_picture}}" alt="news" class="img-fluid width-100" style="height: 200px;">
+                                        </a>
+                                        <div class="topic-box-top-xs">
+                                            @foreach ($category as $row)
+                                            @if ($item->categories_id == $row->id)
+                                            <div class="topic-box-sm color-cinnabar">{{$row->name}}</div>
+                                            @endif
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="post-date-light">
-                                    <ul>
-                                        <li>
-                                            <span>{{ trans('client.by') }}</span>
-                                            <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->directors}}</a>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            </span>{{$item->date}}</li>
-                                    </ul>
-                                </div>
-                                <h3 class="title-medium-light size-lg mb-15">
-                                    <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
-                                </h3>
-                                <p>
-                                    <a class="btn btn-info" data-toggle="collapse" href="#see{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                      {{ trans('client.xemthem') }}
-                                    </a>
-                                </p>
-                                <div class="collapse" id="see{{$item->id}}">
-                                    <div class="card-body" style="color: rgb(187, 179, 179); font: 15px;">
-                                      {{$item->description}}
+                                    <div class="post-date-light">
+                                        <ul>
+                                            <li>
+                                                <span>{{ trans('client.by') }}</span>
+                                                <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->directors}}</a>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                </span>{{$item->date}}</li>
+                                        </ul>
+                                    </div>
+                                    <h3 class="title-medium-light size-lg mb-15">
+                                        <a href="{{route('detail.index',[$item->id,$item->title])}}">{{$item->title}}</a>
+                                    </h3>
+                                    <p>
+                                        <a class="btn btn-info" data-toggle="collapse" href="#see{{$item->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        {{ trans('client.xemthem') }}
+                                        </a>
+                                    </p>
+                                    <div class="collapse" id="see{{$item->id}}">
+                                        <div class="card-body" style="color: rgb(187, 179, 179); font: 15px;">
+                                        {{$item->description}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
+                    </div>
+                    <div class="tag">
+                        <span class="mt-2 detail-tag">
+                            <i class="fas fa-tag"></i>
+                            <a href="" class="text-warning">{{"Từ Khóa Nổi Bật"}}</a>
+                        </span>
+                        <div class="row">
+                        @foreach ($tags as $item)
+                                <ul class="col-md-3">
+                                    <li class="tag-li">
+                                        <a href="{{ route('tags.index',$item->id) }}" class="tag-item" >{{$item->title}}</a>
+                                        <i class="fas fa-tag"></i>
+                                    </li>
+                                </ul>
+                        @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

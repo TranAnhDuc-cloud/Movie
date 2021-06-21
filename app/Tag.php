@@ -13,9 +13,10 @@ class Tag extends Model
     public $timestamp = false;
 
     public function category(){
-        return $this->belongsToMany('App\Category','Categories_tags');
+        return $this->belongsToMany(Category::class,'categories_tags');
     }
-    public function movie(){
-        return $this->belongsToMany('App\Movie','Tags_movies');
+    
+    public function movies(){
+        return $this->belongsToMany(Movie::class,'tags_movies','tags_id','movies_id');
     }
 }
