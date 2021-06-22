@@ -56,16 +56,6 @@
                             <i class="fas fa-tag"></i>
                             <a href="" class="text-warning">{{"Từ Khóa Nổi Bật"}}</a>
                         </span>
-                        <div class="row">
-                        @foreach ($tags as $item)
-                                <ul class="col-md-3">
-                                    <li class="tag-li">
-                                        <a href="{{ route('tags.index',$item->id) }}" class="tag-item" >{{$item->title}}</a>
-                                        <i class="fas fa-tag"></i>
-                                    </li>
-                                </ul>
-                        @endforeach
-                        </div>
                     </div>
                 </div>
             </div>

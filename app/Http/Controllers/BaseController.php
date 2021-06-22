@@ -22,7 +22,6 @@ class BaseController extends Controller
         $new = $this->phimMoiNhat();
         $movies = $this->footerMovies();
         $view = $this->topXemNhieu();
-        $trailer = $this->trailer();
         $cate = $this->mainCategory();
         $contry = $this->contryAll();
         $typeMovie = $this->typeMovieAll();
@@ -35,7 +34,6 @@ class BaseController extends Controller
             'new' => $new,
             'movies'=>$movies,
             'view'=>$view,
-            'trailer' => $trailer,
             'cate' => $cate,
             'contry' => $contry,
             'typeMovie' => $typeMovie,
@@ -76,11 +74,6 @@ class BaseController extends Controller
 
     protected function phimNoiBat1(){
         return Movie::where('view','>',200)->inRandomOrder()->limit(1)->get();
-    }
-
-   // Trailer
-    protected function trailer(){
-        return Movie::where('film_hot',0)->inRandomOrder()->offset(1)->limit(1)->get();
     }
 
     protected function movieAll(){
