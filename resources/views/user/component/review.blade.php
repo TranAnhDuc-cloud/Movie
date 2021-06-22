@@ -51,12 +51,6 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="tag">
-                        <span class="mt-2 detail-tag">
-                            <i class="fas fa-tag"></i>
-                            <a href="" class="text-warning">{{"Từ Khóa Nổi Bật"}}</a>
-                        </span>
-                    </div>
                 </div>
             </div>
             <div class="ne-sidebar sidebar-break-md col-xl-4 col-lg-5 col-md-12">
