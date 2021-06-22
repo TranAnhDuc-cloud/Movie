@@ -33,9 +33,8 @@ class PagesController extends BaseController
     }
 
     public function tags($id){
-        $tag = Tag::find($id); 
-        $tag = $tag->movies()->where('tags_id',$id )->get();
         $tagTitle = Tag::find($id);
+        $tag = $tagTitle->movies()->where('tags_id',$id )->inRandomOrder()->paginate(12);
         return view('user.pages.tag')->with([
             'tag'=>$tag,
             'tagTitle' =>$tagTitle,

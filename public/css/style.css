@@ -7880,3 +7880,9 @@ ul li .tag-item:hover{
 ul{
     padding: 0px !important;
 }
+/* LINK PAGES */
+.page-item.active .page-link{
+    background-color: #d38aff;
+    border: 1px solid  #d38aff;
+    color: red;
+}

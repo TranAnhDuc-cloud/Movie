@@ -36,5 +36,8 @@
         </div>
         @endforeach
 @endsection
+@section('link-pages')
+    {!! $tag->render() !!}
+@endsection
 
 

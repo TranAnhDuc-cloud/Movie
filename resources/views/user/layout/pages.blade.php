@@ -5,6 +5,7 @@
  <section class="section-space-bottom">
     <div class="container">
         <div class="item-box-dark-md-less30 ne-isotope">
+            {{-- Movie Most View --}}
             <div class="row">
                 <div class="col-12">
                     <div class="topic-border color-white mb-30">
@@ -15,6 +16,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Content Pages --}}
             <div class="featuredContainer">
                 <div class="row action">
                     <div class="col-xl-8 col-lg-5 col-md-12">
@@ -22,13 +24,22 @@
                             @yield('content-page')
                         </div>
                     </div>
+                    {{-- Siderbar Pages --}}
                     <div class="col-xl-4 col-lg-7 col-md-12 mb-30">
                         <div class="sidebar-box item-box-dark-md">
                            @include('user.component.siderbar_mostview')
                         </div>
                     </div>
                 </div>
-                    @yield('link-pages')
+                {{-- Links Pages --}}
+                <div class="card-footer" style="width:100%;">
+                    <nav aria-label="Contacts Page Navigation">
+                      <ul class="pagination justify-content-center m-0">
+                        @yield('link-pages')
+                      </ul>
+                    </nav>
+                </div>
+
             </div>
         </div>
     </div>

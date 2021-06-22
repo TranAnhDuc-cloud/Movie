@@ -43,7 +43,7 @@ class MenuController  extends BaseController
     }
     public function category($id){
         $cate = Category::find($id);
-        $theloai = Movie::where('categories_id',$id)->paginate(9);
+        $theloai = Movie::where('categories_id',$id)->paginate(12);
         return view('user.pages.category')->with([
             'theloai'=>$theloai,
             'cate'=>$cate,
@@ -51,7 +51,7 @@ class MenuController  extends BaseController
     }
     
     public function country($id){
-        $contry = Movie::where('contries_id',$id)->paginate(10);
+        $contry = Movie::where('contries_id',$id)->paginate(12);
         $nameContry = Contry::find($id);
         return view('user.pages.contry')->with([
             'contry'=>$contry,
