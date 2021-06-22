@@ -93,6 +93,7 @@ return [
     'newmember' =>'New Members',
     'recentlyaddmovie' =>'Recently Added Movies',
     'like'=> 'Likes',
-    'daxoaganday' => ' Recently Deleted '
+    'daxoaganday' => ' Recently Deleted ',
+    'noresultsfound' => 'Sorry, no results found for the term',
 
 ];

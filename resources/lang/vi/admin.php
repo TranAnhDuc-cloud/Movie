@@ -91,4 +91,5 @@ return [
     'recentlyaddmovie' =>'Phim được thêm gần đây',
     'like'=> 'Lượt Thích',
     'daxoaganday' => ' Đã Xóa Gần Đây '
+    'noresultsfound' => 'Không tìm thấy thông tin hiển thị',
 ];

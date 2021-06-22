@@ -15,15 +15,11 @@ class SearchController extends BaseController
 
     public function search(Request $request){
         $searchTerm = $request->search;
-        $result =  Movie::whereLike(['title', 'category.name'], $searchTerm)->paginate(9)->withQueryString();
-        if($result){
-            return view('user.pages.search')->with([
-                'result' => $result,    
-                'searchTerm' => $searchTerm,
-            ]);
-        }else{
-            return redirect()->route('search')->with('notification','Không có kết quả tìm kiếm phù hợp');
-        }
+        $result =  Movie::whereLike(['title', 'category.name'], $searchTerm)->paginate(12)->withQueryString();
+        return view('user.pages.search')->with([
+            'result' => $result,    
+            'searchTerm' => $searchTerm,
+        ]);
     }
     public function searchAdmin(Request $request){
         $searchTerm = $request->search;
@@ -33,7 +29,7 @@ class SearchController extends BaseController
         return view('admin.dashboard.search')->with([
             'movie' => $movie,
             'user' => $user,
-            'category' => $category
+            'category' => $category,
         ]);
     }
 
