@@ -11,6 +11,7 @@ use App\Services\uploadFileService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class UserController extends AdminController
 {
@@ -47,7 +48,7 @@ class UserController extends AdminController
     }
     
     public function edit($id){
-        $user = $this->userRepository->find($id);
+        $user = User::findOrFail($id);
         return view('admin.user.edit')->with([
             'user'=>$user,
         ]);
@@ -55,12 +56,20 @@ class UserController extends AdminController
 
     public function update(Request $request ,$id){
         // $request->only('name', 'password', 'role').
-        $update = $this->userRepository->update($id,$request->all());
-        if($update->save()){
-            return redirect()->route('admin.user.index')->with(['
-                success'=>trans('admin.update-success')
-            ]);
+        if ($request->hasFile('avatar')) {
+            $name = $request->file('avatar')->getClientOriginalName('avatar');
+            uploadFileService::updateAvatar($request->file('avatar'),$name);
+            $this->userRepository->updateAvatar($id,$name);
+        }else {
+            $this->userRepository->updateAvatar($id,$request->avatar_old;);
         }
+        $update = $this->userRepository->update($id,$request->all());
+            if($update->save()){
+                return redirect()->route('admin.user.index')->with(['
+                    success'=>trans('admin.update-success')
+                ]);
+            }
+        
     }
 
     public function destroy($id){
@@ -83,10 +92,16 @@ class UserController extends AdminController
     }
 
     public function updateAvatar($id ,Request $request){
-        $name = $request->file('avatar')->getClientOriginalName('avatar');
-        uploadFileService::updateAvatar($request->file('avatar'),$name);
-        // dispatch(new ProcessImageThumbnails($image));
-        return $this->userRepository->updateAvatar($id,$name);
+        if ($request->hasFile('avatar')) {
+            $name = $request->file('avatar')->getClientOriginalName('avatar');
+            uploadFileService::updateAvatar($request->file('avatar'),$name);
+            $this->userRepository->updateAvatar($id,$name);
+            return redirect()->route('admin.user.info',$id)->with([
+                'success'=>trans('admin.update-success'),
+            ]);
+        }
+        return redirect()->back();
+        
     }
 
 }

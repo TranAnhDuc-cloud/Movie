@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/ie-only.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin-table.css')}}">
+    <link rel="stylesheet" href="{{asset('css/auth.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="{{asset('js/modernizr-2.8.3.min.js')}}"></script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="ppaM9BXr"></script>
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
+    

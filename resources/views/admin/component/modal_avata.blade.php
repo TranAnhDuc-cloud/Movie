@@ -38,18 +38,19 @@
                 {{ csrf_field() }}
 
                   @if($user->provider)
-                    <img class="img-fluid modal-img" src="{{asset($user->avatar)}}" alt="User profile picture">
+                    <img class="img-fluid modal-img" id="profileImage" src="{{asset($user->avatar)}}" alt="User profile picture">
                   @else
-                    <img class="img-fluid modal-img" src="{{asset('dist/img/'.$user->avatar)}}" alt="User profile picture">
+                    <img class="img-fluid modal-img" id="profileImage" src="{{asset('dist/img/'.$user->avatar)}}" alt="User profile picture">
                   @endif
 
                   <label class="dropdown-iteam" for="upload">
-                    <input type="file" name="avatar" id="avatar">
+                    <a class="glyphicon dropdown-iteam glyphicon-folder-open" aria-hidden="true">Chọn Ảnh Đại Diện <i class="fas fa-upload"></i></a>
+                    <input type="file" id="upload" name="avatar" style="display:none">
                     @error('avatar')
                       <small class="text-danger">{{ $message }}</small> 
                     @enderror
-                    
                   </label>
+                  <script src="{{asset('js/auth.js')}}"></script>
                   <input type="submit" value="Update">
 
           {!! Form::close() !!}

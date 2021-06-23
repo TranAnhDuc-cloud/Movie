@@ -1,6 +1,5 @@
 .container , .add-type{
-    display: flex;
-    justify-content:center;
+    width: 80%;
 }
 .add-type{
     color: #a5cbef;
@@ -16,9 +15,9 @@
     text-transform: uppercase;
 }
 .content{
-    background-color: rgb(207, 239, 243);
-    width:50%;
-    border: 1px solid #bababa;
+    /* background-color: rgb(207, 239, 243); */
+    width:auto;
+    /* border: 1px solid #bababa; */
     box-shadow: #686666;
     border-radius:5px;
     padding: 30px 30px 30px 30px;

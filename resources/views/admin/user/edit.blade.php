@@ -20,34 +20,35 @@
             {{ csrf_field() }}
                 <div class=" mb-1"><b class="add-type">{{trans('admin.edit')}} {{trans('admin.user')}}</b></div>
                 <div class="container">
-
-                    <div class="content d-flex ">
-                        <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                            @if($user->provider)
-                                <img src="{{asset($user->avatar)}}" alt="" class="wh-avatar">
-                            @else
-                                <img src="{{asset('dist/img/'.$user->avatar)}}" alt="" class="wh-avatar">
-                            @endif
-                            
-                        </a>
-                    
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">Xem Ảnh Đại Diện</a>
-                            
-                            <a class="dropdown-iteam" data-toggle="modal" data-target="#updateAvata" href="#">Cập Nhật Ảnh Đại Diện</a>
+                    <div class="content ">
+                        <div class="row">
+                            <a class="dropdown-iteam" data-toggle="modal" data-target="#viewAvata" href="#">
+                                @if($user->provider)
+                                    <img class="wh-avatar" src="{{asset($user->avatar)}}" alt="" id="profileImage">
+                                @else
+                                    <img class="wh-avatar" src="{{asset('dist/img/'.$user->avatar)}}" alt="" id="profileImage">
+                                    
+                                @endif
+                            </a>
+                                <!-- The Modal -->
+                                @include('admin.component.modal_avata')
+                                
+                            <div class="ml-4">
+                                <div class="p-2"><strong>Email</strong>:{{$user->email}}</div>
+                                <div class="p-2"><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
+                                <div class="p-2"><strong>{{ trans('admin.created_at') }}</strong> : {{$user->created_at}}</div>
+                            </div>
                         </div>
-                            <!-- The Modal -->
-                            @include('admin.component.modal_avata')
-
-                        <div class="">
-                            <div><strong>Email</strong>:{{$user->email}}</div>
-                            <div><strong>{{ trans('admin.address') }}</strong>  : {{$user->address}}</div>
-                            <div><strong>{{ trans('admin.created_at') }}</strong> : {{$user->created_at}}</div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="upload">
+                                    {{-- <a name="upload" class="glyphicon dropdown-iteam glyphicon-folder-open" aria-hidden="true">Cập Nhật Ảnh Đại Diện <i class="fas fa-upload"></i></a> --}}
+                                    {{-- <a href="#" id="updateImage">Cập Nhật Ảnh Đại Diện <i class="fas fa-upload"></i></a> --}}
+                                    <input type="file" value="{{$user->avatar}}" id="upload" name="avatar">
+                                    <input type="hidden" value="{{$user->avatar}}" id="upload" name="avatar_old">
+                                </label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="content">
                         <div class="form-group ">
                             <label>{{ trans('admin.fullname') }}</label>
                             <input type="name" name="fullname" class="form-control" value="{{$user->fullname}}">
@@ -55,14 +56,25 @@
                                 <small class="text-danger">{{ $message }}</small> 
                             @enderror
                         </div>
+
                         <div class="row">
                             <div class="form-group col-6">
                                 <label>{{trans('admin.password')}}</label>
                                 <input type="password" name="password" id="" class="form-control">
                             </div>
                             <div class="form-group col-6">
-                                <label>{{ trans('admin.password_confirm') }}</label>
+                                <label>{{ trans('admin.password_cofimer') }}</label>
                                 <input type="password" name="password_confirmation" id="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label>{{trans('admin.address')}}</label>
+                                <input type="text" name="address" id="" class="form-control" value="{{$user->address}}">
+                            </div>
+                            <div class="form-group col-6">
+                                <label>{{ trans('admin.phone') }}</label>
+                                <input type="text" name="phone" id="" class="form-control" value="{{$user->phone}}">
                             </div>
                         </div>
                         <div class="row">
@@ -70,10 +82,11 @@
                                 <label>{{trans('admin.active')}}</label>
                                 <br>
                                 <select name="active" id="active">
-                                    <option value="0" name="no_active">Không Hoạt Động</option>
-                                    <option value="1" name="yes_active"> Hoạt Động</option>
+                                    <option value="1" name="yes_active">{{ trans('admin.active') }}</option>
+                                    <option value="0" name="no_active">{{ trans('admin.noactive') }}</option>
                                 </select>
                             </div>
+
                             <div class="form-group col-6">
                                 <label>{{ trans('admin.level') }}</label>
                                 <br>
@@ -83,8 +96,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
+
+                        <div class="form-group mt-3" style="width:20%; margin:auto;">    
+                            <input type="submit" name="submit" style="wi" class="form-control btn btn-primary" value="{{ trans('admin.edit') }}">
                         </div>
                    </div>
                    
@@ -93,4 +107,7 @@
         </div>
     </div>
       <!-- /.content -->
+
+<script src="{{asset('js/auth.js')}}"></script>
+
 @endsection

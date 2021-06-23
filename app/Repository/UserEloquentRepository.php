@@ -27,12 +27,24 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
             return $user->save();
     }
     public function update($id, array $attributes){
+        
             $user = $this->find($id);
             if($user)
                 $user->fullname = $attributes['fullname'];
-                $user->password = bcrypt($attributes['password']);
+                if($attributes['password'] == null){
+                    $user->password = $user->password;
+                }else{
+                    $user->password = $attributes['password'];
+                }
                 $user->active = $attributes['active'];
                 $user->level = $attributes['level'];
+                $user->phone = $attributes['phone'];
+                $user->address = $attributes['address'];
+                // if($attributes['avatar']){
+                //     $user->avatar =  $attributes['avatar']->getClientOriginalName('avatar');
+                // }else{
+                //     $user->avatar = $attributes['avatar_old'];
+                // }
             return $user;
     }
     public function getAll(){
@@ -75,14 +87,9 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
         if($result){
             $result->avatar = $name;
             $result->save();
-            return redirect()->route('admin.user.info',$id)->with([
-                'success'=>trans('admin.update-success'),
-        ]);
+            return $result;
         }
         return false;
     }
 
-    // public function info($id,$view){
-    //     return getJoinTimeUser($id,$view);
-    // }
 }
