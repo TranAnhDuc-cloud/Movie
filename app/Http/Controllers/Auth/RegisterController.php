@@ -71,6 +71,7 @@ class RegisterController extends Controller
                 $message->to($email,$username)->subject("Verify your email address");
             });
             return redirect()->route('login')->with('success',trans('auth.pleasecheckemail'));
+            // Mail::to($request->email)->send(new Register($register));
         }
     }
     

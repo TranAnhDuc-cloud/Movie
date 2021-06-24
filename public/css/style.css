@@ -7159,7 +7159,8 @@ ul.footer-social li a:hover {
 }
 /* WATCH */
 .watch-notificate{
-    color:#ffff;
+    color:#000;
+    font-weight: 500;
 }
 .watch-notificate legend{
     border: 1px solid #bababa;
@@ -7171,9 +7172,6 @@ ul.footer-social li a:hover {
 .media .img-opacity-hover{
     margin:auto;
     padding: 0px;
-}
-._5mdd {
-    color: #fff !important;
 }
 .height-100{
     height:100%;

@@ -5,7 +5,7 @@
     <div class="container" style="margin-top:100px;">
         <div class="row">
             <div class="col-xl-8 col-lg-7 col-md-12 mb-30">
-                <div class="item-box-dark-md-less30">
+                <div class="item-box-dark-md-less30" style="background-color: rgba(247, 236, 236, 0.932); border-radius:10px;">
                     <div class="topic-border color-white mb-30">
                         <div class="topic-box-lg category-title">{{ trans('admin.home') }} / {{$watch->category->name}} / {{$watch->title}}</div>
                     </div>

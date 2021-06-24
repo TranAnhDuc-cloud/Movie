@@ -26,7 +26,7 @@
                     </div>
                     {{-- Siderbar Pages --}}
                     <div class="col-xl-4 col-lg-7 col-md-12 mb-30">
-                        <div class="sidebar-box item-box-dark-md">
+                        <div class="sidebar-box item-box-dark-md" style="border-radius: 10px;">
                            @include('user.component.siderbar_mostview')
                         </div>
                     </div>
