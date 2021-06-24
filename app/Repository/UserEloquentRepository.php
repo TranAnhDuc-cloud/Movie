@@ -34,17 +34,12 @@ class UserEloquentRepository extends EloquentRepository implements UserRepositor
                 if($attributes['password'] == null){
                     $user->password = $user->password;
                 }else{
-                    $user->password = $attributes['password'];
+                    $user->password = bcrypt($attributes['password']);
                 }
                 $user->active = $attributes['active'];
                 $user->level = $attributes['level'];
                 $user->phone = $attributes['phone'];
                 $user->address = $attributes['address'];
-                // if($attributes['avatar']){
-                //     $user->avatar =  $attributes['avatar']->getClientOriginalName('avatar');
-                // }else{
-                //     $user->avatar = $attributes['avatar_old'];
-                // }
             return $user;
     }
     public function getAll(){

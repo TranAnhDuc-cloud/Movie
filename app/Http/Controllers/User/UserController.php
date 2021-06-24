@@ -61,7 +61,7 @@ class UserController extends AdminController
             uploadFileService::updateAvatar($request->file('avatar'),$name);
             $this->userRepository->updateAvatar($id,$name);
         }else {
-            $this->userRepository->updateAvatar($id,$request->avatar_old;);
+            $this->userRepository->updateAvatar($id,$request->avatar_old);
         }
         $update = $this->userRepository->update($id,$request->all());
             if($update->save()){
