@@ -108,10 +108,10 @@ use Illuminate\Support\Facades\Route;
    // Menu
    Route::get('{pages}/{id}/{name}','MenuController@index')->name('menu');
    Route::get('category/{id}','MenuController@category')->name('category.index');
-   Route::get('country/{id}','MenuController@country')->name('contry.index');
-   Route::get('phimle/{name}','MenuController@typeMovies')->name('single.index');
-   Route::get('phimbo/{name}','MenuController@typeMovies')->name('series.index');
-   Route::get('phimchieurap/{name}','MenuController@typeMovies')->name('theater.index');
+   // Route::get('country/{id}','MenuController@country')->name('contry.index');
+   // Route::get('phimle/{name}','MenuController@typeMovies')->name('single.index');
+   // Route::get('phimbo/{name}','MenuController@typeMovies')->name('series.index');
+   // Route::get('phimchieurap/{name}','MenuController@typeMovies')->name('theater.index');
    // Pages
    Route::get('detail/{id}','PagesController@detail')->name('detail.index');
    Route::get('watch/{id}','PagesController@watch')->name('watch.index');

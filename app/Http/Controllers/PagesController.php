@@ -10,10 +10,11 @@ use Illuminate\Http\Request;
 class PagesController extends BaseController
 {
     //
+
     public function detail($id){
         $cate = Category::select('*')->inRandomOrder()->offset(4)->limit(3)->get();
         $detail = Movie::find($id);
-        $sameCategory = Movie::where('categories_id',$detail->categories_id)->inRandomOrder()->get();
+        $sameCategory = $this->sameCategory($id);
         return view('user.detail.detail')->with([
             'cate'=>$cate,
             'detail' =>$detail,
@@ -24,7 +25,7 @@ class PagesController extends BaseController
     public function watch($id){
         $watch = Movie::find($id);
         $view = Movie::where('view','>',100)->orderBy('view','Desc')->limit(6)->get();
-        $sameCategory = Movie::where('categories_id',$watch->categories_id)->inRandomOrder()->get();
+        $sameCategory = $this->sameCategory($id);
         return view('user.detail.watch')->with([
             'view'=>$view,
             'watch' =>$watch,
@@ -39,5 +40,11 @@ class PagesController extends BaseController
             'tag'=>$tag,
             'tagTitle' =>$tagTitle,
         ]);
+    }
+
+    public function sameCategory($id){
+        $movie = Movie::find($id);
+        $sameCategory = Movie::where('categories_id',$movie->categories_id)->inRandomOrder()->get();
+        return $sameCategory;
     }
 }

@@ -5,7 +5,7 @@
  @section('title-pages')
     <a href="{{route('home')}}"> {{ trans('admin.home') }} » 
     </a>
-    <a href="{{route('contry.index',$nameContry->id)}}">{{ trans('admin.country') }} » {{$nameContry->name}}</a>
+    <a href="" return false;>{{ trans('admin.country') }} » {{$nameContry->name}}</a>
  @endsection
  @section('content-page')
          @foreach ($contry as $item)

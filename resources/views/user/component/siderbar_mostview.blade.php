@@ -1,6 +1,6 @@
 
 
-{{--Most View--}}
+{{-- Most View --}}
 @foreach ($view as $item)
 
 <div class="media mb30-list bg-secondary-body">

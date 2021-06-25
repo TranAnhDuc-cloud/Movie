@@ -16,11 +16,11 @@ class BaseController extends Controller
 {
     public function __construct(){
         $category = $this->footerCategory();
+        $movies = $this->footerMovies();
         $film_hot = $this->phimNoiBat();
         $film_hot1 = $this->phimNoiBat1();
         $menu= $this->menu();
         $new = $this->phimMoiNhat();
-        $movies = $this->footerMovies();
         $view = $this->topXemNhieu();
         $cate = $this->mainCategory();
         $contry = $this->contryAll();

@@ -10,6 +10,8 @@ use App\Type_movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use App\Repository\Interfaces\MenuRepositoryInterface;
+
 
 class MenuController  extends BaseController 
 {
@@ -19,20 +21,20 @@ class MenuController  extends BaseController
         foreach($menu as $item){
             $item->name;
             if ($pages === 'Thể Loại') {
-                return redirect()->route('category.index',[$id,$name]);
+                return $this->category($id);
             }else{
                 if($pages === 'Quốc Gia'){
-                    return redirect()->route('contry.index',[$id,$name]);
+                    return $this->country($id);
                 }else{
                     if($pages === 'Phim Lẻ'){
-                        return redirect()->route('single.index',[$name,$id]);
+                        return $this->typeMovies($name);
                     }
                     else{
                         if($pages === 'Phim Bộ'){
-                            return redirect()->route('series.index',[$name,$id]);
+                            return $this->typeMovies($name);
                         }else{
                             if($pages === 'Phim Chiếu Rạp'){
-                                return redirect()->route('theater.index',[$name,$id]);
+                                return $this->typeMovies($name);
                             }
                         }
                     }
@@ -41,8 +43,9 @@ class MenuController  extends BaseController
         
         }
     }
+
     public function category($id){
-        $cate = Category::find($id);
+        $cate = Category::findOrFail($id);
         $theloai = Movie::where('categories_id',$id)->paginate(12);
         return view('user.pages.category')->with([
             'theloai'=>$theloai,
@@ -52,7 +55,7 @@ class MenuController  extends BaseController
     
     public function country($id){
         $contry = Movie::where('contries_id',$id)->paginate(12);
-        $nameContry = Contry::find($id);
+        $nameContry = Contry::findOrFail($id);
         return view('user.pages.contry')->with([
             'contry'=>$contry,
             'nameContry' => $nameContry,
@@ -65,7 +68,7 @@ class MenuController  extends BaseController
             $handle = $item->handle;
             $memi = DB::table($handle)->where('name',$name)->get();
             foreach ($memi as $row){
-                $typeMovies = Movie::where('year',$row->year)->where('type_movie',$item->id)->paginate(10);
+                $typeMovies = Movie::where('year',$row->year)->where('type_movie',$item->id)->paginate(12);
             }
         }
         $typeMovie = $typeMovies;
