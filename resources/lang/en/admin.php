@@ -18,6 +18,7 @@ return [
     'contact' =>'Contact',
     'created_at' => 'Created at',
     'updated_at'=>'Updated at',
+    'update' =>'Update',
     'deleted_at'=>'Deleted at',
     'active' =>'Active',
     'noactive'=>'No Active',

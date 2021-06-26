@@ -260,7 +260,7 @@
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="card-footer">
-                                      <input type="submit" value="{{ trans('admin.update') }}">
+                                      <input type="submit" class="btn btn-success" value="{{ trans('admin.update') }}">
                                     </div>
                                   </form>
                             </div>

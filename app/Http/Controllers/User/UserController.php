@@ -40,7 +40,6 @@ class UserController extends AdminController
     }
 
     public function store(UserRequest $request){
-        //  $request->only('name', 'password', 'role').
         $this->userRepository->create($request->all());
         return redirect()->route('admin.user.index')->with('
             success',trans('admin.add-success')

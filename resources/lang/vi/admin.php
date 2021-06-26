@@ -18,6 +18,7 @@ return [
     'created_at' => 'Ngày Tạo',
     'deleted_at' => 'Ngày Xóa',
     'update_at'=>'Ngày Cập Nhật',
+    'update' => 'Cập Nhật',
     'active'=>'Hoạt Động',
     'noactive'=>'Không Hoạt Động',
     'jointime' =>'Ngày Hoạt Động',
