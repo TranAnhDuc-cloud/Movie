@@ -12,6 +12,11 @@
 @section('card-header-title')
 @endsection
 @section('table')
+
+@if (Session::has('success'))
+  <div class="alert bg-success text-center">{{ Session::get('success') }}</div>
+@endif
+
   <div class="add mb-2 mt-2">
     <a class="add-item" href="{{route('admin.user.add')}}"><button class="btn btn-add p-30"><i class="fas fa-plus"></i>{{ trans('admin.add') }}</button></a>
     <a class="trash-item"href="{{route('admin.user.delete.list')}}"><button class="btn btn-add p-30"><i class="fas fa-trash"></i>{{ trans('admin.daxoaganday') }}</button></a>
